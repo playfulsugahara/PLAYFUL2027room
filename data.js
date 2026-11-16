@@ -63,15 +63,15 @@ window.SITE = {
       desc: "レシートを見て、その買い物でどれくらい喜んだか、ほかにどんな感情があったかを割合で書き出す" },
     { id: "w-genjo", name: "現状把握（収支を見る）", v: ["chochiku"], rec: true, item: "v-genjo",
       desc: "いま動かせるお金、これから決まっている支出、1ヶ月の収支を書き出して、自分の現在地を知る" },
-    { id: "w-zero", isNew: true, name: "0秒思考", v: ["chochiku", "juyou"], rec: true, item: "",
+    { id: "w-zero", isNew: true, name: "ゼロ秒思考", v: ["chochiku", "juyou"], rec: true, item: "k-zero",
       desc: "裏紙の左上に問いを書き、1分で頭に浮かんだ言葉を書き出す。いちばん気になったものを、さらに深掘りする" },
-    { id: "w-furikaeri", name: "振り返り（答え合わせ）", v: ["chochiku"], rec: false, item: "",
+    { id: "w-furikaeri", name: "振り返り（答え合わせ）", v: ["chochiku"], rec: false, item: "k-furikaeri",
       desc: "自分や事業への投資に使ったお金に、どんな変化やリターンがあったかを書き出す。次に同じような選択をするときの改善点も書く" },
     { id: "w-yohaku", isNew: true, hidden: true, name: "余白の設計", v: ["chochiku", "juyou"], rec: false, item: "", desc: "" },
     { id: "w-katazuke", isNew: true, hidden: true, name: "お片付け", v: ["chochiku"], rec: false, item: "", desc: "" },
-    { id: "w-hantai", isNew: true, name: "いつもと反対の位置にお金を使う", v: ["juyou", "ryunyu"], rec: false, item: "",
+    { id: "w-hantai", isNew: true, name: "いつもと反対の位置にお金を使う", v: ["juyou", "ryunyu"], rec: false, item: "k-hantai",
       desc: "自分の支出が「他人／自分」「有形／無形」の4つのどこに偏っているかを見て、反対の位置に小さく使ってみる" },
-    { id: "w-yorokobi", isNew: true, name: "喜びの解像度を上げる", v: ["juyou"], rec: false, item: "",
+    { id: "w-yorokobi", isNew: true, name: "喜びの解像度を上げる", v: ["juyou"], rec: false, item: "k-yorokobi",
       desc: "ひとつの支出の喜びを、使う前・使っている最中・使った後の3つに分けて確かめる" },
     { id: "w-yamery", isNew: true, hidden: true, name: "やりたくないことをやめる", v: ["juyou"], rec: false, item: "", desc: "" },
     { id: "w-uketori", isNew: true, hidden: true, name: "受け取りワーク", v: ["juyou"], rec: false, item: "", desc: "" },
@@ -86,6 +86,12 @@ window.SITE = {
      term : "1期" / "2期"
   ------------------------------------------------- */
   items: [
+    /* --- ワーク（動画なし・要点ページだけ。type: "work"） --- */
+    { id: "k-zero", term: "2期", type: "work", date: "2026-11-16", title: "ゼロ秒思考", desc: "頭の中にあることを、1分で紙に書き出すワーク", tags: ["chochiku", "juyou"], url: "", kw: "0秒思考 書き出す 不安 モヤモヤ 赤羽雄二" },
+    { id: "k-furikaeri", term: "2期", type: "work", date: "2026-11-16", title: "振り返り（答え合わせ）", desc: "自分や事業への投資が、どんな変化やリターンにつながったかを書き出すワーク", tags: ["chochiku"], url: "", kw: "自己投資 事業投資 リターン 臨時収入 答え合わせ" },
+    { id: "k-hantai", term: "2期", type: "work", date: "2026-11-16", title: "いつもと反対の位置にお金を使う", desc: "「他人／自分」「有形／無形」の偏りを見て、反対の位置に小さく使ってみるワーク", tags: ["juyou", "ryunyu"], url: "", kw: "4象限 有形 無形 他人 自分 入れ替え" },
+    { id: "k-yorokobi", term: "2期", type: "work", date: "2026-11-16", title: "喜びの解像度を上げる", desc: "喜びを使う前・最中・後に分けて見て、本当に欲しかったものを言葉にするワーク", tags: ["juyou"], url: "", kw: "喜び 解像度 使う前 最中 後 答え合わせ" },
+
     /* --- 2期 --- */
     { id: "ar-1115", term: "2期", type: "archive", date: "2026-11-15", title: "11/15 キックオフ講義", desc: "うつわのおさらいと、今期の取り組み。ビジョンの洞窟探索ツアーのはじまり", tags: ["kiso", "nami"], url: "zoom.html?n=1", kw: "作戦会議 コンセプト 星座 洞窟" },
     { id: "s-1115", term: "2期", type: "slides", date: "2026-11-15", title: "11/15 キックオフ スライド（29枚）", desc: "3つのうつわ・行動と感情の波・すごろくの地図・PLAYFUL思考の世界", tags: ["kiso", "nami"], url: "zoom.html?n=1#slides", kw: "すごろく 5つのエリア カイゼン センリャク デザイン ビジョン アート" },
@@ -128,4 +134,4 @@ window.SITE = {
 };
 
 window.TAGS = { kiso: "基礎", chochiku: "貯蓄", juyou: "受容", ryunyu: "流入", nami: "感情と波", shukan: "習慣" };
-window.TYPES = { video: "解説動画", radio: "ラジオ", article: "記事", archive: "講義アーカイブ", slides: "スライド・資料" };
+window.TYPES = { video: "解説動画", radio: "ラジオ", article: "記事", archive: "講義アーカイブ", slides: "スライド・資料", work: "ワーク" };
