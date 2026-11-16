@@ -51,6 +51,33 @@ window.SITE = {
     { n: 9, date: "2027-01-10", dow: "日" }
   ],
 
+  /* ---------- ワークメニュー（ビュッフェ形式） ----------
+     v : 効くうつわ（chochiku 貯蓄 / juyou 受容 / ryunyu 流入。複数可）
+     rec : おすすめ ／ item : 詳細ページ（items の id）。空なら「準備中」
+     desc : ひとこと。空なら「説明は準備中」
+  ------------------------------------------------- */
+  works: [
+    { id: "w-receipt", name: "レシートワーク", v: ["chochiku", "juyou"], rec: true, item: "v-receipt",
+      desc: "レシートを見て、その買い物でどれくらい喜んだか、ほかにどんな感情があったかを割合で書き出す" },
+    { id: "w-genjo", name: "現状把握（収支を見る）", v: ["chochiku"], rec: true, item: "v-genjo",
+      desc: "いま動かせるお金、これから決まっている支出、1ヶ月の収支を書き出して、自分の現在地を知る" },
+    { id: "w-zero", name: "0秒思考", v: ["chochiku", "juyou"], rec: true, item: "",
+      desc: "裏紙の左上に問いを書き、1分で頭に浮かんだ言葉を書き出す。いちばん気になったものを、さらに深掘りする" },
+    { id: "w-furikaeri", name: "振り返り（答え合わせ）", v: ["chochiku"], rec: false, item: "",
+      desc: "自分や事業への投資に使ったお金に、どんな変化やリターンがあったかを書き出す。次に同じような選択をするときの改善点も書く" },
+    { id: "w-yohaku", name: "余白の設計", v: ["chochiku", "juyou"], rec: false, item: "", desc: "" },
+    { id: "w-katazuke", name: "お片付け", v: ["chochiku"], rec: false, item: "", desc: "" },
+    { id: "w-hantai", name: "いつもと反対の位置にお金を使う", v: ["juyou", "ryunyu"], rec: false, item: "",
+      desc: "自分の支出が「他人／自分」「有形／無形」の4つのどこに偏っているかを見て、反対の位置に小さく使ってみる" },
+    { id: "w-yorokobi", name: "喜びの解像度を上げる", v: ["juyou"], rec: false, item: "",
+      desc: "ひとつの支出の喜びを、使う前・使っている最中・使った後の3つに分けて確かめる" },
+    { id: "w-yamery", name: "やりたくないことをやめる", v: ["juyou"], rec: false, item: "", desc: "" },
+    { id: "w-uketori", name: "受け取りワーク", v: ["juyou"], rec: false, item: "", desc: "" },
+    { id: "w-skill", name: "スキルシェア", v: ["ryunyu"], rec: false, item: "", desc: "" },
+    { id: "w-output", name: "アウトプット", v: ["ryunyu"], rec: false, item: "", desc: "" },
+    { id: "w-hasshin", name: "発信", v: ["ryunyu"], rec: false, item: "", desc: "" }
+  ],
+
   /* ---------- ライブラリ ----------
      type : video（解説動画）/ radio（ラジオ）/ article（記事・レポート）/ archive（講義アーカイブ）/ slides（スライド・資料）
      tags : kiso（基礎）/ chochiku（貯蓄）/ juyou（受容）/ ryunyu（流入）/ nami（感情と波）/ shukan（習慣）

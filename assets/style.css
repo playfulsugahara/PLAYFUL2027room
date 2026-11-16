@@ -196,3 +196,24 @@ footer img{width:120px;margin:0 auto 6px;filter:brightness(0) invert(1);opacity:
 .note-wait{margin-top:24px}
 .note-body ol li .st{display:block;font-family:var(--f-display);font-weight:700;font-size:17px;line-height:1.6}
 .note-body ol li .sd{display:block;margin-top:2px}
+
+/* ===== ワーク ===== */
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;vertical-align:middle;margin-right:5px}
+.dot.chochiku{background:#3fa7c4} .dot.juyou{background:#f47a2a} .dot.ryunyu{background:#6cc24a}
+#vf{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+#vf button{font:inherit;font-family:var(--f-display);font-weight:700;font-size:15px;border:2px solid var(--ink);background:#fff;color:var(--ink);border-radius:999px;padding:4px 16px;cursor:pointer}
+#vf button[aria-pressed="true"]{background:var(--ink);color:var(--lime)}
+.works{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:14px}
+@media (min-width:640px){.works{grid-template-columns:1fr 1fr}}
+.wk{position:relative;background:#fff;border:2px solid var(--ink);border-radius:14px;padding:18px 18px 16px;display:flex;flex-direction:column;gap:8px}
+.wk.rec{box-shadow:4px 4px 0 var(--red)}
+.wk.wait{border-style:dashed;background:rgba(255,255,255,.55)}
+.wk h3{font-size:19px}
+.wk p{font-size:15px;line-height:1.8;flex:1}
+.wk .btn{align-self:flex-start;font-size:15px;padding:8px 20px}
+.wk .badge.wait{align-self:flex-start}
+.vms{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.vm{font-size:12px;font-weight:700;border-radius:999px;padding:1px 10px 1px 8px;background:var(--paper)}
+.vm.chochiku{background:#dcf0f6} .vm.juyou{background:#fde4d2} .vm.ryunyu{background:#e2f3da}
+.both{font-size:12px;font-weight:700;color:var(--red)}
+.tabbar{grid-template-columns:repeat(5,1fr)}
