@@ -45,7 +45,10 @@ strong{font-weight:700;background:linear-gradient(transparent 62%,rgba(255,106,6
 
 /* ===== ヒーロー（ホーム） ===== */
 .hero{background:var(--frame);padding-block:32px 40px;text-align:center}
-.hero .title{width:min(320px,74%);margin:0 auto}
+.hero-row{display:flex;align-items:flex-end;justify-content:center;gap:clamp(6px,2vw,18px);max-width:620px;margin:0 auto}
+.hero .title{width:52%;max-width:330px;min-width:0;margin-bottom:6%}
+.hero .who{width:22%;max-width:140px;min-width:0;height:auto}
+.hero .who.kei{width:26%;max-width:165px} /* 元画像の横幅比（KEI 494px / SHO 428px）に合わせて、2人の背丈をそろえる */
 .hero .sub{margin-top:14px;font-family:var(--f-display);font-weight:700;font-size:18px}
 .hero .meta{display:inline-block;margin-top:14px;font-family:var(--f-mono);font-size:13px;background:var(--lime);padding:4px 14px;border-radius:2px}
 
