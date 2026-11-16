@@ -220,7 +220,7 @@ footer img{width:120px;margin:0 auto 6px;filter:brightness(0) invert(1);opacity:
 .wk h3 .new{display:inline-block;margin-left:8px;font-family:var(--f-mono);font-size:13px;font-weight:700;color:var(--paper);background:var(--blue);border-radius:4px;padding:1px 8px;vertical-align:middle;letter-spacing:.04em;transform:rotate(-3deg)}
 
 /* タブのアイコン（デザイン素材の白PNGを形として使い、色はタブの文字色に合わせる） */
-.tabbar a .i{width:24px;height:24px;margin-bottom:2px;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.tabbar a .i{width:24px;height:24px;margin-bottom:2px;background:currentColor;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat} /* 一括指定（mask:）を使うと、下の mask-image が打ち消されるので個別に書く */
 .tabbar .ic-home{-webkit-mask-image:url(../img/tab/home.png);mask-image:url(../img/tab/home.png)}
 .tabbar .ic-zoom{-webkit-mask-image:url(../img/tab/zoom.png);mask-image:url(../img/tab/zoom.png)}
 .tabbar .ic-odai{-webkit-mask-image:url(../img/tab/odai.png);mask-image:url(../img/tab/odai.png)}
