@@ -142,7 +142,7 @@
   }
 
   function slides({ dir, count }) {
-    const src = (i) => `${dir}/${String(i).padStart(2, "0")}.jpg`;
+    const src = (i) => `${dir}/${String(i).padStart(2, "0")}.jpg?v=2`; /* 差し替え時はここの v を上げる */
     const img = $("#slideImg"), pos = $("#pos"), thumbs = $("#thumbs");
     thumbs.innerHTML = Array.from({ length: count }, (_, k) =>
       `<button type="button" data-i="${k + 1}" aria-label="${k + 1}枚目"><img src="${src(k + 1)}" alt="" loading="lazy" width="96" height="54"></button>`).join("");
