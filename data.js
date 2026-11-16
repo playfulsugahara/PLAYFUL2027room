@@ -71,8 +71,6 @@ window.SITE = {
     { id: "w-katazuke", isNew: true, hidden: true, name: "お片付け", v: ["chochiku"], rec: false, item: "", desc: "" },
     { id: "w-hantai", isNew: true, name: "いつもと反対の位置にお金を使う", v: ["juyou", "ryunyu"], rec: false, item: "k-hantai",
       desc: "自分の支出が「他人／自分」「有形／無形」の4つのどこに偏っているかを見て、反対の位置に小さく使ってみる" },
-    { id: "w-yorokobi", isNew: true, name: "喜びの解像度を上げる", v: ["juyou"], rec: false, item: "k-yorokobi",
-      desc: "ひとつの支出の喜びを、使う前・使っている最中・使った後の3つに分けて確かめる" },
     { id: "w-yamery", isNew: true, hidden: true, name: "やりたくないことをやめる", v: ["juyou"], rec: false, item: "", desc: "" },
     { id: "w-uketori", isNew: true, hidden: true, name: "受け取りワーク", v: ["juyou"], rec: false, item: "", desc: "" },
     { id: "w-skill", isNew: true, hidden: true, name: "スキルシェア", v: ["ryunyu"], rec: false, item: "", desc: "" },
@@ -90,7 +88,6 @@ window.SITE = {
     { id: "k-zero", term: "2期", type: "work", date: "2026-11-16", title: "ゼロ秒思考", desc: "頭の中にあることを、1分で紙に書き出すワーク", tags: ["chochiku", "juyou"], url: "", kw: "0秒思考 書き出す 不安 モヤモヤ 赤羽雄二" },
     { id: "k-furikaeri", term: "2期", type: "work", date: "2026-11-16", title: "振り返り（答え合わせ）", desc: "自分や事業への投資が、どんな変化やリターンにつながったかを書き出すワーク", tags: ["chochiku"], url: "", kw: "自己投資 事業投資 リターン 臨時収入 答え合わせ" },
     { id: "k-hantai", term: "2期", type: "work", date: "2026-11-16", title: "いつもと反対の位置にお金を使う", desc: "「他人／自分」「有形／無形」の偏りを見て、反対の位置に小さく使ってみるワーク", tags: ["juyou", "ryunyu"], url: "", kw: "4象限 有形 無形 他人 自分 入れ替え" },
-    { id: "k-yorokobi", term: "2期", type: "work", date: "2026-11-16", title: "喜びの解像度を上げる", desc: "喜びを使う前・最中・後に分けて見て、本当に欲しかったものを言葉にするワーク", tags: ["juyou"], url: "", kw: "喜び 解像度 使う前 最中 後 答え合わせ" },
 
     /* --- 2期 --- */
     { id: "ar-1115", term: "2期", type: "archive", date: "2026-11-15", title: "11/15 キックオフ講義", desc: "うつわのおさらいと、今期の取り組み。ビジョンの洞窟探索ツアーのはじまり", tags: ["kiso", "nami"], url: "zoom.html?n=1", kw: "作戦会議 コンセプト 星座 洞窟" },
