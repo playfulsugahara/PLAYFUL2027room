@@ -246,3 +246,7 @@ footer img{width:120px;margin:0 auto 6px;filter:brightness(0) invert(1);opacity:
 .steps li.go .tt{text-decoration:underline;text-decoration-color:var(--shadow);text-underline-offset:3px}
 .steps li.go:hover .tt{text-decoration-color:var(--ink)}
 .steps li.go .n{cursor:pointer}
+
+/* すごろく：新しい盤面は枠なし・最大幅（スマホでは画面の端まで） */
+.board.full{border:0;border-radius:0;overflow:visible;background:transparent}
+@media (max-width:719px){.board.full{margin-left:-20px;margin-right:-20px}}

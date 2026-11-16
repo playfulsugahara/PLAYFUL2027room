@@ -85,19 +85,19 @@
     });
     $("#steps").innerHTML = html;
 
-    /* 盤面の画像の上に、押せるマスを重ねる（座標は img/sugoroku.jpg 1600×900 の上での位置） */
-    const COL = [218, 385, 552, 718, 886, 1053], CW = 163, ROW = [68, 222, 377, 530, 685], RH = 148;
+    /* 盤面の画像の上に、押せるマスを重ねる（img/sugoroku.png 2000×1414 の上での [x, y, 幅, 高さ]。マス目の線から測った値） */
+    const IW = 2000, IH = 1414, T = 147, B = 1047, RH = 219;
     const POS = {
-      "zoom1": [COL[5], ROW[0]], "q1": [COL[4], ROW[0]], "q2": [COL[3], ROW[0]], "zoom2": [COL[2], ROW[0]], "q3": [COL[1], ROW[0]], "q4": [COL[0], ROW[0]],
-      "zoom3": [COL[0], ROW[1]], "q5": [COL[0], ROW[2]], "q6": [COL[0], ROW[3]],
-      "q7": [COL[0], ROW[4]], "zoom4": [COL[1], ROW[4]], "q8": [COL[2], ROW[4]], "q9": [COL[3], ROW[4]], "zoom5": [COL[4], ROW[4]]
+      q4: [147, T, 239, RH], q3: [392, T, 238, RH], zoom2: [636, T, 239, RH], q2: [880, T, 239, RH], q1: [1124, T, 239, RH], zoom1: [1369, T, 238, RH],
+      zoom3: [147, 372, 239, RH], q5: [147, 597, 239, RH], q6: [147, 822, 239, RH],
+      q7: [147, B, 241, RH], zoom4: [393, B, 235, RH], q8: [634, B, 239, RH], q9: [878, B, 243, RH], zoom5: [1126, B, 239, RH]
     };
     const board = $("#board");
     if (board) {
       board.insertAdjacentHTML("beforeend", cells.map((c) => {
         const key = c.kind === "zoom" ? `zoom${c.s.n}` : `q${c.q.n}`;
-        const [x, y] = POS[key];
-        const st = `left:${x / 16}%;top:${y / 9}%;width:${CW / 16}%;height:${RH / 9}%`;
+        const [x, y, w, h] = POS[key];
+        const st = `left:${x / IW * 100}%;top:${y / IH * 100}%;width:${w / IW * 100}%;height:${h / IH * 100}%`;
         const name = c.kind === "zoom" ? `Zoom ${c.s.n}` : `問い Q${c.q.n}`;
         const cl = `hot${c.now ? " now" : ""}`;
         return c.link ? `<a class="${cl}" href="${c.link}" style="${st}" aria-label="${name}"></a>`
