@@ -83,7 +83,7 @@ window.NOTES = {
    },
    {
     "title": "やり方",
-    "html": "<p>例：学びたいことにお金を払ったとき</p><ol><li><span><b class=\"st\">投資したものを書く</b><span class=\"sd\">何に、いくら払ったか。例：〇〇の講座に〇万円</span></span></li><li><span><b class=\"st\">起きた変化を書き出す</b><span class=\"sd\">学んだことで、自分にどんな変化があったか</span></span></li><li><span><b class=\"st\">入ってきたものを書き出す</b><span class=\"sd\">関係があると仮定して、そのあとに入ってきた臨時収入。周りの人の反応の変化。それによって広がった人間関係や可能性</span></span></li><li><span><b class=\"st\">効果を振り返る</b><span class=\"sd\">ひとつの投資に対して、どれくらい効果があったか</span></span></li><li><span><b class=\"st\">改善点を書く</b><span class=\"sd\">次に同じような選択をするとき、どうすればもっと効果を増やせるか</span></span></li></ol>"
+    "html": "<p>例：学びたいことにお金を払ったとき</p><ol><li><span><b class=\"st\">投資したものを書く</b><span class=\"sd\">何に、いくら払ったか。例：〇〇の講座に〇万円</span></span></li><li><span><b class=\"st\">起きた変化を書き出す</b><span class=\"sd\">その投資をする前とした後のBefore/Afterを書き出してみる</span></span></li><li><span><b class=\"st\">入ってきたものを書き出す</b><span class=\"sd\">自分にとって効果があったと感じたものを思いつく限り書き出す。<br>投資後に入ってきた臨時収入。周りの人の反応や変化。それによって広がった人間関係や可能性など<br>確実にその投資の影響だと確信がなくても、思いついたものは書く。</span></span></li><li><span><b class=\"st\">効果を振り返る</b><span class=\"sd\">投資に対して、どれくらい効果があったか<br>思っていたより少ないか、多いか。<br>お金以外の変化も合わせて、総合的に満足だったか。</span></span></li><li><span><b class=\"st\">改善点を書く</b><span class=\"sd\">次に同じような選択をするとき、さらに効果を増やすには<br>どんな意識や行動、判断基準が必要か？を考えてみる</span></span></li></ol>"
    },
    {
     "title": "このワークのポイント",

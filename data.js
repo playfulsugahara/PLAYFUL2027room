@@ -65,7 +65,7 @@ window.SITE = {
       desc: "いま動かせるお金、これから決まっている支出、1ヶ月の収支を書き出して、自分の現在地を知る" },
     { id: "w-zero", isNew: true, name: "ゼロ秒思考", v: ["chochiku", "juyou"], rec: true, item: "k-zero",
       desc: "裏紙の左上に問いを書き、1分で頭に浮かんだ言葉を書き出す。いちばん気になったものを、さらに深掘りする" },
-    { id: "w-furikaeri", name: "振り返り", v: ["chochiku"], rec: false, item: "k-furikaeri",
+    { id: "w-furikaeri", isNew: true, name: "振り返り", v: ["chochiku", "ryunyu"], rec: false, item: "k-furikaeri",
       desc: "自分や事業への投資に使ったお金に、どんな変化やリターンがあったかを書き出す。次に同じような選択をするときの改善点も書く" },
     { id: "w-yohaku", isNew: true, hidden: true, name: "余白の設計", v: ["chochiku", "juyou"], rec: false, item: "", desc: "" },
     { id: "w-katazuke", isNew: true, hidden: true, name: "お片付け", v: ["chochiku"], rec: false, item: "", desc: "" },
@@ -88,7 +88,7 @@ window.SITE = {
   items: [
     /* --- ワーク（動画なし・要点ページだけ。type: "work"） --- */
     { id: "k-zero", term: "2期", type: "work", date: "2026-11-16", title: "ゼロ秒思考", desc: "頭の中にあることを、1分で紙に書き出すワーク", tags: ["chochiku", "juyou"], url: "", kw: "0秒思考 書き出す 不安 モヤモヤ 赤羽雄二" },
-    { id: "k-furikaeri", term: "2期", type: "work", date: "2026-11-16", title: "振り返り", desc: "自分や事業への投資が、どんな変化やリターンにつながったかを書き出すワーク", tags: ["chochiku"], url: "", kw: "振り返り（答え合わせ） 自己投資 事業投資 リターン 臨時収入 答え合わせ" },
+    { id: "k-furikaeri", term: "2期", type: "work", date: "2026-11-16", title: "振り返り", desc: "自分や事業への投資が、どんな変化やリターンにつながったかを書き出すワーク", tags: ["chochiku", "ryunyu"], url: "", kw: "振り返り（答え合わせ） 自己投資 事業投資 リターン 臨時収入 答え合わせ" },
     { id: "k-bestbuy", term: "2期", type: "work", date: "2026-11-16", title: "BEST BUYワーク", desc: "いつものお店で、その売り場で自分がいちばん欲しいものを選ぶワーク", tags: ["juyou"], url: "", kw: "ベストバイ 一番欲しいもの スーパー ドラッグストア 外食 洋服 コスメ ときめく 喜び" },
     { id: "k-hantai", term: "2期", type: "work", date: "2026-11-16", title: "お金の使い方を変える", desc: "「他人／自分」「有形／無形」の偏りを見て、反対の位置に小さく使ってみるワーク", tags: ["juyou", "ryunyu"], url: "", kw: "いつもと反対の位置にお金を使う 4象限 有形 無形 他人 自分 入れ替え" },
 
