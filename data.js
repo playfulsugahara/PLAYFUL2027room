@@ -67,6 +67,8 @@ window.SITE = {
       desc: "裏紙の左上に問いを書き、1分で頭に浮かんだ言葉を書き出す。いちばん気になったものを、さらに深掘りする" },
     { id: "w-furikaeri", isNew: true, name: "振り返り", v: ["chochiku", "ryunyu"], rec: false, item: "k-furikaeri",
       desc: "自分や事業への投資に使ったお金に、どんな変化やリターンがあったかを書き出す。次に同じような選択をするときの改善点も書く" },
+    { id: "w-uketori", isNew: true, name: "受け取りワーク", v: ["juyou"], rec: false, item: "k-uketori",
+      desc: "今日あなたは何を受け取りましたか？ お金を払って受け取ったもの以外も含めて、受け取ったものを書き出す" },
     { id: "w-yohaku", isNew: true, hidden: true, name: "余白の設計", v: ["chochiku", "juyou"], rec: false, item: "", desc: "" },
     { id: "w-katazuke", isNew: true, hidden: true, name: "お片付け", v: ["chochiku"], rec: false, item: "", desc: "" },
     { id: "w-hantai", isNew: true, name: "お金の使い方を変える", v: ["juyou", "ryunyu"], rec: false, item: "k-hantai",
@@ -74,7 +76,6 @@ window.SITE = {
     { id: "w-bestbuy", isNew: true, name: "BEST BUYワーク", v: ["juyou"], rec: false, item: "k-bestbuy",
       desc: "いつものお店で、その売り場で自分がいちばん欲しいものを選ぶ。金額やコスパではなく、心が動くものを" },
     { id: "w-yamery", isNew: true, hidden: true, name: "やりたくないことをやめる", v: ["juyou"], rec: false, item: "", desc: "" },
-    { id: "w-uketori", isNew: true, hidden: true, name: "受け取りワーク", v: ["juyou"], rec: false, item: "", desc: "" },
     { id: "w-skill", isNew: true, hidden: true, name: "スキルシェア", v: ["ryunyu"], rec: false, item: "", desc: "" },
     { id: "w-output", isNew: true, hidden: true, name: "アウトプット", v: ["ryunyu"], rec: false, item: "", desc: "" },
     { id: "w-hasshin", isNew: true, hidden: true, name: "発信", v: ["ryunyu"], rec: false, item: "", desc: "" }
@@ -87,6 +88,7 @@ window.SITE = {
   ------------------------------------------------- */
   items: [
     /* --- ワーク（動画なし・要点ページだけ。type: "work"） --- */
+    { id: "k-uketori", term: "2期", type: "work", date: "2026-11-16", title: "受け取りワーク", desc: "お金の対価を払ったもの以外も含めて、今日受け取ったものを書き出すワーク", tags: ["juyou"], url: "", kw: "わたし、これ受け取りました 受け取り ありがとう 差し入れ 労い 豊かさ 許可" },
     { id: "k-zero", term: "2期", type: "work", date: "2026-11-16", title: "ゼロ秒思考", desc: "頭の中にあることを、1分で紙に書き出すワーク", tags: ["chochiku", "juyou"], url: "", kw: "0秒思考 書き出す 不安 モヤモヤ 赤羽雄二" },
     { id: "k-furikaeri", term: "2期", type: "work", date: "2026-11-16", title: "振り返り", desc: "自分や事業への投資が、どんな変化やリターンにつながったかを書き出すワーク", tags: ["chochiku", "ryunyu"], url: "", kw: "振り返り（答え合わせ） 自己投資 事業投資 リターン 臨時収入 答え合わせ 講座 寝具 ロボット掃除機 旅行 体験" },
     { id: "k-bestbuy", term: "2期", type: "work", date: "2026-11-16", title: "BEST BUYワーク", desc: "いつものお店で、その売り場で自分がいちばん欲しいものを選ぶワーク", tags: ["juyou"], url: "", kw: "ベストバイ 一番欲しいもの スーパー ドラッグストア 外食 洋服 コスメ ときめく 喜び" },
