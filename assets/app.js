@@ -77,11 +77,33 @@
         label = released(c.date) && c.q.q ? `問い Q${c.q.n}｜${c.q.q}` : `問い Q${c.q.n}｜（${md(c.date)}に届きます）`;
         if (released(c.date) && c.q.q) link = `odai.html#q${c.q.n}`;
       }
-      const tt = link ? `<a class="tt" href="${link}">${esc(label)} →</a>` : `<span class="tt">${esc(label)}</span>`;
       const mark = c.kind === "zoom" ? `ZOOM<br>${c.s.n}` : `Q${c.q.n}`;
-      html += `<li class="${cls}"><span class="n">${mark}</span><span class="body"><span class="d">${md(c.date)}（${c.kind === "zoom" ? c.s.dow : c.q.dow}）</span>${nowTag}${tt}</span></li>`;
+      const inner = `<span class="n">${mark}</span><span class="body"><span class="d">${md(c.date)}（${c.kind === "zoom" ? c.s.dow : c.q.dow}）</span>${nowTag}<span class="tt">${esc(label)}${link ? " →" : ""}</span></span>`;
+      /* 開いている回は、丸アイコンも文字も、行のどこを押しても飛べる */
+      html += link ? `<li class="${cls} go"><a class="rowlink" href="${link}">${inner}</a></li>` : `<li class="${cls}">${inner}</li>`;
+      c.link = link; c.now = i === nowIdx;
     });
     $("#steps").innerHTML = html;
+
+    /* 盤面の画像の上に、押せるマスを重ねる（座標は img/sugoroku.jpg 1600×900 の上での位置） */
+    const COL = [218, 385, 552, 718, 886, 1053], CW = 163, ROW = [68, 222, 377, 530, 685], RH = 148;
+    const POS = {
+      "zoom1": [COL[5], ROW[0]], "q1": [COL[4], ROW[0]], "q2": [COL[3], ROW[0]], "zoom2": [COL[2], ROW[0]], "q3": [COL[1], ROW[0]], "q4": [COL[0], ROW[0]],
+      "zoom3": [COL[0], ROW[1]], "q5": [COL[0], ROW[2]], "q6": [COL[0], ROW[3]],
+      "q7": [COL[0], ROW[4]], "zoom4": [COL[1], ROW[4]], "q8": [COL[2], ROW[4]], "q9": [COL[3], ROW[4]], "zoom5": [COL[4], ROW[4]]
+    };
+    const board = $("#board");
+    if (board) {
+      board.insertAdjacentHTML("beforeend", cells.map((c) => {
+        const key = c.kind === "zoom" ? `zoom${c.s.n}` : `q${c.q.n}`;
+        const [x, y] = POS[key];
+        const st = `left:${x / 16}%;top:${y / 9}%;width:${CW / 16}%;height:${RH / 9}%`;
+        const name = c.kind === "zoom" ? `Zoom ${c.s.n}` : `問い Q${c.q.n}`;
+        const cl = `hot${c.now ? " now" : ""}`;
+        return c.link ? `<a class="${cl}" href="${c.link}" style="${st}" aria-label="${name}"></a>`
+          : (c.now ? `<span class="${cl}" style="${st}"></span>` : "");
+      }).join(""));
+    }
 
     $("#tiles").innerHTML = Object.entries(TAGS).map(([k, v]) => {
       const n = S.items.filter((it) => it.tags.includes(k)).length;
