@@ -25,6 +25,35 @@ window.NOTES = {
   ],
   "src": "ワーク_0秒思考.md"
  },
+ "k-bestbuy": {
+  "sections": [
+   {
+    "title": "ひとことで",
+    "html": "<p>いつものお店で、その売り場で「自分がいちばん欲しいもの」を選ぶワーク。金額やコスパではなく、自分の喜びを基準に選んでみる。</p>"
+   },
+   {
+    "title": "このワークのポイント",
+    "html": "<ul><li><span>普段使っているスーパーやドラッグストアなど、小さい金額から試せる</span></li><li><span>選ぶ基準は、金額でもカロリーでもコスパでもなく、「今、自分がいちばん欲しいと感じるもの」</span></li><li><span>「使い回しが効く」「自分のタイプに似合う」で選ばない。見た瞬間にパッと輝いて見える、心が動いてときめくものを選ぶ</span></li></ul>"
+   },
+   {
+    "title": "やり方",
+    "html": "<ol><li><span><b class=\"st\">いつものお店で試す</b><span class=\"sd\">スーパー、ドラッグストア、外食先など、普段使っている場所でOK</span></span></li><li><span><b class=\"st\">売り場を見渡す</b><span class=\"sd\">その売り場の中で、自分がいちばん欲しいものはどれかを探す</span></span></li><li><span><b class=\"st\">いちばん欲しいものを選ぶ</b><span class=\"sd\">金額・カロリー・コスパは気にしない。今の自分がいちばん心が動くものを選ぶ</span></span></li><li><span><b class=\"st\">買って、味わう</b><span class=\"sd\">食べる、使う。そのときの喜びを感じてみる</span></span></li></ol>"
+   },
+   {
+    "title": "選び方の例",
+    "html": "<ul><li><span><strong>スーパーや外食先で</strong> — 自分がいちばん食べたい、食べたら幸せ・喜びが増えると思うものを選ぶ</span></li><li><span><strong>洋服やコスメで</strong> — 使い回しが効くか、似合うタイプかではなく、見た瞬間にパッと輝いて見えるもの、ときめくものを選ぶ</span></li></ul>"
+   },
+   {
+    "title": "次に見る",
+    "related": [
+     "v-receipt",
+     "v-juyou",
+     "a-0901b"
+    ]
+   }
+  ],
+  "src": "ワーク_BEST BUYワーク.md"
+ },
  "k-hantai": {
   "sections": [
    {
