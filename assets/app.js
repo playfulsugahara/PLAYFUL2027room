@@ -263,7 +263,7 @@
       .map(([k, v]) => `<button type="button" data-k="${k}" class="${k}">${k === "all" ? v : `<span class="dot ${k}"></span>${v}`}</button>`).join("");
     function render() {
       document.querySelectorAll("#vf button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.k === f));
-      const list = S.works.filter((w) => f === "all" || w.v.includes(f))
+      const list = S.works.filter((w) => !w.hidden && (f === "all" || w.v.includes(f)))
         .sort((a, b) => (b.rec - a.rec));
       $("#works").innerHTML = list.map((w) => {
         const it = w.item && S.items.find((x) => x.id === w.item);
@@ -273,7 +273,7 @@
         return `<li class="wk${w.rec ? " rec" : ""}${ok ? "" : " wait"}">
           ${w.rec ? `<span class="flag">おすすめ</span>` : ""}
           <div class="vms">${dots}${both}</div>
-          <h3>${esc(w.name)}</h3>
+          <h3>${esc(w.name)}${w.isNew ? `<span class="new">NEW！</span>` : ""}</h3>
           <p class="${w.desc ? "" : "muted"}">${w.desc ? esc(w.desc) : "説明は準備中です。"}</p>
           ${ok ? `<a class="btn" href="item.html?id=${encodeURIComponent(it.id)}">やり方を見る →</a>` : `<span class="badge wait">やり方は準備中</span>`}
         </li>`;

@@ -55,27 +55,29 @@ window.SITE = {
      v : 効くうつわ（chochiku 貯蓄 / juyou 受容 / ryunyu 流入。複数可）
      rec : おすすめ ／ item : 詳細ページ（items の id）。空なら「準備中」
      desc : ひとこと。空なら「説明は準備中」
+     hidden : 詳細ページができるまで一覧に出さない（できたら消す）
+     isNew : 「NEW！」マーク（1期で詳しく紹介していないワーク／2期で追加したワーク）
   ------------------------------------------------- */
   works: [
     { id: "w-receipt", name: "レシートワーク", v: ["chochiku", "juyou"], rec: true, item: "v-receipt",
       desc: "レシートを見て、その買い物でどれくらい喜んだか、ほかにどんな感情があったかを割合で書き出す" },
     { id: "w-genjo", name: "現状把握（収支を見る）", v: ["chochiku"], rec: true, item: "v-genjo",
       desc: "いま動かせるお金、これから決まっている支出、1ヶ月の収支を書き出して、自分の現在地を知る" },
-    { id: "w-zero", name: "0秒思考", v: ["chochiku", "juyou"], rec: true, item: "",
+    { id: "w-zero", isNew: true, name: "0秒思考", v: ["chochiku", "juyou"], rec: true, item: "",
       desc: "裏紙の左上に問いを書き、1分で頭に浮かんだ言葉を書き出す。いちばん気になったものを、さらに深掘りする" },
     { id: "w-furikaeri", name: "振り返り（答え合わせ）", v: ["chochiku"], rec: false, item: "",
       desc: "自分や事業への投資に使ったお金に、どんな変化やリターンがあったかを書き出す。次に同じような選択をするときの改善点も書く" },
-    { id: "w-yohaku", name: "余白の設計", v: ["chochiku", "juyou"], rec: false, item: "", desc: "" },
-    { id: "w-katazuke", name: "お片付け", v: ["chochiku"], rec: false, item: "", desc: "" },
-    { id: "w-hantai", name: "いつもと反対の位置にお金を使う", v: ["juyou", "ryunyu"], rec: false, item: "",
+    { id: "w-yohaku", isNew: true, hidden: true, name: "余白の設計", v: ["chochiku", "juyou"], rec: false, item: "", desc: "" },
+    { id: "w-katazuke", isNew: true, hidden: true, name: "お片付け", v: ["chochiku"], rec: false, item: "", desc: "" },
+    { id: "w-hantai", isNew: true, name: "いつもと反対の位置にお金を使う", v: ["juyou", "ryunyu"], rec: false, item: "",
       desc: "自分の支出が「他人／自分」「有形／無形」の4つのどこに偏っているかを見て、反対の位置に小さく使ってみる" },
-    { id: "w-yorokobi", name: "喜びの解像度を上げる", v: ["juyou"], rec: false, item: "",
+    { id: "w-yorokobi", isNew: true, name: "喜びの解像度を上げる", v: ["juyou"], rec: false, item: "",
       desc: "ひとつの支出の喜びを、使う前・使っている最中・使った後の3つに分けて確かめる" },
-    { id: "w-yamery", name: "やりたくないことをやめる", v: ["juyou"], rec: false, item: "", desc: "" },
-    { id: "w-uketori", name: "受け取りワーク", v: ["juyou"], rec: false, item: "", desc: "" },
-    { id: "w-skill", name: "スキルシェア", v: ["ryunyu"], rec: false, item: "", desc: "" },
-    { id: "w-output", name: "アウトプット", v: ["ryunyu"], rec: false, item: "", desc: "" },
-    { id: "w-hasshin", name: "発信", v: ["ryunyu"], rec: false, item: "", desc: "" }
+    { id: "w-yamery", isNew: true, hidden: true, name: "やりたくないことをやめる", v: ["juyou"], rec: false, item: "", desc: "" },
+    { id: "w-uketori", isNew: true, hidden: true, name: "受け取りワーク", v: ["juyou"], rec: false, item: "", desc: "" },
+    { id: "w-skill", isNew: true, hidden: true, name: "スキルシェア", v: ["ryunyu"], rec: false, item: "", desc: "" },
+    { id: "w-output", isNew: true, hidden: true, name: "アウトプット", v: ["ryunyu"], rec: false, item: "", desc: "" },
+    { id: "w-hasshin", isNew: true, hidden: true, name: "発信", v: ["ryunyu"], rec: false, item: "", desc: "" }
   ],
 
   /* ---------- ライブラリ ----------
