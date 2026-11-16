@@ -226,3 +226,4 @@ footer img{width:120px;margin:0 auto 6px;filter:brightness(0) invert(1);opacity:
 .tabbar .ic-odai{-webkit-mask-image:url(../img/tab/odai.png);mask-image:url(../img/tab/odai.png)}
 .tabbar .ic-work{-webkit-mask-image:url(../img/tab/work.png);mask-image:url(../img/tab/work.png)}
 .tabbar .ic-library{-webkit-mask-image:url(../img/tab/library.png);mask-image:url(../img/tab/library.png)}
+.band-link{color:var(--blue);font-weight:700}
