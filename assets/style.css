@@ -235,3 +235,4 @@ footer img{width:120px;margin:0 auto 6px;filter:brightness(0) invert(1);opacity:
 .wk .btn{background:var(--lime);color:var(--ink);border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink)}
 .wk .btn:hover{box-shadow:1px 1px 0 var(--ink)}
 .wk .both{color:var(--muted)}
+.btn.dl{background:var(--blue)}
