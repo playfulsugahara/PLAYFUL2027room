@@ -218,3 +218,11 @@ footer img{width:120px;margin:0 auto 6px;filter:brightness(0) invert(1);opacity:
 .both{font-size:12px;font-weight:700;color:var(--red)}
 .tabbar{grid-template-columns:repeat(5,1fr)}
 .wk h3 .new{display:inline-block;margin-left:8px;font-family:var(--f-mono);font-size:13px;font-weight:700;color:var(--paper);background:var(--blue);border-radius:4px;padding:1px 8px;vertical-align:middle;letter-spacing:.04em;transform:rotate(-3deg)}
+
+/* タブのアイコン（デザイン素材の白PNGを形として使い、色はタブの文字色に合わせる） */
+.tabbar a .i{width:24px;height:24px;margin-bottom:2px;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.tabbar .ic-home{-webkit-mask-image:url(../img/tab/home.png);mask-image:url(../img/tab/home.png)}
+.tabbar .ic-zoom{-webkit-mask-image:url(../img/tab/zoom.png);mask-image:url(../img/tab/zoom.png)}
+.tabbar .ic-odai{-webkit-mask-image:url(../img/tab/odai.png);mask-image:url(../img/tab/odai.png)}
+.tabbar .ic-work{-webkit-mask-image:url(../img/tab/work.png);mask-image:url(../img/tab/work.png)}
+.tabbar .ic-library{-webkit-mask-image:url(../img/tab/library.png);mask-image:url(../img/tab/library.png)}
