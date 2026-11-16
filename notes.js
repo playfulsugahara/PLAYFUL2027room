@@ -212,6 +212,8 @@ window.NOTES = {
    {
     "title": "次に見る",
     "related": [
+     "ar-yohaku1015",
+     "ar-yohaku1104",
      "k-katazuke",
      "k-yamery",
      "k-output"

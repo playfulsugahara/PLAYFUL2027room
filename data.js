@@ -103,6 +103,10 @@ window.SITE = {
     { id: "k-bestbuy", term: "2期", type: "work", date: "2026-11-16", title: "BEST BUYチャレンジ", desc: "いつものお店で、その売り場で自分がいちばん欲しいものを選ぶワーク", tags: ["juyou"], url: "", kw: "BEST BUYワーク ベストバイ 一番欲しいもの スーパー ドラッグストア 外食 洋服 コスメ ときめく 喜び" },
     { id: "k-hantai", term: "2期", type: "work", date: "2026-11-16", title: "お金の使い方を変える", desc: "「他人／自分」「有形／無形」の偏りを見て、反対の位置に小さく使ってみるワーク", tags: ["juyou", "ryunyu"], url: "", kw: "いつもと反対の位置にお金を使う 4象限 有形 無形 他人 自分 入れ替え" },
 
+    /* --- 特別講義（余白） --- */
+    { id: "ar-yohaku1015", term: "特別講義", type: "archive", date: "2026-10-15", title: "余白の正体｜余白セミナー（10/15）", desc: "余白とは、自分らしくあるための自由な思考の幅。引いてつくる余白、止まる練習、欠けを受け入れて楽しむ", tags: ["chochiku", "juyou"], url: "https://youtu.be/CTAYw9h4x18", kw: "余白 余白セミナー 余白の正体 思考の幅 手放す 断る 止まる練習 コンフォートゾーン グッドアンドニュー" },
+    { id: "ar-yohaku1104", term: "特別講義", type: "archive", date: "2026-11-04", title: "未来につながる余白の話（11/4 トークセッション）", desc: "Londの甲斐さんと。余白は目的地と現在地の間にある。余裕と余白の違い、期限を決める、頼る勇気", tags: ["chochiku", "juyou"], url: "https://youtu.be/NMYopJ2JrWU", kw: "余白 甲斐 Lond トークセッション 余裕 期限 頼る 軸 比べる 状態目標" },
+
     /* --- 2期 --- */
     { id: "ar-1115", term: "2期", type: "archive", date: "2026-11-15", title: "11/15 キックオフ講義", desc: "うつわのおさらいと、今期の取り組み。ビジョンの洞窟探索ツアーのはじまり", tags: ["kiso", "nami"], url: "zoom.html?n=1", kw: "作戦会議 コンセプト 星座 洞窟" },
     { id: "s-1115", term: "2期", type: "slides", date: "2026-11-15", title: "11/15 キックオフ スライド（29枚）", desc: "3つのうつわ・行動と感情の波・すごろくの地図・PLAYFUL思考の世界", tags: ["kiso", "nami"], url: "zoom.html?n=1#slides", kw: "すごろく 5つのエリア カイゼン センリャク デザイン ビジョン アート" },
