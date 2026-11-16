@@ -126,7 +126,7 @@
       $("#prev").disabled = cur === 1; $("#next").disabled = cur === count;
       thumbs.querySelectorAll("button").forEach((b) => {
         const on = +b.dataset.i === cur; b.setAttribute("aria-current", on);
-        if (on) b.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+        if (on) thumbs.scrollTo({ left: b.offsetLeft - thumbs.clientWidth / 2 + b.clientWidth / 2, behavior: "smooth" });
       });
       $("#dl").href = src(cur);
     }
