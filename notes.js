@@ -70,7 +70,7 @@ window.NOTES = {
    },
    {
     "title": "やり方",
-    "html": "<ol><li><span><b class=\"st\">最近の支出を見る</b><span class=\"sd\">レシートや収支の記録を見返す</span></span></li><li><span><strong>4つの位置のどこに偏っているかを見る</strong></span></li><li><span><b class=\"st\">反対（対角）の位置を確かめる</b><span class=\"sd\">他人×有形 ↔ 自分×無形／自分×有形 ↔ 他人×無形</span></span></li><li><span><b class=\"st\">小さく使ってみる</b><span class=\"sd\">例：人へのプレゼントが多い人は、自分のための体験や学びに使ってみる</span></span></li><li><span><b class=\"st\">答え合わせをする</b><span class=\"sd\">使ってみてどうだったか、レシートワークと同じように振り返る</span></span></li></ol>"
+    "html": "<ol><li><span><b class=\"st\">最近の支出を見る</b><span class=\"sd\">レシートや収支の記録を見返す</span></span></li><li><span><strong>4つの位置のどこに偏っているかを見る</strong></span></li><li><span><b class=\"st\">反対（対角）の位置を確かめる</b><span class=\"sd\">他人×有形 ↔ 自分×無形／自分×有形 ↔ 他人×無形</span></span></li><li><span><b class=\"st\">小さく使ってみる</b><span class=\"sd\">例：人へのプレゼントが多い人は、自分のための体験や学びに使ってみる</span></span></li><li><span><b class=\"st\">答え合わせをする</b><span class=\"sd\">使ってみてどうだったか、「レシート」と同じように振り返る</span></span></li></ol>"
    }
   ],
   "src": "ワーク_いつもと反対の位置にお金を使う.md"
@@ -87,7 +87,7 @@ window.NOTES = {
    },
    {
     "title": "やり方",
-    "html": "<ol><li><span><b class=\"st\">範囲を小さく決める</b><span class=\"sd\">引き出し1つ、財布の中、クローゼットの1段など。部屋全体でなくていい</span></span></li><li><span><b class=\"st\">中身を全部出して見る</b><span class=\"sd\">何をどれだけ持っているかを、目で見て確かめる</span></span></li><li><span><b class=\"st\">要る・要らないを分ける</b><span class=\"sd\">今の自分が使っているか、持っていてうれしいか</span></span></li><li><span><b class=\"st\">要らないものを手放す</b><span class=\"sd\">捨てる・売る・譲る</span></span></li><li><span><b class=\"st\">答え合わせをひとこと書く</b><span class=\"sd\">要らなかったものは、なぜ買ったのか。安かったから、焦っていたから、なんとなく…</span></span></li></ol><p>5で見つかった「喜んでいない買い物のパターン」は、レシートワークにもつながります。</p>"
+    "html": "<ol><li><span><b class=\"st\">範囲を小さく決める</b><span class=\"sd\">引き出し1つ、財布の中、クローゼットの1段など。部屋全体でなくていい</span></span></li><li><span><b class=\"st\">中身を全部出して見る</b><span class=\"sd\">何をどれだけ持っているかを、目で見て確かめる</span></span></li><li><span><b class=\"st\">要る・要らないを分ける</b><span class=\"sd\">今の自分が使っているか、持っていてうれしいか</span></span></li><li><span><b class=\"st\">要らないものを手放す</b><span class=\"sd\">捨てる・売る・譲る</span></span></li><li><span><b class=\"st\">答え合わせをひとこと書く</b><span class=\"sd\">要らなかったものは、なぜ買ったのか。安かったから、焦っていたから、なんとなく…</span></span></li></ol><p>5で見つかった「喜んでいない買い物のパターン」は、「レシート」のワークにもつながります。</p>"
    },
    {
     "title": "目安",
@@ -116,7 +116,7 @@ window.NOTES = {
    },
    {
     "title": "やり方",
-    "html": "<ol><li><span><b class=\"st\">やりたくないことを書き出す</b><span class=\"sd\">仕事、家事、人づきあい、お金の使い方など。ゼロ秒思考で「本当はやりたくないことは？」をタイトルにしてもOK</span></span></li><li><span><b class=\"st\">理由を書く</b><span class=\"sd\">なぜやりたくないのか。義理、我慢、人の目、なんとなくの習慣…</span></span></li><li><span><b class=\"st\">ひとつ選んで、小さくやめる</b><span class=\"sd\">いきなり全部やめなくていい。回数を減らす、人に頼む、お金や道具で解決する、断ってみる</span></span></li><li><span><b class=\"st\">やめたあとを見る</b><span class=\"sd\">空いた時間や、気持ちの変化を書く</span></span></li><li><span><b class=\"st\">空いた分を自分の喜びに使う</b><span class=\"sd\">BEST BUYワークや受け取りワークとあわせて</span></span></li></ol>"
+    "html": "<ol><li><span><b class=\"st\">やりたくないことを書き出す</b><span class=\"sd\">仕事、家事、人づきあい、お金の使い方など。ゼロ秒思考で「本当はやりたくないことは？」をタイトルにしてもOK</span></span></li><li><span><b class=\"st\">理由を書く</b><span class=\"sd\">なぜやりたくないのか。義理、我慢、人の目、なんとなくの習慣…</span></span></li><li><span><b class=\"st\">ひとつ選んで、小さくやめる</b><span class=\"sd\">いきなり全部やめなくていい。回数を減らす、人に頼む、お金や道具で解決する、断ってみる</span></span></li><li><span><b class=\"st\">やめたあとを見る</b><span class=\"sd\">空いた時間や、気持ちの変化を書く</span></span></li><li><span><b class=\"st\">空いた分を自分の喜びに使う</b><span class=\"sd\">「BEST BUYチャレンジ」や「受け取り」とあわせて</span></span></li></ol>"
    },
    {
     "title": "次に見る",
@@ -140,8 +140,12 @@ window.NOTES = {
     "html": "<ul><li><span>言葉じゃなくて、画像や誰かの投稿などを引用して「こんなふうに感じた」でもOK</span></li><li><span>これを出すことによって、自分が「思ってもいい」「表現してもいい」「行動してもいい」という、自分にも他人にも受容できるゾーンを広げる効果がある</span></li><li><span>自分が大丈夫、安全だと思えるゾーンを増やすと同時に、それを見た人が興味を持ってくれたり、好きになってくれたり、人とのご縁をつないでくれたり</span></li><li><span>思わぬきっかけを作る、一番最初のアクションになる</span></li></ul>"
    },
    {
+    "title": "なぜ「出す」と広がるのか",
+    "html": "<ul><li><span>本当は表現したいのに、怖くてできないことがある。その怖さは「知らないから怖い」ことも多い。知らない場所にこそ、価値がある</span></li><li><span>自分が知っているもの・慣れているものの外に出るとき、まず「怖い」を通る。その先に、成長できる場所、楽しくなる場所がある</span></li><li><span>余白がないと、インプットばかりで、アウトプットに回らなくなる。出すことは、自分の中に余白をつくることでもある</span></li></ul>"
+   },
+   {
     "title": "やり方",
-    "html": "<ol><li><span><b class=\"st\">感じたこと・思ったことを拾う</b><span class=\"sd\">今考えていること、心が動いたこと</span></span></li><li><span><b class=\"st\">伝える相手や場所を選ぶ</b><span class=\"sd\">家族や友人に話す、Bandに書く、SNSで発信する など</span></span></li><li><span><b class=\"st\">出してみる</b><span class=\"sd\">言葉でも、画像でも、誰かの投稿を引用して「こんなふうに感じた」でもOK</span></span></li><li><span><b class=\"st\">出したあとを見る</b><span class=\"sd\">自分の気持ちの変化、返ってきた反応やつながり</span></span></li></ol>"
+    "html": "<ol><li><span><b class=\"st\">感じたこと・思ったことを拾う</b><span class=\"sd\">今日見つけた「いいもの」「新しいもの」。自分の感情の動き（「ここでイラッとするんだ」「これで喜ぶんだ」）も</span></span></li><li><span><b class=\"st\">伝える相手や場所を選ぶ</b><span class=\"sd\">家族や友人に話す、Bandに書く、SNSで発信する など</span></span></li><li><span><b class=\"st\">出してみる</b><span class=\"sd\">言葉でも、画像でも、誰かの投稿を引用して「こんなふうに感じた」でもOK</span></span></li><li><span><b class=\"st\">出したあとを見る</b><span class=\"sd\">自分の気持ちの変化、返ってきた反応やつながり</span></span></li></ol>"
    },
    {
     "title": "発信もアウトプットのひとつ",
@@ -151,8 +155,8 @@ window.NOTES = {
     "title": "次に見る",
     "related": [
      "k-uketori",
-     "k-skill",
-     "k-zero"
+     "k-yohaku",
+     "k-skill"
     ]
    }
   ],
@@ -170,7 +174,7 @@ window.NOTES = {
    },
    {
     "title": "やり方",
-    "html": "<ol><li><span><b class=\"st\">できることを書き出す</b><span class=\"sd\">仕事のスキルだけでなく、料理、片付け、話を聞く、調べもの、写真など。人からよく頼まれること、褒められることもヒントに</span></span></li><li><span><b class=\"st\">届けたい相手を思い浮かべる</b><span class=\"sd\">家族、友人、職場の人、コミュニティのメンバー</span></span></li><li><span><b class=\"st\">小さく差し出す</b><span class=\"sd\">30分だけ手伝う、やり方を教える、作ったものを渡す</span></span></li><li><span><b class=\"st\">受け取った反応を書く</b><span class=\"sd\">ありがとう、相手の変化。受け取りワークとしても書ける</span></span></li><li><span><b class=\"st\">次に活かす</b><span class=\"sd\">特に喜ばれたこと、自分も楽しかったことを書いておく</span></span></li></ol>"
+    "html": "<ol><li><span><b class=\"st\">できることを書き出す</b><span class=\"sd\">仕事のスキルだけでなく、料理、片付け、話を聞く、調べもの、写真など。人からよく頼まれること、褒められることもヒントに</span></span></li><li><span><b class=\"st\">届けたい相手を思い浮かべる</b><span class=\"sd\">家族、友人、職場の人、コミュニティのメンバー</span></span></li><li><span><b class=\"st\">小さく差し出す</b><span class=\"sd\">30分だけ手伝う、やり方を教える、作ったものを渡す</span></span></li><li><span><b class=\"st\">受け取った反応を書く</b><span class=\"sd\">ありがとう、相手の変化。「受け取り」としても書ける</span></span></li><li><span><b class=\"st\">次に活かす</b><span class=\"sd\">特に喜ばれたこと、自分も楽しかったことを書いておく</span></span></li></ol>"
    },
    {
     "title": "次に見る",
@@ -191,18 +195,26 @@ window.NOTES = {
    },
    {
     "title": "このワークのポイント",
-    "html": "<ul><li><span>余白は、空いたらつくるものではなく、先に予定として入れておくもの</span></li><li><span>〈貯蓄〉のうつわの本質は、現状把握と、スペースを空けておくこと。時間の余白も、そのひとつ</span></li><li><span>休むことや1人時間を「怠け」と思わなくていい。どれくらいの余白が必要かは、人によって違う</span></li><li><span>まとまった時間がとれなくても大丈夫。昼休みの10分、移動の時間など、小さな余白からで十分</span></li></ul>"
+    "html": "<ul><li><span>余白とは、自分らしくあるための自由な思考の幅のこと。空っぽの時間のことではなく、自分で考えて、自分で選べる「幅」</span></li><li><span>余白は、足してつくるものではなく、引いてつくるもの。予定を足す前に、入ってくるものを減らす</span></li><li><span>私たちは、埋める練習ばかりしてきて、止まる練習をほとんどしてこなかった。誰も悪くない。だから休みも、先に「予定」として入れておく</span></li><li><span>減らすと「もったいない」「損した感じ」がする。それでいい。その感じを一度味わえた分だけ、余白ができる</span></li><li><span>休むことや1人時間を「怠け」と思わなくていい。どれくらいの余白が必要かは、人によって違う</span></li></ul>"
+   },
+   {
+    "title": "余白がないときのサイン",
+    "html": "<ul><li><span>頭から離れない</span></li><li><span>気づくと、自分でタスクを増やしている</span></li><li><span>寝ても疲れが取れない</span></li><li><span>考えがまとまらない</span></li><li><span>1人の時間がほぼゼロ</span></li><li><span>インプットばかりで、アウトプットに回らない</span></li></ul>"
    },
    {
     "title": "やり方",
-    "html": "<ol><li><span><b class=\"st\">余白の時間を書き出す</b><span class=\"sd\">自分のメンテナンス（体のケア・美容・通院など）、休む、1人時間。自分に必要なものを</span></span></li><li><span><b class=\"st\">先にスケジュールに入れる</b><span class=\"sd\">ほかの予定より先に、カレンダーや手帳に入れる。「予定」として扱う</span></span></li><li><span><b class=\"st\">その時間を守る</b><span class=\"sd\">予定が入りそうになっても、余白の時間はできるだけ動かさない</span></span></li><li><span><b class=\"st\">過ごしたあとを振り返る</b><span class=\"sd\">体や気持ちがどう変わったか、次はどれくらいの余白が欲しいか</span></span></li></ol>"
+    "html": "<ol><li><span><b class=\"st\">サインをチェックする</b><span class=\"sd\">上のサインに、いくつ当てはまるか</span></span></li><li><span><b class=\"st\">入ってくるものを1つ減らす</b><span class=\"sd\">例：頼まれ事を、すぐには受けない／「チャンスだ」と思っても、一度立ち止まる／SNSを見る時間を減らす</span></span></li><li><span><b class=\"st\">余白の時間を書き出す</b><span class=\"sd\">自分のメンテナンス（体のケア・美容・通院など）、休む、1人時間。自分に必要なものを</span></span></li><li><span><b class=\"st\">先にスケジュールに入れる</b><span class=\"sd\">ほかの予定より先に、カレンダーや手帳に入れる。「予定」として扱う</span></span></li><li><span><b class=\"st\">その時間を守る</b><span class=\"sd\">予定が入りそうになっても、余白の時間はできるだけ動かさない</span></span></li><li><span><b class=\"st\">過ごしたあとを振り返る</b><span class=\"sd\">「今日の夕食の味、思い出せる？」「好きな香り、ぱっと思い出せる？」。五感が戻ってきているかを見る</span></span></li></ol>"
+   },
+   {
+    "title": "余白の過ごし方のヒント",
+    "html": "<ul><li><span>休んだつもりで、刺激を入れているだけのこともある。「自分は今、何をしたいんだろう」と問い直してから過ごす</span></li><li><span>まとまった時間がとれなくても大丈夫。昼休みの10分、移動の時間など、小さな余白からで十分</span></li></ul>"
    },
    {
     "title": "次に見る",
     "related": [
      "k-katazuke",
      "k-yamery",
-     "v-chochiku"
+     "k-output"
     ]
    }
   ],
@@ -216,11 +228,11 @@ window.NOTES = {
    },
    {
     "title": "このワークのポイント",
-    "html": "<ul><li><span>“受け取りワーク”は、お金の対価を払って受け取ったもの以外も含まれます</span></li><li><span>『受容のうつわ＝豊かさを受け取れる量』という意味も含まれます</span></li><li><span>日々何かを受け取っているのだとすれば、それはあなたが、自分が豊かになる事を許可してる証拠</span></li><li><span>感度が上がると、受け取れるパイプが増えてくる。「お給料だけが収入」ではなく、「これも収入だ」「これも受け取ってる」と気づけるようになる</span></li></ul>"
+    "html": "<ul><li><span>“受け取り”は、お金の対価を払って受け取ったもの以外も含まれます</span></li><li><span>『受容のうつわ＝豊かさを受け取れる量』という意味も含まれます</span></li><li><span>日々何かを受け取っているのだとすれば、それはあなたが、自分が豊かになる事を許可してる証拠</span></li><li><span>感度が上がると、受け取れるパイプが増えてくる。「お給料だけが収入」ではなく、「これも収入だ」「これも受け取ってる」と気づけるようになる</span></li></ul>"
    },
    {
     "title": "やり方",
-    "html": "<ol><li><span><b class=\"st\">今日受け取ったものを思い出す</b><span class=\"sd\">お金を払って受け取ったものも、そうでないものも</span></span></li><li><span><b class=\"st\">書き出す</b><span class=\"sd\">誰から、何を受け取ったか</span></span></li><li><span><b class=\"st\">Bandにアウトプットする</b><span class=\"sd\">「やったこと記録スレッド」に【受け取りワーク】として</span></span></li></ol><p>意外と、沢山受け取ってることに気がつくかも。</p>"
+    "html": "<ol><li><span><b class=\"st\">今日受け取ったものを思い出す</b><span class=\"sd\">お金を払って受け取ったものも、そうでないものも</span></span></li><li><span><b class=\"st\">書き出す</b><span class=\"sd\">誰から、何を受け取ったか</span></span></li><li><span><b class=\"st\">Bandにアウトプットする</b><span class=\"sd\">「やったこと記録スレッド」に【受け取り】として</span></span></li></ol><p>意外と、沢山受け取ってることに気がつくかも。</p>"
    },
    {
     "title": "受け取ったものの例",

@@ -59,7 +59,7 @@ window.SITE = {
      isNew : 「NEW！」マーク（1期で詳しく紹介していないワーク／2期で追加したワーク）
   ------------------------------------------------- */
   works: [
-    { id: "w-receipt", name: "レシートワーク", v: ["chochiku", "juyou"], rec: true, item: "v-receipt",
+    { id: "w-receipt", name: "レシート", v: ["chochiku", "juyou"], rec: true, item: "v-receipt",
       desc: "レシートを見て、その買い物でどれくらい喜んだか、ほかにどんな感情があったかを割合で書き出す" },
     { id: "w-genjo", name: "収支を見る", v: ["chochiku"], rec: true, item: "v-genjo",
       desc: "いま動かせるお金、これから決まっている支出、1ヶ月の収支を書き出して、自分の現在地を知る" },
@@ -67,17 +67,17 @@ window.SITE = {
       desc: "裏紙の左上に問いを書き、1分で頭に浮かんだ言葉を書き出す。いちばん気になったものを、さらに深掘りする" },
     { id: "w-furikaeri", isNew: true, name: "振り返り", v: ["chochiku", "ryunyu"], rec: false, item: "k-furikaeri",
       desc: "自分や事業への投資に使ったお金に、どんな変化やリターンがあったかを書き出す。次に同じような選択をするときの改善点も書く" },
-    { id: "w-uketori", isNew: true, name: "受け取りワーク", v: ["juyou"], rec: false, item: "k-uketori",
+    { id: "w-uketori", name: "受け取り", v: ["juyou"], rec: false, item: "k-uketori",
       desc: "今日あなたは何を受け取りましたか？ お金を払って受け取ったもの以外も含めて、受け取ったものを書き出す" },
-    { id: "w-skill", isNew: true, name: "スキルシェア", v: ["ryunyu"], rec: false, item: "k-skill",
+    { id: "w-skill", name: "スキルシェア", v: ["ryunyu"], rec: false, item: "k-skill",
       desc: "自分にできること・得意なことを、人の役に立つ形で小さく差し出してみる" },
-    { id: "w-yamery", isNew: true, name: "手放しワーク", v: ["juyou"], rec: false, item: "k-yamery",
+    { id: "w-yamery", isNew: true, name: "手放し", v: ["juyou"], rec: false, item: "k-yamery",
       desc: "義理や我慢でやっていることを書き出して、ひとつずつ小さくやめていく" },
     { id: "w-katazuke", isNew: true, name: "お片付け", v: ["chochiku", "juyou"], rec: false, item: "k-katazuke",
       desc: "引き出し1つから。モノを手放して余白をつくり、これまでの買い物を答え合わせする" },
     { id: "w-hantai", isNew: true, name: "お金の使い方を変える", v: ["juyou", "ryunyu"], rec: false, item: "k-hantai",
       desc: "自分の支出が「他人／自分」「有形／無形」の4つのどこに偏っているかを見て、反対の位置に小さく使ってみる" },
-    { id: "w-bestbuy", isNew: true, name: "BEST BUYワーク", v: ["juyou"], rec: false, item: "k-bestbuy",
+    { id: "w-bestbuy", isNew: true, name: "BEST BUYチャレンジ", v: ["juyou"], rec: false, item: "k-bestbuy",
       desc: "いつものお店で、その売り場で自分がいちばん欲しいものを選ぶ。金額やコスパではなく、心が動くものを" },
     { id: "w-yohaku", isNew: true, name: "余白の設計", v: ["chochiku", "juyou"], rec: false, item: "k-yohaku",
       desc: "自分のメンテナンス、休む、1人時間。そんな予定を先にスケジュールに入れて設計する" },
@@ -95,12 +95,12 @@ window.SITE = {
     { id: "k-output", term: "2期", type: "work", date: "2026-11-16", title: "アウトプット", desc: "感じたこと・思ったことを、誰かに話してみる・伝えてみるワーク。発信もそのひとつ", tags: ["juyou", "ryunyu"], url: "", kw: "アウトプット 発信 SNS 話す 伝える 表現 シェア" },
     { id: "k-yohaku", term: "2期", type: "work", date: "2026-11-16", title: "余白の設計", desc: "メンテナンス・休む・1人時間の予定を、先にスケジュールに入れるワーク", tags: ["chochiku", "juyou"], url: "", kw: "余白 休む 休息 1人時間 ひとり時間 メンテナンス スケジュール 予定" },
     { id: "k-skill", term: "2期", type: "work", date: "2026-11-16", title: "スキルシェア", desc: "できること・得意なことを、人の役に立つ形で差し出すワーク", tags: ["ryunyu"], url: "", kw: "スキルシェア 得意 役に立つ 先に出す 無料 対価以上 流入" },
-    { id: "k-yamery", term: "2期", type: "work", date: "2026-11-16", title: "手放しワーク", desc: "義理や我慢でやっていることを見つけて、ひとつずつやめていくワーク", tags: ["juyou"], url: "", kw: "やりたくないことをやめる やめる 断る 我慢 義理 嫌なこと 手放す" },
+    { id: "k-yamery", term: "2期", type: "work", date: "2026-11-16", title: "手放し", desc: "義理や我慢でやっていることを見つけて、ひとつずつやめていくワーク", tags: ["juyou"], url: "", kw: "手放しワーク やりたくないことをやめる やめる 断る 我慢 義理 嫌なこと 手放す" },
     { id: "k-katazuke", term: "2期", type: "work", date: "2026-11-16", title: "お片付け", desc: "モノを手放して部屋に余白をつくり、買い物の答え合わせをするワーク", tags: ["chochiku", "juyou"], url: "", kw: "片付け 断捨離 捨てる 売る 手放す 不用品 余白" },
-    { id: "k-uketori", term: "2期", type: "work", date: "2026-11-16", title: "受け取りワーク", desc: "お金の対価を払ったもの以外も含めて、今日受け取ったものを書き出すワーク", tags: ["juyou"], url: "", kw: "わたし、これ受け取りました 受け取り ありがとう 差し入れ 労い 豊かさ 許可" },
+    { id: "k-uketori", term: "2期", type: "work", date: "2026-11-16", title: "受け取り", desc: "お金の対価を払ったもの以外も含めて、今日受け取ったものを書き出すワーク", tags: ["juyou"], url: "", kw: "受け取りワーク わたし、これ受け取りました 受け取り ありがとう 差し入れ 労い 豊かさ 許可" },
     { id: "k-zero", term: "2期", type: "work", date: "2026-11-16", title: "ゼロ秒思考", desc: "頭の中にあることを、1分で紙に書き出すワーク", tags: ["chochiku", "juyou"], url: "", kw: "0秒思考 書き出す 不安 モヤモヤ 赤羽雄二" },
     { id: "k-furikaeri", term: "2期", type: "work", date: "2026-11-16", title: "振り返り", desc: "自分や事業への投資が、どんな変化やリターンにつながったかを書き出すワーク", tags: ["chochiku", "ryunyu"], url: "", kw: "振り返り（答え合わせ） 自己投資 事業投資 リターン 臨時収入 答え合わせ 講座 寝具 ロボット掃除機 旅行 体験" },
-    { id: "k-bestbuy", term: "2期", type: "work", date: "2026-11-16", title: "BEST BUYワーク", desc: "いつものお店で、その売り場で自分がいちばん欲しいものを選ぶワーク", tags: ["juyou"], url: "", kw: "ベストバイ 一番欲しいもの スーパー ドラッグストア 外食 洋服 コスメ ときめく 喜び" },
+    { id: "k-bestbuy", term: "2期", type: "work", date: "2026-11-16", title: "BEST BUYチャレンジ", desc: "いつものお店で、その売り場で自分がいちばん欲しいものを選ぶワーク", tags: ["juyou"], url: "", kw: "BEST BUYワーク ベストバイ 一番欲しいもの スーパー ドラッグストア 外食 洋服 コスメ ときめく 喜び" },
     { id: "k-hantai", term: "2期", type: "work", date: "2026-11-16", title: "お金の使い方を変える", desc: "「他人／自分」「有形／無形」の偏りを見て、反対の位置に小さく使ってみるワーク", tags: ["juyou", "ryunyu"], url: "", kw: "いつもと反対の位置にお金を使う 4象限 有形 無形 他人 自分 入れ替え" },
 
     /* --- 2期 --- */
@@ -121,7 +121,7 @@ window.SITE = {
 
     /* --- 貯蓄 --- */
     { id: "v-chochiku", term: "1期", type: "video", date: "2026-07-31", title: "貯蓄のうつわ：解説", desc: "現状把握と、スペースを空けておくこと", tags: ["chochiku"], url: "https://youtu.be/_p0pVCALKqY", kw: "現状把握 余白" },
-    { id: "v-receipt", term: "1期", type: "video", date: "2026-07-31", title: "レシートワーク", desc: "レシートワークのやり方", tags: ["chochiku", "juyou"], url: "https://youtu.be/pA4rIJy9nnM", kw: "貯蓄：ワーク① 収支を見る｜レシートワーク レシート 感情 記録" },
+    { id: "v-receipt", term: "1期", type: "video", date: "2026-07-31", title: "レシート", desc: "レシートを見て、買い物の裏にあった感情を答え合わせする", tags: ["chochiku", "juyou"], url: "https://youtu.be/pA4rIJy9nnM", kw: "貯蓄：ワーク① 収支を見る｜レシートワーク レシート 感情 記録" },
     { id: "v-genjo", term: "1期", type: "video", date: "2026-07-31", title: "収支を見る", desc: "今のお金の流れを把握する", tags: ["chochiku"], url: "https://youtu.be/kh_FD8tetvY", kw: "貯蓄：ワーク② 収支を見る｜現状把握 現状把握 固定費 収支表 ミニマムライフコスト" },
     { id: "ar-0824", term: "1期", type: "archive", date: "2026-08-24", title: "8/24 作業会 アーカイブ", desc: "みんなでレシートワークをした作業会", tags: ["chochiku"], url: "", kw: "レシート 作業会" },
     { id: "a-0824", term: "1期", type: "article", date: "2026-08-24", title: "8/24 作業会レポート", desc: "3つのうつわの全体像、レシートワークの実務Q&A、「頑張るのをやめる」と入ってくる理由", tags: ["chochiku", "kiso"], url: "https://playfulsugahara.github.io/playful-report/20260824/", kw: "レシート Q&A 頑張るのをやめる" },
