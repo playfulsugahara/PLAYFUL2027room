@@ -110,8 +110,8 @@ window.SITE = {
 
     /* --- 貯蓄 --- */
     { id: "v-chochiku", term: "1期", type: "video", date: "2026-07-31", title: "貯蓄のうつわ：解説", desc: "現状把握と、スペースを空けておくこと", tags: ["chochiku"], url: "https://youtu.be/_p0pVCALKqY", kw: "現状把握 余白" },
-    { id: "v-receipt", term: "1期", type: "video", date: "2026-07-31", title: "貯蓄：ワーク① 収支を見る｜レシートワーク", desc: "レシートワークのやり方", tags: ["chochiku", "juyou"], url: "https://youtu.be/pA4rIJy9nnM", kw: "レシート 感情 記録" },
-    { id: "v-genjo", term: "1期", type: "video", date: "2026-07-31", title: "貯蓄：ワーク② 収支を見る｜現状把握", desc: "今のお金の流れを把握する", tags: ["chochiku"], url: "https://youtu.be/kh_FD8tetvY", kw: "現状把握 固定費" },
+    { id: "v-receipt", term: "1期", type: "video", date: "2026-07-31", title: "レシートワーク", desc: "レシートワークのやり方", tags: ["chochiku", "juyou"], url: "https://youtu.be/pA4rIJy9nnM", kw: "貯蓄：ワーク① 収支を見る｜レシートワーク レシート 感情 記録" },
+    { id: "v-genjo", term: "1期", type: "video", date: "2026-07-31", title: "収支を見る", desc: "今のお金の流れを把握する", tags: ["chochiku"], url: "https://youtu.be/kh_FD8tetvY", kw: "貯蓄：ワーク② 収支を見る｜現状把握 現状把握 固定費 収支表 ミニマムライフコスト" },
     { id: "ar-0824", term: "1期", type: "archive", date: "2026-08-24", title: "8/24 作業会 アーカイブ", desc: "みんなでレシートワークをした作業会", tags: ["chochiku"], url: "", kw: "レシート 作業会" },
     { id: "a-0824", term: "1期", type: "article", date: "2026-08-24", title: "8/24 作業会レポート", desc: "3つのうつわの全体像、レシートワークの実務Q&A、「頑張るのをやめる」と入ってくる理由", tags: ["chochiku", "kiso"], url: "https://playfulsugahara.github.io/playful-report/20260824/", kw: "レシート Q&A 頑張るのをやめる" },
 
