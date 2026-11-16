@@ -75,13 +75,14 @@ window.SITE = {
       desc: "義理や我慢でやっていることを書き出して、ひとつずつ小さくやめていく" },
     { id: "w-katazuke", isNew: true, name: "お片付け", v: ["chochiku", "juyou"], rec: false, item: "k-katazuke",
       desc: "引き出し1つから。モノを手放して余白をつくり、これまでの買い物を答え合わせする" },
-    { id: "w-yohaku", isNew: true, hidden: true, name: "余白の設計", v: ["chochiku", "juyou"], rec: false, item: "", desc: "" },
     { id: "w-hantai", isNew: true, name: "お金の使い方を変える", v: ["juyou", "ryunyu"], rec: false, item: "k-hantai",
       desc: "自分の支出が「他人／自分」「有形／無形」の4つのどこに偏っているかを見て、反対の位置に小さく使ってみる" },
     { id: "w-bestbuy", isNew: true, name: "BEST BUYワーク", v: ["juyou"], rec: false, item: "k-bestbuy",
       desc: "いつものお店で、その売り場で自分がいちばん欲しいものを選ぶ。金額やコスパではなく、心が動くものを" },
-    { id: "w-output", isNew: true, hidden: true, name: "アウトプット", v: ["ryunyu"], rec: false, item: "", desc: "" },
-    { id: "w-hasshin", isNew: true, hidden: true, name: "発信", v: ["ryunyu"], rec: false, item: "", desc: "" }
+    { id: "w-yohaku", isNew: true, name: "余白の設計", v: ["chochiku", "juyou"], rec: false, item: "k-yohaku",
+      desc: "自分のメンテナンス、休む、1人時間。そんな予定を先にスケジュールに入れて設計する" },
+    { id: "w-output", isNew: true, name: "アウトプット", v: ["juyou", "ryunyu"], rec: false, item: "k-output",
+      desc: "感じたこと、思ったこと、今考えていることを、誰かに話してみる・伝えてみる。発信もそのひとつ" },
   ],
 
   /* ---------- ライブラリ ----------
@@ -91,6 +92,8 @@ window.SITE = {
   ------------------------------------------------- */
   items: [
     /* --- ワーク（動画なし・要点ページだけ。type: "work"） --- */
+    { id: "k-output", term: "2期", type: "work", date: "2026-11-16", title: "アウトプット", desc: "感じたこと・思ったことを、誰かに話してみる・伝えてみるワーク。発信もそのひとつ", tags: ["juyou", "ryunyu"], url: "", kw: "アウトプット 発信 SNS 話す 伝える 表現 シェア" },
+    { id: "k-yohaku", term: "2期", type: "work", date: "2026-11-16", title: "余白の設計", desc: "メンテナンス・休む・1人時間の予定を、先にスケジュールに入れるワーク", tags: ["chochiku", "juyou"], url: "", kw: "余白 休む 休息 1人時間 ひとり時間 メンテナンス スケジュール 予定" },
     { id: "k-skill", term: "2期", type: "work", date: "2026-11-16", title: "スキルシェア", desc: "できること・得意なことを、人の役に立つ形で差し出すワーク", tags: ["ryunyu"], url: "", kw: "スキルシェア 得意 役に立つ 先に出す 無料 対価以上 流入" },
     { id: "k-yamery", term: "2期", type: "work", date: "2026-11-16", title: "手放しワーク", desc: "義理や我慢でやっていることを見つけて、ひとつずつやめていくワーク", tags: ["juyou"], url: "", kw: "やりたくないことをやめる やめる 断る 我慢 義理 嫌なこと 手放す" },
     { id: "k-katazuke", term: "2期", type: "work", date: "2026-11-16", title: "お片付け", desc: "モノを手放して部屋に余白をつくり、買い物の答え合わせをするワーク", tags: ["chochiku", "juyou"], url: "", kw: "片付け 断捨離 捨てる 売る 手放す 不用品 余白" },
