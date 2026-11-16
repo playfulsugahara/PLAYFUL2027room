@@ -69,14 +69,17 @@ window.SITE = {
       desc: "自分や事業への投資に使ったお金に、どんな変化やリターンがあったかを書き出す。次に同じような選択をするときの改善点も書く" },
     { id: "w-uketori", isNew: true, name: "受け取りワーク", v: ["juyou"], rec: false, item: "k-uketori",
       desc: "今日あなたは何を受け取りましたか？ お金を払って受け取ったもの以外も含めて、受け取ったものを書き出す" },
+    { id: "w-skill", isNew: true, name: "スキルシェア", v: ["ryunyu"], rec: false, item: "k-skill",
+      desc: "自分にできること・得意なことを、人の役に立つ形で小さく差し出してみる" },
+    { id: "w-yamery", isNew: true, name: "手放しワーク", v: ["juyou"], rec: false, item: "k-yamery",
+      desc: "義理や我慢でやっていることを書き出して、ひとつずつ小さくやめていく" },
+    { id: "w-katazuke", isNew: true, name: "お片付け", v: ["chochiku", "juyou"], rec: false, item: "k-katazuke",
+      desc: "引き出し1つから。モノを手放して余白をつくり、これまでの買い物を答え合わせする" },
     { id: "w-yohaku", isNew: true, hidden: true, name: "余白の設計", v: ["chochiku", "juyou"], rec: false, item: "", desc: "" },
-    { id: "w-katazuke", isNew: true, hidden: true, name: "お片付け", v: ["chochiku"], rec: false, item: "", desc: "" },
     { id: "w-hantai", isNew: true, name: "お金の使い方を変える", v: ["juyou", "ryunyu"], rec: false, item: "k-hantai",
       desc: "自分の支出が「他人／自分」「有形／無形」の4つのどこに偏っているかを見て、反対の位置に小さく使ってみる" },
     { id: "w-bestbuy", isNew: true, name: "BEST BUYワーク", v: ["juyou"], rec: false, item: "k-bestbuy",
       desc: "いつものお店で、その売り場で自分がいちばん欲しいものを選ぶ。金額やコスパではなく、心が動くものを" },
-    { id: "w-yamery", isNew: true, hidden: true, name: "やりたくないことをやめる", v: ["juyou"], rec: false, item: "", desc: "" },
-    { id: "w-skill", isNew: true, hidden: true, name: "スキルシェア", v: ["ryunyu"], rec: false, item: "", desc: "" },
     { id: "w-output", isNew: true, hidden: true, name: "アウトプット", v: ["ryunyu"], rec: false, item: "", desc: "" },
     { id: "w-hasshin", isNew: true, hidden: true, name: "発信", v: ["ryunyu"], rec: false, item: "", desc: "" }
   ],
@@ -88,6 +91,9 @@ window.SITE = {
   ------------------------------------------------- */
   items: [
     /* --- ワーク（動画なし・要点ページだけ。type: "work"） --- */
+    { id: "k-skill", term: "2期", type: "work", date: "2026-11-16", title: "スキルシェア", desc: "できること・得意なことを、人の役に立つ形で差し出すワーク", tags: ["ryunyu"], url: "", kw: "スキルシェア 得意 役に立つ 先に出す 無料 対価以上 流入" },
+    { id: "k-yamery", term: "2期", type: "work", date: "2026-11-16", title: "手放しワーク", desc: "義理や我慢でやっていることを見つけて、ひとつずつやめていくワーク", tags: ["juyou"], url: "", kw: "やりたくないことをやめる やめる 断る 我慢 義理 嫌なこと 手放す" },
+    { id: "k-katazuke", term: "2期", type: "work", date: "2026-11-16", title: "お片付け", desc: "モノを手放して部屋に余白をつくり、買い物の答え合わせをするワーク", tags: ["chochiku", "juyou"], url: "", kw: "片付け 断捨離 捨てる 売る 手放す 不用品 余白" },
     { id: "k-uketori", term: "2期", type: "work", date: "2026-11-16", title: "受け取りワーク", desc: "お金の対価を払ったもの以外も含めて、今日受け取ったものを書き出すワーク", tags: ["juyou"], url: "", kw: "わたし、これ受け取りました 受け取り ありがとう 差し入れ 労い 豊かさ 許可" },
     { id: "k-zero", term: "2期", type: "work", date: "2026-11-16", title: "ゼロ秒思考", desc: "頭の中にあることを、1分で紙に書き出すワーク", tags: ["chochiku", "juyou"], url: "", kw: "0秒思考 書き出す 不安 モヤモヤ 赤羽雄二" },
     { id: "k-furikaeri", term: "2期", type: "work", date: "2026-11-16", title: "振り返り", desc: "自分や事業への投資が、どんな変化やリターンにつながったかを書き出すワーク", tags: ["chochiku", "ryunyu"], url: "", kw: "振り返り（答え合わせ） 自己投資 事業投資 リターン 臨時収入 答え合わせ 講座 寝具 ロボット掃除機 旅行 体験" },
