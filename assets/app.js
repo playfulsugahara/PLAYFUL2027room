@@ -45,11 +45,11 @@
   /* ---------------- ホーム ---------------- */
   function home() {
     if (latestQ) {
-      $("#odai").innerHTML = `<div class="card lime"><span class="flag">今週のお題</span>
+      $("#odai").innerHTML = `<div class="card lime"><span class="flag">今週の問い</span>
         <span class="num">Q${latestQ.n}｜${md(latestQ.date)}（${latestQ.dow}）配信</span>
         <p class="odai-q">${esc(latestQ.q)}</p>
         <p class="muted">${latestQ.due ? `${latestQ.due}までに、ノートや手帳に書いてみましょう。` : ""}</p>
-        <div class="row"><a class="btn" href="odai.html">お題を見る →</a></div></div>`;
+        <div class="row"><a class="btn" href="odai.html">問いを見る →</a></div></div>`;
     }
     if (nextSession) {
       $("#next").innerHTML = `<div class="card blue"><span class="num">NEXT ZOOM｜第${nextSession.n}回</span>
@@ -74,7 +74,7 @@
         label = `Zoom ${c.s.n}｜${c.s.title}：${c.s.theme}`;
         if (released(c.date)) link = `zoom.html?n=${c.s.n}`;
       } else {
-        label = released(c.date) && c.q.q ? `お題 Q${c.q.n}｜${c.q.q}` : `お題 Q${c.q.n}｜（${md(c.date)}に届きます）`;
+        label = released(c.date) && c.q.q ? `問い Q${c.q.n}｜${c.q.q}` : `問い Q${c.q.n}｜（${md(c.date)}に届きます）`;
         if (released(c.date) && c.q.q) link = `odai.html#q${c.q.n}`;
       }
       const tt = link ? `<a class="tt" href="${link}">${esc(label)} →</a>` : `<span class="tt">${esc(label)}</span>`;
@@ -160,14 +160,14 @@
     if (m) setTimeout(() => $("#slidesSec").scrollIntoView(), 50);
   }
 
-  /* ---------------- お題 ---------------- */
+  /* ---------------- 問い ---------------- */
   function odai() {
     const open = [...qOpen].reverse();
     const locked = S.questions.filter((q) => !released(q.date) || !q.q);
     const how = (q) => `<div class="how"><b>答え方</b><br>${q.due ? `${q.due}までに、` : ""}ノートや手帳に書いてみましょう。アウトプットできる人は、Bandの投稿のコメント欄へ。新しく思いついたら、どんどん書き足してOK。${q.band ? `<div class="row"><a class="btn blue" href="${esc(q.band)}" target="_blank" rel="noopener">Bandの投稿を開く →</a></div>` : ""}</div>`;
     $("#list").innerHTML =
       open.map((q, i) => `<article class="odai ${i === 0 ? "latest" : ""}" id="q${q.n}">
-        ${i === 0 ? `<span class="flag">今週のお題</span>` : ""}
+        ${i === 0 ? `<span class="flag">今週の問い</span>` : ""}
         <span class="qn">Q${q.n}</span><span class="d">${md(q.date)}（${q.dow}）</span>
         <p class="odai-q">${esc(q.q)}</p>
         <div class="body">${(q.body || []).map((b) => `<p>${esc(b)}</p>`).join("")}</div>
