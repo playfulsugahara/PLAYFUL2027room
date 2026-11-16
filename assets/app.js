@@ -257,7 +257,8 @@
       document.querySelectorAll('a[href="work.html"]').forEach((a) => a.setAttribute("aria-current", "page"));
     }
     const tags = it.tags.map((t) => `<a class="badge" href="library.html?tab=${t}">${TAGS[t]}</a>`).join("");
-    $("#head").innerHTML = `<p class="no">${TYPES[it.type].toUpperCase()} ｜ ${it.term}</p><h1>${esc(it.title)}</h1><p class="theme">${esc(it.desc)}</p><p class="meta" style="margin-top:10px;display:flex;gap:4px;flex-wrap:wrap">${tags}</p>`;
+    const wk = S.works.find((w) => w.item === it.id);
+    $("#head").innerHTML = `<p class="no">${TYPES[it.type].toUpperCase()} ｜ ${it.term}${wk && wk.time ? ` ｜ ⏱ 目安 ${esc(wk.time)}` : ""}</p><h1>${esc(it.title)}</h1><p class="theme">${esc(it.desc)}</p><p class="meta" style="margin-top:10px;display:flex;gap:4px;flex-wrap:wrap">${tags}</p>`;
 
     const id = ytId(it.url);
     $("#video").outerHTML = id
@@ -288,11 +289,15 @@
   const VCOL = { chochiku: "貯蓄", juyou: "受容", ryunyu: "流入" };
   function work() {
     let f = params.get("v") || "all";
+    let tf = params.get("t") || "all";
+    const TCAT = [["all", "すべて"], ["5", "5分でできる"], ["15", "15分くらい"], ["30", "30分〜"]];
+    $("#tf").innerHTML = `<span class="tf-l">⏱ 時間</span>` + TCAT.map(([k, v]) => `<button type="button" data-k="${k}">${v}</button>`).join("");
     $("#vf").innerHTML = [["all", "すべて"], ...Object.entries(VCOL)]
       .map(([k, v]) => `<button type="button" data-k="${k}" class="${k}">${k === "all" ? v : `<span class="dot ${k}"></span>${v}`}</button>`).join("");
     function render() {
       document.querySelectorAll("#vf button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.k === f));
-      const list = S.works.filter((w) => !w.hidden && (f === "all" || w.v.includes(f)))
+      document.querySelectorAll("#tf button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.k === tf));
+      const list = S.works.filter((w) => !w.hidden && (f === "all" || w.v.includes(f)) && (tf === "all" || String(w.tc) === tf))
         .sort((a, b) => (b.rec - a.rec));
       $("#works").innerHTML = list.map((w) => {
         const it = w.item && S.items.find((x) => x.id === w.item);
@@ -303,13 +308,17 @@
           ${w.rec ? `<span class="flag">おすすめ</span>` : ""}
           <div class="vms">${dots}${both}</div>
           <h3>${esc(w.name)}${w.isNew ? `<span class="new">NEW！</span>` : ""}</h3>
+          ${w.time ? `<p class="wtime">⏱ ${esc(w.time)}</p>` : ""}
           <p class="${w.desc ? "" : "muted"}">${w.desc ? esc(w.desc) : "説明は準備中です。"}</p>
           ${ok ? `<a class="btn" href="item.html?id=${encodeURIComponent(it.id)}">やり方を見る →</a>` : `<span class="badge wait">やり方は準備中</span>`}
         </li>`;
       }).join("");
-      const u = new URL(location.href); f === "all" ? u.searchParams.delete("v") : u.searchParams.set("v", f); history.replaceState(null, "", u);
+      if (!list.length) $("#works").innerHTML = `<li class="muted" style="list-style:none">この組み合わせのワークはありません。</li>`;
+      const u = new URL(location.href); f === "all" ? u.searchParams.delete("v") : u.searchParams.set("v", f);
+      tf === "all" ? u.searchParams.delete("t") : u.searchParams.set("t", tf); history.replaceState(null, "", u);
     }
     $("#vf").onclick = (e) => { const b = e.target.closest("button"); if (b) { f = b.dataset.k; render(); } };
+    $("#tf").onclick = (e) => { const b = e.target.closest("button"); if (b) { tf = b.dataset.k; render(); } };
     render();
   }
 

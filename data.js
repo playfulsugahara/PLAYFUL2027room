@@ -56,32 +56,33 @@ window.SITE = {
      rec : おすすめ ／ item : 詳細ページ（items の id）。空なら「準備中」
      desc : ひとこと。空なら「説明は準備中」
      hidden : 詳細ページができるまで一覧に出さない（できたら消す）
+     time : 所要時間の目安（カードと詳細ページに出す）／ tc : 時間のタブ（5＝5分でできる／15＝15分くらい／30＝30分〜）
      isNew : 「NEW！」マーク（1期で詳しく紹介していないワーク／2期で追加したワーク）
   ------------------------------------------------- */
   works: [
-    { id: "w-receipt", name: "レシート", v: ["chochiku", "juyou"], rec: true, item: "v-receipt",
+    { id: "w-receipt", time: "5〜10分", tc: 5, name: "レシート", v: ["chochiku", "juyou"], rec: true, item: "v-receipt",
       desc: "レシートを見て、その買い物でどれくらい喜んだか、ほかにどんな感情があったかを割合で書き出す" },
-    { id: "w-genjo", name: "収支を見る", v: ["chochiku"], rec: true, item: "v-genjo",
+    { id: "w-genjo", time: "10〜30分", tc: 30, name: "収支を見る", v: ["chochiku"], rec: true, item: "v-genjo",
       desc: "いま動かせるお金、これから決まっている支出、1ヶ月の収支を書き出して、自分の現在地を知る" },
-    { id: "w-zero", isNew: true, name: "ゼロ秒思考", v: ["chochiku", "juyou"], rec: true, item: "k-zero",
+    { id: "w-zero", time: "3〜5分", tc: 5, isNew: true, name: "ゼロ秒思考", v: ["chochiku", "juyou"], rec: true, item: "k-zero",
       desc: "裏紙の左上に問いを書き、1分で頭に浮かんだ言葉を書き出す。いちばん気になったものを、さらに深掘りする" },
-    { id: "w-furikaeri", isNew: true, name: "振り返り", v: ["chochiku", "ryunyu"], rec: false, item: "k-furikaeri",
+    { id: "w-furikaeri", time: "15〜20分", tc: 15, isNew: true, name: "振り返り", v: ["chochiku", "ryunyu"], rec: false, item: "k-furikaeri",
       desc: "自分や事業への投資に使ったお金に、どんな変化やリターンがあったかを書き出す。次に同じような選択をするときの改善点も書く" },
-    { id: "w-uketori", name: "受け取り", v: ["juyou"], rec: false, item: "k-uketori",
+    { id: "w-uketori", time: "3〜5分", tc: 5, name: "受け取り", v: ["juyou"], rec: false, item: "k-uketori",
       desc: "今日あなたは何を受け取りましたか？ お金を払って受け取ったもの以外も含めて、受け取ったものを書き出す" },
-    { id: "w-skill", name: "スキルシェア", v: ["ryunyu"], rec: false, item: "k-skill",
+    { id: "w-skill", time: "30分〜", tc: 30, name: "スキルシェア", v: ["ryunyu"], rec: false, item: "k-skill",
       desc: "自分にできること・得意なことを、人の役に立つ形で小さく差し出してみる" },
-    { id: "w-yamery", isNew: true, name: "手放し", v: ["juyou"], rec: false, item: "k-yamery",
+    { id: "w-yamery", time: "10〜15分", tc: 15, isNew: true, name: "手放し", v: ["juyou"], rec: false, item: "k-yamery",
       desc: "義理や我慢でやっていることを書き出して、ひとつずつ小さくやめていく" },
-    { id: "w-katazuke", isNew: true, name: "お片付け", v: ["chochiku", "juyou"], rec: false, item: "k-katazuke",
+    { id: "w-katazuke", time: "15〜30分", tc: 30, isNew: true, name: "お片付け", v: ["chochiku", "juyou"], rec: false, item: "k-katazuke",
       desc: "引き出し1つから。モノを手放して余白をつくり、これまでの買い物を答え合わせする" },
-    { id: "w-hantai", isNew: true, name: "お金の使い方を変える", v: ["juyou", "ryunyu"], rec: false, item: "k-hantai",
+    { id: "w-hantai", time: "10〜20分", tc: 15, isNew: true, name: "お金の使い方を変える", v: ["juyou", "ryunyu"], rec: false, item: "k-hantai",
       desc: "自分の支出が「他人／自分」「有形／無形」の4つのどこに偏っているかを見て、反対の位置に小さく使ってみる" },
-    { id: "w-bestbuy", isNew: true, name: "BEST BUYチャレンジ", v: ["juyou"], rec: false, item: "k-bestbuy",
+    { id: "w-bestbuy", time: "5分（買い物のついでに）", tc: 5, isNew: true, name: "BEST BUYチャレンジ", v: ["juyou"], rec: false, item: "k-bestbuy",
       desc: "いつものお店で、その売り場で自分がいちばん欲しいものを選ぶ。金額やコスパではなく、心が動くものを" },
-    { id: "w-yohaku", isNew: true, name: "余白の設計", v: ["chochiku", "juyou"], rec: false, item: "k-yohaku",
+    { id: "w-yohaku", time: "10〜15分", tc: 15, isNew: true, name: "余白の設計", v: ["chochiku", "juyou"], rec: false, item: "k-yohaku",
       desc: "自分のメンテナンス、休む、1人時間。そんな予定を先にスケジュールに入れて設計する" },
-    { id: "w-output", isNew: true, name: "アウトプット", v: ["juyou", "ryunyu"], rec: false, item: "k-output",
+    { id: "w-output", time: "5〜15分", tc: 15, isNew: true, name: "アウトプット", v: ["juyou", "ryunyu"], rec: false, item: "k-output",
       desc: "感じたこと、思ったこと、今考えていることを、誰かに話してみる・伝えてみる。発信もそのひとつ" },
   ],
 

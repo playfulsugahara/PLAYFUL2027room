@@ -250,3 +250,10 @@ footer img{width:120px;margin:0 auto 6px;filter:brightness(0) invert(1);opacity:
 /* すごろく：新しい盤面は枠なし・最大幅（スマホでは画面の端まで） */
 .board.full{border:0;border-radius:0;overflow:visible;background:transparent}
 @media (max-width:719px){.board.full{margin-left:-20px;margin-right:-20px}}
+
+/* ワーク：所要時間 */
+#tf{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:10px}
+#tf .tf-l{font-family:var(--f-display);font-weight:700;font-size:14px;margin-right:2px}
+#tf button{font:inherit;font-family:var(--f-display);font-weight:700;font-size:13px;border:1.5px solid var(--ink);background:#fff;color:var(--ink);border-radius:999px;padding:2px 12px;cursor:pointer}
+#tf button[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:var(--paper)}
+.wk .wtime{flex:0;font-family:var(--f-display);font-weight:700;font-size:13px;color:var(--muted);margin-top:-4px}
