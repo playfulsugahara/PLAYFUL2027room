@@ -21,16 +21,23 @@
     return m ? m[1] : "";
   }
 
+  /* YouTube の動画は、いきなり再生せず詳細ページ（item.html）へ */
+  function detailHref(it) {
+    if (it.url && ytId(it.url) && ["video", "radio", "archive"].includes(it.type)) return `item.html?id=${encodeURIComponent(it.id)}`;
+    return it.url;
+  }
+
   function itemHTML(it) {
     const tags = (it.tags || []).map((t) => `<span class="badge">${TAGS[t]}</span>`).join("");
     const term = `<span class="badge ${it.term === "2期" ? "t2" : ""}">${it.term}</span>`;
     const wait = it.url ? "" : `<span class="badge wait">準備中</span>`;
-    const ext = /^https?:/.test(it.url) ? ' target="_blank" rel="noopener"' : "";
+    const href = detailHref(it);
+    const ext = /^https?:/.test(href) ? ' target="_blank" rel="noopener"' : "";
     const inner = `<span class="ic" aria-hidden="true">${ICON[it.type]}</span>
       <span><span class="tt">${esc(it.title)}</span><span class="ds">${esc(it.desc)}</span>
       <span class="meta"><span class="badge">${TYPES[it.type]}</span>${term}${tags}${wait}</span></span>`;
     return it.url
-      ? `<li><a class="item t-${it.type}" href="${esc(it.url)}"${ext}>${inner}</a></li>`
+      ? `<li><a class="item t-${it.type}" href="${esc(href)}"${ext}>${inner}</a></li>`
       : `<li><div class="item t-${it.type} off" aria-disabled="true">${inner}</div></li>`;
   }
 
@@ -214,6 +221,39 @@
     render();
   }
 
+
+  /* ---------------- 詳細ページ ---------------- */
+  function item() {
+    const it = S.items.find((x) => x.id === params.get("id"));
+    if (!it) { $("#head").innerHTML = `<h1>見つかりませんでした</h1><p class="theme"><a href="library.html">ライブラリにもどる</a></p>`; $("#detail").hidden = true; return; }
+    const N = (window.NOTES || {})[it.id];
+    document.title = `${it.title}｜2027年作戦会議`;
+    const tags = it.tags.map((t) => `<a class="badge" href="library.html?tab=${t}">${TAGS[t]}</a>`).join("");
+    $("#head").innerHTML = `<p class="no">${TYPES[it.type].toUpperCase()} ｜ ${it.term}</p><h1>${esc(it.title)}</h1><p class="theme">${esc(it.desc)}</p><p class="meta" style="margin-top:10px;display:flex;gap:4px;flex-wrap:wrap">${tags}</p>`;
+
+    const id = ytId(it.url);
+    $("#video").outerHTML = id
+      ? `<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/${id}?rel=0" title="${esc(it.title)}" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div><p class="row"><a class="btn ghost" href="${esc(it.url)}" target="_blank" rel="noopener">YouTubeで開く ↗</a></p>`
+      : `<div class="video wait"><p>動画は準備中です。</p></div>`;
+
+    let html = "", relIds = [];
+    if (N) {
+      N.sections.forEach((sec, i) => {
+        if (sec.related) { relIds = sec.related; return; }
+        html += `<section class="note"><h2 class="${i % 2 ? "shadowed" : "shadowed b"}">${esc(sec.title)}</h2><div class="note-body">${sec.html}</div></section>`;
+        if (i === 1 && N.image) html += `<figure class="note-fig"><img src="${N.image}" alt="${esc(N.image_alt)}" loading="lazy"></figure>`;
+      });
+    } else {
+      html = `<p class="muted note-wait">この動画のポイントは準備中です。</p>`;
+    }
+    $("#notes").innerHTML = html;
+
+    /* 次に見る：原稿で指定がなければ、同じうつわのものを自動で4件 */
+    let rel = relIds.map((r) => S.items.find((x) => x.id === r)).filter(Boolean);
+    if (!rel.length) rel = S.items.filter((x) => x.id !== it.id && x.url && x.tags.some((t) => it.tags.includes(t))).slice(0, 4);
+    if (rel.length) $("#related").innerHTML = rel.map(itemHTML).join(""); else $("#relSec").hidden = true;
+  }
+
   const page = document.body.dataset.page;
-  ({ home, zoom, odai, library }[page] || (() => {}))();
+  ({ home, zoom, odai, library, item }[page] || (() => {}))();
 })();

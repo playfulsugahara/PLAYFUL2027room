@@ -180,3 +180,19 @@ a.item:hover{transform:translate(-1px,-1px);box-shadow:3px 3px 0 var(--ink)}
 
 footer{background:var(--ink);color:var(--shadow);text-align:center;font-size:12px;padding-block:24px;letter-spacing:.1em;margin-top:24px}
 footer img{width:120px;margin:0 auto 6px;filter:brightness(0) invert(1);opacity:.9}
+
+/* ===== 詳細ページ（動画の要点） ===== */
+.note{padding-block:28px 0}
+.note h2{margin-bottom:12px}
+.note-body{display:grid;gap:10px}
+.note-body ul,.note-body ol{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.note-body ul li{background:#fff;border:1.5px solid var(--shadow);border-radius:10px;padding:12px 16px 12px 36px;position:relative;line-height:1.85}
+.note-body ul li::before{content:"";position:absolute;left:16px;top:1.25em;width:8px;height:8px;border-radius:50%;background:var(--red)}
+.note-body ol{counter-reset:st}
+.note-body ol li{counter-increment:st;display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;background:#fff;border:2px solid var(--ink);border-radius:12px;padding:12px 16px;line-height:1.85}
+.note-body ol li::before{content:counter(st);width:36px;height:36px;border-radius:50%;background:var(--blue);color:var(--paper);display:grid;place-items:center;font-family:var(--f-display);font-weight:700;font-size:17px;margin-top:2px}
+.note-body p{line-height:1.9}
+.note-fig{margin:24px 0 0;border:2px solid var(--ink);border-radius:12px;overflow:hidden;background:#fff}
+.note-wait{margin-top:24px}
+.note-body ol li .st{display:block;font-family:var(--f-display);font-weight:700;font-size:17px;line-height:1.6}
+.note-body ol li .sd{display:block;margin-top:2px}
