@@ -115,10 +115,10 @@ window.SITE = {
 
     /* --- 基礎 --- */
     { id: "a-utsuwa", term: "1期", type: "article", date: "2026-09-06", title: "お金の3つのうつわ", desc: "貯蓄・受容・流入。3つのうつわの定義と育て方を一本にまとめた記事", tags: ["kiso", "chochiku", "juyou", "ryunyu"], url: "https://playfulsugahara.github.io/playful-report/utsuwa/", kw: "4ステップ チェックリスト 定義" },
-    { id: "v-utsuwa", term: "1期", type: "video", date: "2026-07-31", title: "『お金の3つのうつわ』解説", desc: "まずはここから。3つのうつわの全体像", tags: ["kiso"], url: "", kw: "全体像 はじめて" },
+    { id: "v-utsuwa", term: "1期", type: "video", date: "2026-07-31", title: "『お金の3つのうつわ』解説", desc: "まずはここから。3つのうつわの全体像", tags: ["kiso"], url: "https://youtu.be/FQRkQGbK2uU", kw: "全体像 はじめて" },
     { id: "r-shiru", term: "1期", type: "radio", date: "2026-08-02", title: "【重要】知る→やる→できる→わかる の仕組み", desc: "知っているのに、できない。脳の仕組みから", tags: ["kiso", "shukan"], url: "", kw: "脳 続かない 知るをできるに変える" },
     { id: "r-muishiki", term: "1期", type: "radio", date: "2026-07-28", title: "お金を遠ざける無意識の正体", desc: "気づかないうちに、お金を遠ざけているもの", tags: ["kiso", "juyou"], url: "", kw: "無意識 ブロック 思い込み" },
-    { id: "ar-0802", term: "1期", type: "archive", date: "2026-08-02", title: "8/2 キックオフ＆講義① アーカイブ", desc: "1期のはじまり。お金のうつわを育てる習慣", tags: ["kiso"], url: "", kw: "1期 キックオフ" },
+    { id: "ar-0802", term: "1期", type: "archive", date: "2026-08-02", title: "8/2 キックオフ＆講義① アーカイブ", desc: "1期のはじまり。お金のうつわを育てる習慣", tags: ["kiso"], url: "https://youtu.be/Nkq4STNG8_4", kw: "1期 キックオフ" },
     { id: "s-0802", term: "1期", type: "slides", date: "2026-08-02", title: "8/2 キックオフ＆講義① スライド資料", desc: "1期キックオフのスライド", tags: ["kiso"], url: "", kw: "1期 キックオフ" },
     { id: "a-0825", term: "1期", type: "article", date: "2026-08-25", title: "8/25 交流会レポート", desc: "始めてみて起きた変化、途中で出てくるしんどさ、引き受けすぎてしまうとき、潜在意識の仕組み", tags: ["kiso", "shukan"], url: "https://playfulsugahara.github.io/playful-report/20260825/", kw: "しんどい 引き受けすぎ 潜在意識" },
     { id: "a-0914", term: "1期", type: "article", date: "2026-09-14", title: "9/14 質問会・交流会レポート", desc: "「これ、無駄だったんじゃないか」に集まった8つのケースを、3つのうつわで読み解く", tags: ["kiso", "juyou"], url: "https://playfulsugahara.github.io/playful-report/20260914/", kw: "無駄遣い 罪悪感 ケース" },
@@ -128,18 +128,18 @@ window.SITE = {
     { id: "v-chochiku", term: "1期", type: "video", date: "2026-07-31", title: "貯蓄のうつわ：解説", desc: "現状把握と、スペースを空けておくこと", tags: ["chochiku"], url: "https://youtu.be/_p0pVCALKqY", kw: "現状把握 余白" },
     { id: "v-receipt", term: "1期", type: "video", date: "2026-07-31", title: "レシート", desc: "レシートを見て、買い物の裏にあった感情を答え合わせする", tags: ["chochiku", "juyou"], url: "https://youtu.be/pA4rIJy9nnM", kw: "貯蓄：ワーク① 収支を見る｜レシートワーク レシート 感情 記録" },
     { id: "v-genjo", term: "1期", type: "video", date: "2026-07-31", title: "収支を見る", desc: "今のお金の流れを把握する", tags: ["chochiku"], url: "https://youtu.be/kh_FD8tetvY", kw: "貯蓄：ワーク② 収支を見る｜現状把握 現状把握 固定費 収支表 ミニマムライフコスト" },
-    { id: "ar-0824", term: "1期", type: "archive", date: "2026-08-24", title: "8/24 作業会 アーカイブ", desc: "みんなでレシートワークをした作業会", tags: ["chochiku"], url: "", kw: "レシート 作業会" },
+    { id: "ar-0824", term: "1期", type: "archive", date: "2026-08-24", title: "8/24 作業会 アーカイブ", desc: "みんなでレシートワークをした作業会", tags: ["chochiku"], url: "https://youtu.be/ZuoA-hDozfg", kw: "レシート 作業会" },
     { id: "a-0824", term: "1期", type: "article", date: "2026-08-24", title: "8/24 作業会レポート", desc: "3つのうつわの全体像、レシートワークの実務Q&A、「頑張るのをやめる」と入ってくる理由", tags: ["chochiku", "kiso"], url: "https://playfulsugahara.github.io/playful-report/20260824/", kw: "レシート Q&A 頑張るのをやめる" },
 
     /* --- 受容 --- */
-    { id: "v-juyou", term: "1期", type: "video", date: "2026-07-31", title: "受容のうつわ：解説", desc: "自分の感情や欲にフォーカスし、細かく叶えてあげる", tags: ["juyou"], url: "", kw: "喜び 欲 感情" },
-    { id: "ar-0901", term: "1期", type: "archive", date: "2026-09-01", title: "9/1 講義② アーカイブ「喜びを増やす」", desc: "受容のうつわを育てる講義", tags: ["juyou"], url: "", kw: "喜び 買い物" },
+    { id: "v-juyou", term: "1期", type: "video", date: "2026-07-31", title: "受容のうつわ：解説", desc: "自分の感情や欲にフォーカスし、細かく叶えてあげる", tags: ["juyou"], url: "https://youtu.be/B7JdMEA-Ao4", kw: "喜び 欲 感情" },
+    { id: "ar-0901", term: "1期", type: "archive", date: "2026-09-01", title: "9/1 講義② アーカイブ「喜びを増やす」", desc: "受容のうつわを育てる講義", tags: ["juyou"], url: "https://youtu.be/2OLxfKzJ-6Q", kw: "喜び 買い物" },
     { id: "a-0901", term: "1期", type: "article", date: "2026-09-01", title: "9/1 第二回講義｜喜びを増やす取り組み", desc: "見えないもの／見えるもの・全信全疑・欲と専門性", tags: ["juyou"], url: "https://playfulsugahara.github.io/playful-report/20260901/", kw: "全信全疑 欲 専門性" },
     { id: "a-0901b", term: "1期", type: "article", date: "2026-09-03", title: "喜びを増やして、お買い物上手になろう", desc: "自分の買い物を振り返り、喜びを増やす取り組み", tags: ["juyou"], url: "https://playfulsugahara.github.io/playful-report/20260901-report/", kw: "買い物 4象限 喜び" },
 
     /* --- 流入・感情と波 --- */
     { id: "v-ryunyu", term: "1期", type: "video", date: "2026-07-31", title: "流入のうつわ：解説", desc: "稼げる量。ここ半年の収入＋臨時収入の平均（月商）", tags: ["ryunyu"], url: "https://youtu.be/k--CBdSdWCw", kw: "臨時収入 収入" },
-    { id: "ar-1004", term: "1期", type: "archive", date: "2026-10-04", title: "10/4 講義③ アーカイブ「感情と行動の波」", desc: "行動の波と感情の波。今期のベースになる講義", tags: ["ryunyu", "nami"], url: "", kw: "行動の波 感情の波 やる やらない" },
+    { id: "ar-1004", term: "1期", type: "archive", date: "2026-10-04", title: "10/4 講義③ アーカイブ「感情と行動の波」", desc: "行動の波と感情の波。今期のベースになる講義", tags: ["ryunyu", "nami"], url: "https://youtu.be/q79mVjKMU8s", kw: "行動の波 感情の波 やる やらない" },
     { id: "a-1004", term: "1期", type: "article", date: "2026-10-04", title: "10/4 第三回講義レポート", desc: "気分で決めるのをやめる。行動の波と感情の波。〈流入〉のうつわと、臨時収入の正体", tags: ["ryunyu", "nami"], url: "https://playfulsugahara.github.io/playful-report/20261004/", kw: "行動の波 感情の波 臨時収入 気分" },
 
     /* --- 習慣 --- */
