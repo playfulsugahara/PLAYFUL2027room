@@ -78,7 +78,7 @@ window.SITE = {
       desc: "引き出し1つから。モノを手放して余白をつくり、これまでの買い物を答え合わせする" },
     { id: "w-hantai", time: "10〜20分", tc: 15, isNew: true, name: "お金の使い方を変える", v: ["juyou", "ryunyu"], rec: false, item: "k-hantai",
       desc: "自分の支出が「他人／自分」「有形／無形」の4つのどこに偏っているかを見て、反対の位置に小さく使ってみる" },
-    { id: "w-bestbuy", time: "5分（買い物のついでに）", tc: 5, isNew: true, name: "BEST BUYチャレンジ", v: ["juyou"], rec: false, item: "k-bestbuy",
+    { id: "w-bestbuy", time: "5分（買い物のついでに）", tc: 5, isNew: true, name: "BEST BUYチャレンジ", v: ["juyou", "ryunyu"], rec: false, item: "k-bestbuy",
       desc: "いつものお店で、その売り場で自分がいちばん欲しいものを選ぶ。金額やコスパではなく、心が動くものを" },
     { id: "w-yohaku", time: "10〜15分", tc: 15, isNew: true, name: "余白の設計", v: ["chochiku", "juyou"], rec: false, item: "k-yohaku",
       desc: "自分のメンテナンス、休む、1人時間。そんな予定を先にスケジュールに入れて設計する" },
@@ -101,7 +101,7 @@ window.SITE = {
     { id: "k-uketori", term: "2期", type: "work", date: "2026-11-16", title: "受け取り", desc: "お金の対価を払ったもの以外も含めて、今日受け取ったものを書き出すワーク", tags: ["juyou"], url: "", kw: "受け取りワーク わたし、これ受け取りました 受け取り ありがとう 差し入れ 労い 豊かさ 許可" },
     { id: "k-zero", term: "2期", type: "work", date: "2026-11-16", title: "ゼロ秒思考", desc: "頭の中にあることを、1分で紙に書き出すワーク", tags: ["chochiku", "juyou"], url: "", kw: "0秒思考 書き出す 不安 モヤモヤ 赤羽雄二" },
     { id: "k-furikaeri", term: "2期", type: "work", date: "2026-11-16", title: "振り返り", desc: "自分や事業への投資が、どんな変化やリターンにつながったかを書き出すワーク", tags: ["chochiku", "ryunyu"], url: "", kw: "振り返り（答え合わせ） 自己投資 事業投資 リターン 臨時収入 答え合わせ 講座 寝具 ロボット掃除機 旅行 体験" },
-    { id: "k-bestbuy", term: "2期", type: "work", date: "2026-11-16", title: "BEST BUYチャレンジ", desc: "いつものお店で、その売り場で自分がいちばん欲しいものを選ぶワーク", tags: ["juyou"], url: "", kw: "BEST BUYワーク ベストバイ 一番欲しいもの スーパー ドラッグストア 外食 洋服 コスメ ときめく 喜び" },
+    { id: "k-bestbuy", term: "2期", type: "work", date: "2026-11-16", title: "BEST BUYチャレンジ", desc: "いつものお店で、その売り場で自分がいちばん欲しいものを選ぶワーク", tags: ["juyou", "ryunyu"], url: "", kw: "BEST BUYワーク ベストバイ 一番欲しいもの スーパー ドラッグストア 外食 洋服 コスメ ときめく 喜び" },
     { id: "k-hantai", term: "2期", type: "work", date: "2026-11-16", title: "お金の使い方を変える", desc: "「他人／自分」「有形／無形」の偏りを見て、反対の位置に小さく使ってみるワーク", tags: ["juyou", "ryunyu"], url: "", kw: "いつもと反対の位置にお金を使う 4象限 有形 無形 他人 自分 入れ替え" },
 
     /* --- 特別講義（余白） --- */
