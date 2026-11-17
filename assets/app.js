@@ -408,6 +408,18 @@
     if (params.get("menu") === "1") open(true); /* 見た目の確認用 */ /* 同じページ内（#news など）に飛ぶときも閉じる */
   }
 
+  /* ---------------- 右下の「一番上にもどる」（全ページ共通。少しスクロールすると出る） ---------------- */
+  function toTop() {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "totop"; b.setAttribute("aria-label", "一番上にもどる");
+    b.innerHTML = `<span aria-hidden="true">↑</span><span class="tl">TOP</span>`;
+    document.body.appendChild(b);
+    const sync = () => b.classList.toggle("on", window.scrollY > 400);
+    window.addEventListener("scroll", sync, { passive: true }); sync();
+    b.onclick = () => window.scrollTo({ top: 0, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  }
+
   menu();
+  toTop();
   ({ home, zoom, odai, library, item, work }[page] || (() => {}))();
 })();
