@@ -116,8 +116,8 @@ window.SITE = {
     /* --- 基礎 --- */
     { id: "a-utsuwa", term: "1期", type: "article", date: "2026-09-06", title: "お金の3つのうつわ", desc: "貯蓄・受容・流入。3つのうつわの定義と育て方を一本にまとめた記事", tags: ["kiso", "chochiku", "juyou", "ryunyu"], url: "https://playfulsugahara.github.io/playful-report/utsuwa/", kw: "4ステップ チェックリスト 定義" },
     { id: "v-utsuwa", term: "1期", type: "video", date: "2026-07-31", title: "『お金の3つのうつわ』解説", desc: "まずはここから。3つのうつわの全体像", tags: ["kiso"], url: "https://youtu.be/FQRkQGbK2uU", kw: "全体像 はじめて" },
-    { id: "r-shiru", term: "1期", type: "radio", date: "2026-08-02", title: "【重要】知る→やる→できる→わかる の仕組み", desc: "知っているのに、できない。脳の仕組みから", tags: ["kiso", "shukan"], url: "", kw: "脳 続かない 知るをできるに変える" },
-    { id: "r-muishiki", term: "1期", type: "radio", date: "2026-07-28", title: "お金を遠ざける無意識の正体", desc: "気づかないうちに、お金を遠ざけているもの", tags: ["kiso", "juyou"], url: "", kw: "無意識 ブロック 思い込み" },
+    { id: "r-shiru", term: "1期", type: "radio", date: "2026-08-02", title: "【重要】知る→やる→できる→わかる の仕組み", desc: "知っているのに、できない。脳の仕組みから", tags: ["kiso", "shukan"], url: "https://youtu.be/PvjQjVWlB7U", kw: "脳 続かない 知るをできるに変える" },
+    { id: "r-muishiki", term: "1期", type: "radio", date: "2026-07-28", title: "お金を遠ざける無意識の正体", desc: "気づかないうちに、お金を遠ざけているもの", tags: ["kiso", "juyou"], url: "https://youtu.be/5sDevxBwlgU", kw: "無意識 ブロック 思い込み" },
     { id: "ar-0802", term: "1期", type: "archive", date: "2026-08-02", title: "8/2 キックオフ＆講義① アーカイブ", desc: "1期のはじまり。お金のうつわを育てる習慣", tags: ["kiso"], url: "https://youtu.be/Nkq4STNG8_4", kw: "1期 キックオフ" },
     { id: "s-0802", term: "1期", type: "slides", date: "2026-08-02", title: "8/2 キックオフ＆講義① スライド資料", desc: "1期キックオフのスライド", tags: ["kiso"], url: "", kw: "1期 キックオフ" },
     { id: "a-0825", term: "1期", type: "article", date: "2026-08-25", title: "8/25 交流会レポート", desc: "始めてみて起きた変化、途中で出てくるしんどさ、引き受けすぎてしまうとき、潜在意識の仕組み", tags: ["kiso", "shukan"], url: "https://playfulsugahara.github.io/playful-report/20260825/", kw: "しんどい 引き受けすぎ 潜在意識" },
@@ -144,7 +144,7 @@ window.SITE = {
 
     /* --- 習慣 --- */
     { id: "v-kotsu", term: "1期", type: "video", date: "2026-07-28", title: "習慣化のコツ｜レクチャー動画", desc: "習慣を続けるためのコツ", tags: ["shukan"], url: "https://youtu.be/FNdgEwh-pFs", kw: "続かない 習慣化" },
-    { id: "v-yasashisa", term: "1期", type: "video", date: "2026-07-28", title: "自分への優しさが習慣継続のカギ", desc: "お金のうつわを育てるテレビ", tags: ["shukan"], url: "", kw: "自分を責める 優しさ 継続" },
+    { id: "v-yasashisa", term: "1期", type: "video", date: "2026-07-28", title: "自分への優しさが習慣継続のカギ", desc: "お金のうつわを育てるテレビ", tags: ["shukan"], url: "https://youtu.be/D0OcSmvGIyw", kw: "自分を責める 優しさ 継続" },
     { id: "v-profile", term: "1期", type: "video", date: "2026-07-28", title: "習慣化プロフィールについて", desc: "習慣化プロフィールの読み方", tags: ["shukan"], url: "https://youtu.be/iX-s4OeqCoc", kw: "プロフィール ホロスコープ" }
   ]
 };
