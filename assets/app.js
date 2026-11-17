@@ -44,6 +44,19 @@
 
   /* ---------------- ホーム ---------------- */
   function home() {
+    /* お知らせ：上から3件。4件目からは「すべてのお知らせ」の中。date から7日間は NEW */
+    const news = (S.news || []).filter((n) => released(n.date));
+    if (news.length) {
+      const ago = (d) => (Date.parse(today) - Date.parse(d)) / 864e5;
+      const li = (n) => {
+        const inner = `<span class="d">${n.date.slice(5).replace("-", ".")}</span>${ago(n.date) < 7 ? `<span class="new">NEW</span>` : ""}<span class="tx">${esc(n.text)}</span>`;
+        return n.href ? `<li><a href="${esc(n.href)}">${inner}<span class="ar" aria-hidden="true">→</span></a></li>` : `<li><div>${inner}</div></li>`;
+      };
+      const more = news.slice(3);
+      $("#news").innerHTML = `<div class="news"><span class="script">Information</span><h2 class="news-h">お知らせ</h2>
+        <ul>${news.slice(0, 3).map(li).join("")}</ul>
+        ${more.length ? `<details><summary>すべてのお知らせ（${news.length}件）</summary><ul>${more.map(li).join("")}</ul></details>` : ""}</div>`;
+    }
     if (latestQ) {
       $("#odai").innerHTML = `<div class="card lime"><span class="flag">今週の問い</span>
         <span class="num">Q${latestQ.n}｜${md(latestQ.date)}（${latestQ.dow}）配信</span>

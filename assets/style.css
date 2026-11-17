@@ -257,3 +257,21 @@ footer img{width:120px;margin:0 auto 6px;filter:brightness(0) invert(1);opacity:
 #tf button{font:inherit;font-family:var(--f-display);font-weight:700;font-size:13px;border:1.5px solid var(--ink);background:#fff;color:var(--ink);border-radius:999px;padding:2px 12px;cursor:pointer}
 #tf button[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:var(--paper)}
 .wk .wtime{flex:0;font-family:var(--f-display);font-weight:700;font-size:13px;color:var(--muted);margin-top:-4px}
+
+/* ---------- ホーム：お知らせ（Information） ---------- */
+.news{background:#fff;border:2px solid var(--ink);border-radius:14px;padding:18px 18px 10px}
+.news .script{margin-bottom:2px}
+.news-h{font-size:19px;margin:0 0 6px}
+.news ul{list-style:none;margin:0;padding:0}
+.news li + li, .news details li{border-top:1px dashed #c9cabf}
+.news li a, .news li > div{display:flex;align-items:baseline;gap:8px;padding:10px 2px;color:var(--ink);text-decoration:none;line-height:1.6}
+.news li a:hover .tx{text-decoration:underline}
+.news .d{font-family:var(--f-mono);font-size:13px;font-weight:700;flex:none}
+.news .new{flex:none;font-family:var(--f-mono);font-size:11px;font-weight:700;color:var(--paper);background:var(--blue);border-radius:4px;padding:0 6px;letter-spacing:.04em}
+.news .tx{flex:1;font-size:15px}
+.news .ar{flex:none;color:var(--blue);font-weight:700}
+.news details{border-top:1px dashed #c9cabf}
+.news summary{cursor:pointer;padding:10px 2px;font-size:14px;font-weight:700;color:var(--blue);list-style:none;text-align:right}
+.news summary::-webkit-details-marker{display:none}
+.news summary::after{content:" ▸"}
+.news details[open] summary::after{content:" ▾"}
