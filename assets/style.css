@@ -315,5 +315,5 @@ body.dr-open{overflow:hidden}
 .totop span:first-child{font-size:17px;font-weight:700}
 .totop .tl{font-family:var(--f-mono);font-size:9px;font-weight:700;letter-spacing:.06em;margin-top:1px}
 .totop:active{transform:translate(1px,1px);box-shadow:1px 1px 0 var(--ink)}
-@media (min-width:760px){.totop{bottom:24px;right:24px}}
+@media (min-width:760px){.totop{right:24px}}
 body.dr-open .totop{visibility:hidden}
