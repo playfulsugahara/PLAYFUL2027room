@@ -215,7 +215,7 @@
   /* ---------------- ライブラリ ---------------- */
   function library() {
     let tab = params.get("tab") || "all";
-    let type = "all";
+    let type = params.get("type") || "all";
     const input = $("#q");
     input.value = params.get("q") || "";
 
@@ -247,6 +247,7 @@
       $("#empty").hidden = hits.length > 0;
       const u = new URL(location.href);
       tab === "all" ? u.searchParams.delete("tab") : u.searchParams.set("tab", tab);
+      type === "all" ? u.searchParams.delete("type") : u.searchParams.set("type", type);
       input.value ? u.searchParams.set("q", input.value) : u.searchParams.delete("q");
       history.replaceState(null, "", u);
     }
@@ -336,5 +337,77 @@
   }
 
   const page = document.body.dataset.page;
+
+  /* ---------------- 右上の「≡ メニュー」（全ページ共通。中身はここだけで管理） ---------------- */
+  function menu() {
+    const wrap = $(".top .wrap");
+    if (!wrap) return;
+    const btn = document.createElement("button");
+    btn.className = "menu-btn"; btn.type = "button";
+    btn.setAttribute("aria-expanded", "false"); btn.setAttribute("aria-controls", "drawer");
+    btn.innerHTML = `<span class="bars" aria-hidden="true"><i></i><i></i><i></i></span><span class="ml">メニュー</span>`;
+    wrap.appendChild(btn);
+
+    const a = (href, label, sub = "", ext = false) =>
+      `<li><a href="${esc(href)}"${ext ? ' target="_blank" rel="noopener"' : ""}><span class="ml1">${label}</span>${sub ? `<span class="ml2">${sub}</span>` : ""}</a></li>`;
+    const g = (icon, title, body) => `<div class="mg"><h3><span aria-hidden="true">${icon}</span>${title}</h3><ul>${body}</ul></div>`;
+    const help = (title, body) => `<li><details><summary><span class="ml1">${title}</span></summary><div class="hp">${body}</div></details></li>`;
+
+    const q = latestQ, z = nextSession;
+    const html = `
+      <div class="dr-head"><span class="dr-t">メニュー</span><button type="button" class="dr-x" aria-label="閉じる">✕</button></div>
+      ${g("🔰", "はじめての方へ",
+        a("item.html?id=v-guide", "このページの使い方", "1分の動画で、見かた・さがしかた") +
+        a("item.html?id=v-utsuwa", "まずは『お金の3つのうつわ』解説", "すべての土台になる7分の動画") +
+        a("odai.html", "今週の問いに答えてみる", "ノートや手帳に書くだけでOK") +
+        a("work.html", "おすすめのワークをやってみる", "「おすすめ」の印が先頭に並んでいます"))}
+      ${g("📅", "今週のこと",
+        (q ? a("odai.html", `今週の問い　Q${q.n}`, q.due ? `${q.due}までに` : "") : "") +
+        (z ? a("zoom.html", `次のZoom　${md(z.date)}（${z.dow}）${z.time.split("〜")[0]}`, `第${z.n}回 ${z.title}：${z.theme}`) : "") +
+        a("index.html#news", "お知らせ", "新しく追加したもの"))}
+      ${g("🔍", "やりたいことから探す",
+        a("work.html?t=5", "5分でできるワークをやりたい", "すきま時間にできるものだけ") +
+        a("library.html?tab=chochiku", "お金の流れを見たい", "〈貯蓄〉のうつわ") +
+        a("library.html?tab=juyou", "喜び・感情を大事にしたい", "〈受容〉のうつわ") +
+        a("library.html?tab=ryunyu", "収入の流れを広げたい", "〈流入〉のうつわ") +
+        a("library.html?tab=nami", "感情と行動の波を知りたい", "波のつかみ方") +
+        a("library.html?tab=shukan", "習慣を続けるコツを知りたい", "続けるためのヒント"))}
+      ${g("🎬", "種類から探す",
+        a("zoom.html", "Zoomのアーカイブとスライド", "作戦会議の各回") +
+        a("library.html?type=video", "解説動画") +
+        a("library.html?type=radio", "ラジオ", "聞き流しで") +
+        a("library.html?type=article", "記事") +
+        a("library.html?type=archive", "1期の講義アーカイブ"))}
+      ${g("🗺", "全体の流れ", a("index.html#map", "すごろくの地図", "2ヶ月の道のりと、いまいる場所"))}
+      ${g("💡", "困ったときは",
+        help("スマホのホーム画面に追加する方法",
+          `<p><b>iPhone（Safari）</b><br>画面下の共有ボタン（□に↑）を押す →「ホーム画面に追加」→「追加」</p>
+           <p><b>Android（Chrome）</b><br>右上の「︙」を押す →「ホーム画面に追加」→「追加」</p>
+           <p>アイコンを押すだけで、アプリのようにこのページが開くようになります。</p>`) +
+        help("動画が見られないとき",
+          `<p>動画は限定公開です。YouTubeにログインしていなくても見られます。</p>
+           <p>再生されないときは、動画の下の<b>「YouTubeで開く」</b>を押してください。YouTubeのアプリやサイトで再生できます。</p>
+           <p>それでも見られないときは、ページを再読み込みするか、少し時間をおいて開いてみてください。</p>`) +
+        a("https://www.band.us/band/105081542", "質問はBandへ", "わからないことは気軽に聞いてください", true))}`;
+
+    const ov = document.createElement("div"); ov.className = "dr-ov"; ov.hidden = true;
+    const dr = document.createElement("nav"); dr.id = "drawer"; dr.className = "drawer"; dr.setAttribute("aria-label", "メニュー"); dr.hidden = true;
+    dr.innerHTML = html;
+    document.body.append(ov, dr);
+
+    const open = (on) => {
+      btn.setAttribute("aria-expanded", String(on));
+      if (on) { ov.hidden = dr.hidden = false; requestAnimationFrame(() => document.body.classList.add("dr-open")); $(".dr-x", dr).focus(); }
+      else { document.body.classList.remove("dr-open"); setTimeout(() => { ov.hidden = dr.hidden = true; }, 250); btn.focus(); }
+    };
+    btn.onclick = () => open(true);
+    ov.onclick = () => open(false);
+    $(".dr-x", dr).onclick = () => open(false);
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !dr.hidden) open(false); });
+    dr.addEventListener("click", (e) => { if (e.target.closest("a")) open(false); });
+    if (params.get("menu") === "1") open(true); /* 見た目の確認用 */ /* 同じページ内（#news など）に飛ぶときも閉じる */
+  }
+
+  menu();
   ({ home, zoom, odai, library, item, work }[page] || (() => {}))();
 })();

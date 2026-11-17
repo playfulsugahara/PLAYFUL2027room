@@ -275,3 +275,35 @@ footer img{width:120px;margin:0 auto 6px;filter:brightness(0) invert(1);opacity:
 .news summary::-webkit-details-marker{display:none}
 .news summary::after{content:" ▸"}
 .news details[open] summary::after{content:" ▾"}
+
+/* ---------- 右上の「≡ メニュー」 ---------- */
+.menu-btn{margin-left:auto;display:flex;flex-direction:column;align-items:center;gap:3px;background:none;border:0;padding:4px 6px;cursor:pointer;color:var(--ink);flex:none}
+.menu-btn .bars{display:grid;gap:5px;width:26px}
+.menu-btn .bars i{display:block;height:3px;border-radius:2px;background:var(--ink)}
+.menu-btn .ml{font-family:var(--f-display);font-weight:700;font-size:10px;letter-spacing:.06em;line-height:1}
+.top nav + .menu-btn{margin-left:8px}
+.dr-ov{position:fixed;inset:0;z-index:40;background:rgba(30,30,30,.45);opacity:0;transition:opacity .25s}
+.drawer{position:fixed;top:0;right:0;bottom:0;z-index:41;width:min(88vw,380px);background:var(--paper);border-left:2px solid var(--ink);overflow-y:auto;transform:translateX(100%);transition:transform .25s;padding:0 18px calc(28px + env(safe-area-inset-bottom,0px));-webkit-overflow-scrolling:touch}
+body.dr-open .dr-ov{opacity:1}
+body.dr-open .drawer{transform:none}
+body.dr-open{overflow:hidden}
+.dr-head{position:sticky;top:0;background:var(--paper);display:flex;align-items:center;justify-content:space-between;padding:14px 0 10px;border-bottom:2px solid var(--ink);z-index:1}
+.dr-t{font-family:var(--f-display);font-weight:700;font-size:18px}
+.dr-x{background:var(--ink);color:var(--paper);border:0;border-radius:50%;width:36px;height:36px;font-size:16px;cursor:pointer}
+.mg{margin-top:18px}
+.mg h3{font-size:15px;margin:0 0 6px;display:flex;gap:6px;align-items:center}
+.mg ul{list-style:none;margin:0;padding:0;background:#fff;border:2px solid var(--ink);border-radius:12px;overflow:hidden}
+.mg li + li{border-top:1px dashed #c9cabf}
+.mg a,.mg summary{display:block;padding:10px 14px;color:var(--ink);text-decoration:none;line-height:1.5;cursor:pointer}
+.mg a:hover,.mg summary:hover{background:var(--lime)}
+.mg .ml1{display:block;font-weight:700;font-size:15px}
+.mg .ml2{display:block;font-size:12.5px;color:var(--muted)}
+.mg a .ml1::after{content:" →";color:var(--blue)}
+.mg a[target] .ml1::after{content:" ↗"}
+.mg summary{list-style:none}
+.mg summary::-webkit-details-marker{display:none}
+.mg summary .ml1::after{content:" ▸";color:var(--blue)}
+.mg details[open] summary .ml1::after{content:" ▾"}
+.mg .hp{padding:0 14px 10px;font-size:14px;line-height:1.7}
+.mg .hp p{margin:6px 0}
+@media (min-width:760px){.top nav{margin-left:auto}}
