@@ -28,14 +28,14 @@
     return it.url;
   }
 
-  function itemHTML(it) {
+  function itemHTML(it, snip) {
     const tags = (it.tags || []).map((t) => `<span class="badge">${TAGS[t]}</span>`).join("");
     const term = `<span class="badge ${it.term === "2期" ? "t2" : ""}">${it.term}</span>`;
     const href = detailHref(it);
     const wait = href ? "" : `<span class="badge wait">準備中</span>`;
     const ext = /^https?:/.test(href) ? ' target="_blank" rel="noopener"' : "";
     const inner = `<span class="ic" aria-hidden="true">${ICON[it.type]}</span>
-      <span><span class="tt">${esc(it.title)}</span><span class="ds">${esc(it.desc)}</span>
+      <span><span class="tt">${esc(it.title)}</span><span class="ds">${esc(it.desc)}</span>${snip ? `<span class="hit">${snip}</span>` : ""}
       <span class="meta"><span class="badge">${TYPES[it.type]}</span>${term}${tags}${wait}</span></span>`;
     return href
       ? `<li><a class="item t-${it.type}" href="${esc(href)}"${ext}>${inner}</a></li>`
@@ -228,22 +228,61 @@
     const ORDER = { video: 0, slides: 1, radio: 2, article: 3, archive: 4 };
     const TAGORDER = Object.keys(TAGS);
 
+    /* 要点ページの本文（notes.js）も検索する。1文字ずつ正規化して、元の文字の位置を覚えておく */
+    const BODY = {};
+    Object.entries(window.NOTES || {}).forEach(([id, n]) => {
+      const div = document.createElement("div");
+      div.innerHTML = (n.sections || []).map((x) => `<p>${esc(x.title)}</p>${x.html}`).join("") + (n.image_alt ? `<p>${esc(n.image_alt)}</p>` : "");
+      div.querySelectorAll("p,li,h3,h4,tr,blockquote").forEach((el) => el.append(" "));
+      const raw = div.textContent.replace(/\s+/g, " ").trim();
+      let nt = "", map = [];
+      for (let i = 0; i < raw.length; i++) { const c = norm(raw[i]); nt += c; for (let k = 0; k < c.length; k++) map.push(i); }
+      BODY[id] = { raw, nt, map };
+    });
+    /* 当たった箇所の前後を1行ぶん出し、探した言葉に色をつける */
+    function snippet(b, first, words) {
+      const pos = b.nt.indexOf(first);
+      const at = b.map[pos], a = Math.max(0, at - 24), z = Math.min(b.raw.length, at + first.length + 40);
+      const on = new Array(z - a).fill(false);
+      for (let i = a; i < z; i++) {
+        words.forEach((w) => {
+          if (norm(b.raw.slice(i, i + w.length)) === w) for (let k = 0; k < w.length && i + k < z; k++) on[i + k - a] = true;
+        });
+      }
+      let html = a > 0 ? "…" : "", open = false;
+      for (let i = a; i < z; i++) {
+        const f = on[i - a];
+        if (f && !open) { html += "<mark>"; open = true; }
+        if (!f && open) { html += "</mark>"; open = false; }
+        html += esc(b.raw[i]);
+      }
+      return html + (open ? "</mark>" : "") + (z < b.raw.length ? "…" : "");
+    }
+
     function render() {
       document.querySelectorAll("#tabs button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.k === tab));
       document.querySelectorAll("#types button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.k === type));
       const words = norm(input.value).split(/\s+/).filter(Boolean);
+      const snips = {}, inBody = {};
       const hits = S.items.filter((it) => {
         if (tab !== "all" && !it.tags.includes(tab)) return false;
         if (type !== "all" && it.type !== type) return false;
         const hay = norm([it.title, it.desc, it.kw, TYPES[it.type], it.term, ...it.tags.map((t) => TAGS[t])].join(" "));
-        return words.every((w) => hay.includes(w));
+        if (words.every((w) => hay.includes(w))) return true;
+        const b = BODY[it.id];
+        if (!b || !words.length || !words.every((w) => hay.includes(w) || b.nt.includes(w))) return false;
+        const bw = words.filter((w) => b.nt.includes(w));
+        inBody[it.id] = true;
+        snips[it.id] = snippet(b, bw.find((w) => !hay.includes(w)) || bw[0], bw);
+        return true;
       }).sort((a, b) => {
+        if (!!inBody[a.id] !== !!inBody[b.id]) return inBody[a.id] ? 1 : -1; // タイトル・説明で当たったものを先に
         if (a.term !== b.term) return a.term === "2期" ? -1 : 1;
         const ta = tab === "all" ? TAGORDER.indexOf(a.tags[0]) : 0, tb = tab === "all" ? TAGORDER.indexOf(b.tags[0]) : 0;
         return ta - tb || ORDER[a.type] - ORDER[b.type] || (a.date < b.date ? -1 : 1);
       });
       $("#count").textContent = `${hits.length}件`;
-      $("#items").innerHTML = hits.map(itemHTML).join("");
+      $("#items").innerHTML = hits.map((it) => itemHTML(it, snips[it.id])).join("");
       $("#empty").hidden = hits.length > 0;
       const u = new URL(location.href);
       tab === "all" ? u.searchParams.delete("tab") : u.searchParams.set("tab", tab);

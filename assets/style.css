@@ -126,6 +126,9 @@ a.item:hover{transform:translate(-1px,-1px);box-shadow:3px 3px 0 var(--ink)}
 .item .tt{font-weight:700;line-height:1.55;display:block}
 .item .ds{font-size:13px;color:var(--muted);line-height:1.6;display:block;margin-top:2px}
 .item .meta{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.item .hit{display:block;margin-top:6px;padding:6px 8px;font-size:12.5px;line-height:1.6;color:var(--ink);background:var(--paper);border-radius:8px}
+.item .hit::before{content:"本文：";font-weight:700;color:var(--muted)}
+.item .hit mark{background:var(--lime);color:inherit;padding:0 1px;border-radius:2px}
 .badge{font-size:11px;font-weight:700;line-height:1.6;padding:0 8px;border-radius:999px;background:var(--paper);border:1px solid var(--shadow);color:var(--muted)}
 .badge.t2{background:var(--blue);border-color:var(--blue);color:var(--paper)}
 .badge.wait{background:transparent;border:1.5px dashed var(--red);color:var(--red)}
