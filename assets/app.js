@@ -151,7 +151,7 @@
     else $("#pointsSec").hidden = true;
 
     const rel = s.related.map((rid) => S.items.find((it) => it.id === rid)).filter(Boolean);
-    if (rel.length) $("#related").innerHTML = rel.map(itemHTML).join(""); else $("#relSec").hidden = true;
+    if (rel.length) $("#related").innerHTML = rel.map((x) => itemHTML(x)).join(""); else $("#relSec").hidden = true; /* map の番号が snip に入らないように */
   }
 
   function slides({ dir, count }) {
@@ -337,7 +337,7 @@
     /* 次に見る：原稿で指定がなければ、同じうつわのものを自動で4件 */
     let rel = relIds.map((r) => S.items.find((x) => x.id === r)).filter(Boolean);
     if (!rel.length) rel = S.items.filter((x) => x.id !== it.id && detailHref(x) && x.tags.some((t) => it.tags.includes(t))).slice(0, 4);
-    if (rel.length) $("#related").innerHTML = rel.map(itemHTML).join(""); else $("#relSec").hidden = true;
+    if (rel.length) $("#related").innerHTML = rel.map((x) => itemHTML(x)).join(""); else $("#relSec").hidden = true; /* map の番号が snip に入らないように */
   }
 
 
