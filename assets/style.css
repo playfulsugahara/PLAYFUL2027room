@@ -337,3 +337,12 @@ body.dr-open .totop{visibility:hidden}
 .hp-field{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .rc-done{margin-top:24px}
 .rc-done:focus{outline:none}
+
+/* 期の選択（2026-11-19〜） */
+.rc-kind{border:0;margin:0;padding:0;min-width:0}
+.rc-kind legend{padding:0;margin-bottom:2px}
+.rc-opt{display:flex;gap:12px;align-items:flex-start;background:#fff;border:2px solid var(--ink);border-radius:12px;padding:12px 14px;cursor:pointer;font-weight:500;line-height:1.6}
+.rc-opt input{width:22px;height:22px;margin:2px 0 0;flex-shrink:0;accent-color:var(--red);padding:0}
+.rc-opt:has(input:checked){background:var(--lime)}
+.rc-opt .amt{display:block;font-family:var(--f-mono);font-weight:700;font-size:15px;margin-top:2px}
+.rc-sum{font-size:14px;color:var(--muted)}

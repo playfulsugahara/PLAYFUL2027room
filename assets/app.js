@@ -426,10 +426,18 @@
     if (!f) return;
     const say = (m) => { err.textContent = m; err.hidden = !m; };
     if (!url) { say("ただいま準備中です。もうしばらくお待ちください。"); $("button", f).disabled = true; return; }
+    const PRICE = { "1期": 9900, "2期": 8800 }, sum = $(".rc-sum");
+    f.addEventListener("change", () => {
+      const k = [...f.querySelectorAll('input[name="kind"]:checked')].map((x) => x.value);
+      const t = k.reduce((n, x) => n + PRICE[x], 0);
+      sum.textContent = k.length ? `${k.join("・")}の${k.length}枚（合計 ${t.toLocaleString()}円）をお送りします。但し書きはどちらも「研修費として」です。` : "但し書きはどちらも「研修費として」です。";
+    });
     f.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const d = Object.fromEntries(new FormData(f));
+      const fd = new FormData(f), kinds = fd.getAll("kind");
+      const d = Object.fromEntries(fd);
       for (const k of ["name", "atena", "mail", "mail2"]) d[k] = (d[k] || "").trim();
+      if (!kinds.length) return say("どの期の領収書が必要か、選んでください。");
       if (!d.name || !d.atena || !d.mail) return say("未入力の欄があります。");
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.mail)) return say("メールアドレスの形をご確認ください。");
       if (d.mail !== d.mail2) return say("確認用のメールアドレスが一致しません。");
@@ -437,7 +445,7 @@
       const b = $("button", f); b.disabled = true; b.textContent = "送信しています…";
       try {
         /* text/plain で送ると事前確認（CORS）が要らず、Apps Script の返事も読める */
-        const r = await fetch(url, { method: "POST", body: JSON.stringify({ name: d.name, atena: d.atena, mail: d.mail, website: d.website || "" }) });
+        const r = await fetch(url, { method: "POST", body: JSON.stringify({ name: d.name, atena: d.atena, mail: d.mail, kinds, website: d.website || "" }) });
         const j = await r.json();
         if (!j.ok) throw new Error(j.error || "error");
         f.hidden = true; const done = $("#rc-done"); done.hidden = false; done.focus();
