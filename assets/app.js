@@ -388,6 +388,7 @@
           `<p>動画は限定公開です。YouTubeにログインしていなくても見られます。</p>
            <p>再生されないときは、動画の下の<b>「YouTubeで開く」</b>を押してください。YouTubeのアプリやサイトで再生できます。</p>
            <p>それでも見られないときは、ページを再読み込みするか、少し時間をおいて開いてみてください。</p>`) +
+        a("receipt.html", "領収書がほしいとき", "宛名とメールアドレスを入れて申請") +
         a("https://www.band.us/band/105081542", "質問はBandへ", "わからないことは気軽に聞いてください", true))}`;
 
     const ov = document.createElement("div"); ov.className = "dr-ov"; ov.hidden = true;
@@ -419,7 +420,35 @@
     b.onclick = () => window.scrollTo({ top: 0, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
   }
 
+  /* ---------------- 領収書の申請（receipt.html）。送信先は data.js の forms.receipt ---------------- */
+  function receipt() {
+    const f = $("#rc"), err = $(".rc-err"), url = (S.forms || {}).receipt;
+    if (!f) return;
+    const say = (m) => { err.textContent = m; err.hidden = !m; };
+    if (!url) { say("ただいま準備中です。もうしばらくお待ちください。"); $("button", f).disabled = true; return; }
+    f.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const d = Object.fromEntries(new FormData(f));
+      for (const k of ["name", "atena", "mail", "mail2"]) d[k] = (d[k] || "").trim();
+      if (!d.name || !d.atena || !d.mail) return say("未入力の欄があります。");
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.mail)) return say("メールアドレスの形をご確認ください。");
+      if (d.mail !== d.mail2) return say("確認用のメールアドレスが一致しません。");
+      say("");
+      const b = $("button", f); b.disabled = true; b.textContent = "送信しています…";
+      try {
+        /* text/plain で送ると事前確認（CORS）が要らず、Apps Script の返事も読める */
+        const r = await fetch(url, { method: "POST", body: JSON.stringify({ name: d.name, atena: d.atena, mail: d.mail, website: d.website || "" }) });
+        const j = await r.json();
+        if (!j.ok) throw new Error(j.error || "error");
+        f.hidden = true; const done = $("#rc-done"); done.hidden = false; done.focus();
+      } catch (_) {
+        b.disabled = false; b.textContent = "この内容で申請する";
+        say("送信できませんでした。通信状況をご確認のうえ、もう一度お試しください。続くときはBandでお知らせください。");
+      }
+    });
+  }
+
   menu();
   toTop();
-  ({ home, zoom, odai, library, item, work }[page] || (() => {}))();
+  ({ home, zoom, odai, library, item, work, receipt }[page] || (() => {}))();
 })();

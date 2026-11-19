@@ -18,6 +18,9 @@ window.SITE = {
     { date: "2026-11-16", text: "第1回 キックオフのアーカイブとスライドを公開しました", href: "zoom.html?n=1" }
   ],
 
+  /* ---------- 申請フォームの送り先（Google Apps Script のウェブアプリURL。空なら「準備中」） ---------- */
+  forms: { receipt: "https://script.google.com/macros/s/AKfycbz3dGN2iiqTuV9_bw_H201ZOxn0ROO7YbaDeL3Jt0Dufos9r8RjSUXDm4JG0BCIG24TyQ/exec" },
+
   /* ---------- Zoom 5回 ---------- */
   sessions: [
     {
