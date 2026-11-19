@@ -319,6 +319,9 @@
       : it.type === "work" ? `<p class="row"><a class="btn ghost" href="work.html">← ワークメニューにもどる</a></p>` /* 動画のないワークは動画枠を出さない */
       : `<div class="video wait"><p>動画は準備中です。</p></div>`;
 
+    /* 講義アーカイブにスライドがあれば、動画の下にスライドを出す（items の slides: { dir, count }） */
+    if (it.slides && $("#slidesSec")) { $("#slidesSec").hidden = false; slides(it.slides); }
+
     let html = "", relIds = [];
     if (N) {
       N.sections.forEach((sec, i) => {
