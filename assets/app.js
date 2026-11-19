@@ -426,11 +426,11 @@
     if (!f) return;
     const say = (m) => { err.textContent = m; err.hidden = !m; };
     if (!url) { say("ただいま準備中です。もうしばらくお待ちください。"); $("button", f).disabled = true; return; }
-    const PRICE = { "1期": 9900, "2期": 8800 }, sum = $(".rc-sum");
+    const PRICE = { "2期": 8800 } /* 1期は人によって違う（お申し込み時の参加費）ので、処理のときに申し込み表で確認 */, sum = $(".rc-sum");
     f.addEventListener("change", () => {
       const k = [...f.querySelectorAll('input[name="kind"]:checked')].map((x) => x.value);
-      const t = k.reduce((n, x) => n + PRICE[x], 0);
-      sum.textContent = k.length ? `${k.join("・")}の${k.length}枚（合計 ${t.toLocaleString()}円）をお送りします。但し書きはどちらも「研修費として」です。` : "但し書きはどちらも「研修費として」です。";
+      const amt = k.map((x) => x === "1期" ? "1期はお申し込み時の参加費" : `2期は${PRICE[x].toLocaleString()}円`).join("、");
+      sum.textContent = k.length ? `${k.join("・")}の${k.length}枚をお送りします（${amt}）。但し書きはどちらも「研修費として」です。` : "但し書きはどちらも「研修費として」です。";
     });
     f.addEventListener("submit", async (e) => {
       e.preventDefault();
