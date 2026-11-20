@@ -150,9 +150,10 @@ a.item:hover{transform:translate(-1px,-1px);box-shadow:3px 3px 0 var(--ink)}
 .video{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:2px solid var(--ink);background:var(--ink);margin-top:16px}
 .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 /* ワーク・ライブラリの上の「▶ 使い方」リンク */
-.howto{margin:10px 0 0}
-.howto a{display:inline-block;font-family:var(--f-display);font-weight:700;font-size:13px;color:var(--ink);background:#fff;border:1.5px solid var(--ink);border-radius:999px;padding:3px 14px;text-decoration:none}
-.howto a:hover{background:var(--ink);color:var(--lime)}
+.howto{margin:12px 0 14px}
+.howto a{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-display);font-weight:700;font-size:14px;color:var(--ink);background:var(--lime);border:2px solid var(--ink);border-radius:999px;padding:5px 16px 5px 12px;text-decoration:none;box-shadow:2px 2px 0 var(--ink);transition:transform .15s,box-shadow .15s}
+.howto a:hover{transform:translate(1px,1px);box-shadow:1px 1px 0 var(--ink)}
+.howto .pl{color:var(--red);font-size:19px;line-height:1}
 /* 使い方動画（複数の縦動画を1ページに） */
 .vjump{display:flex;flex-direction:column;gap:10px;max-width:420px;margin:8px auto 0}
 .vjump .btn{justify-content:space-between}
