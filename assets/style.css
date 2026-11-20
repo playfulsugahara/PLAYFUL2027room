@@ -149,6 +149,10 @@ a.item:hover{transform:translate(-1px,-1px);box-shadow:3px 3px 0 var(--ink)}
 .sess-head .theme{margin-top:6px;font-weight:500}
 .video{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:2px solid var(--ink);background:var(--ink);margin-top:16px}
 .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+/* ワーク・ライブラリの上の「▶ 使い方」リンク */
+.howto{margin:10px 0 0}
+.howto a{display:inline-block;font-family:var(--f-display);font-weight:700;font-size:13px;color:var(--ink);background:#fff;border:1.5px solid var(--ink);border-radius:999px;padding:3px 14px;text-decoration:none}
+.howto a:hover{background:var(--ink);color:var(--lime)}
 /* 使い方動画（複数の縦動画を1ページに） */
 .vjump{display:flex;flex-direction:column;gap:10px;max-width:420px;margin:8px auto 0}
 .vjump .btn{justify-content:space-between}

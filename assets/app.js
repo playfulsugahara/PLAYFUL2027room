@@ -338,6 +338,7 @@
     if (it.videos) {
       $("#video").outerHTML = `<nav class="vjump" aria-label="動画を選ぶ">${it.videos.map((v) => `<a class="btn" href="#v-${esc(v.key)}">${esc(v.label)}${v.time ? `<small>${esc(v.time)}</small>` : ""}</a>`).join("")}</nav>`
         + it.videos.map((v) => `<section class="vsec" id="v-${esc(v.key)}"><h2 class="shadowed">${esc(v.label)}</h2><div class="video tall"><iframe src="https://www.youtube-nocookie.com/embed/${ytId(v.url)}?rel=0" title="${esc(v.label)}" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div><p class="row" style="justify-content:center"><a class="btn ghost" href="${esc(v.url)}" target="_blank" rel="noopener">YouTubeで開く ↗</a><a class="btn ghost" href="#head">↑ 上にもどる</a></p></section>`).join("");
+      if (location.hash) setTimeout(() => { const el = $(location.hash); if (el) el.scrollIntoView(); }, 80); /* ワーク・ライブラリの「▶ 使い方」から来たとき */
     } else
     $("#video").outerHTML = id
       ? `<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/${id}?rel=0" title="${esc(it.title)}" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div><p class="row"><a class="btn ghost" href="${esc(it.url)}" target="_blank" rel="noopener">YouTubeで開く ↗</a></p>`
