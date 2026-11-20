@@ -231,8 +231,12 @@
       .map(([k, v]) => `<button type="button" data-k="${esc(k)}">${esc(v)}</button>`).join("");
 
     const norm = (s) => String(s || "").toLowerCase().normalize("NFKC");
-    const ORDER = { video: 0, slides: 1, radio: 2, article: 3, archive: 4 };
+    /* 並び順（2026-11-20 慧）：①2期の講義 → ②レシート・収支を見る → ③1期（うつわ別・同じ回をまとめる）→ ④特別講義 → ⑤使い方 → ⑥ワーク */
+    const ORDER = { archive: 0, slides: 1, article: 2, video: 3, radio: 4, work: 5 };
     const TAGORDER = Object.keys(TAGS);
+    const BEST = ["v-receipt", "v-genjo"], GUIDE = ["v-guide"], PIN = ["v-utsuwa"];
+    const group = (it) => it.type === "work" ? 5 : GUIDE.includes(it.id) ? 4 : BEST.includes(it.id) ? 1
+      : it.term === "2期" ? 0 : it.term === "1期" ? 2 : 3;
 
     /* 要点ページの本文（notes.js）も検索する。1文字ずつ正規化して、元の文字の位置を覚えておく */
     const BODY = {};
@@ -285,9 +289,14 @@
         return true;
       }).sort((a, b) => {
         if (!!inBody[a.id] !== !!inBody[b.id]) return inBody[a.id] ? 1 : -1; // タイトル・説明で当たったものを先に
-        if (a.term !== b.term) return a.term === "2期" ? -1 : 1;
-        const ta = tab === "all" ? TAGORDER.indexOf(a.tags[0]) : 0, tb = tab === "all" ? TAGORDER.indexOf(b.tags[0]) : 0;
-        return ta - tb || ORDER[a.type] - ORDER[b.type] || (a.date < b.date ? -1 : 1);
+        const ga = group(a), gb = group(b);
+        if (ga !== gb) return ga - gb;
+        if (ga === 0) return (a.date > b.date ? -1 : a.date < b.date ? 1 : 0) || ORDER[a.type] - ORDER[b.type]; // 2期の講義：新しい回から
+        if (ga === 2) { // 1期：うつわ別に、同じ回をまとめて
+          const ta = tab === "all" ? TAGORDER.indexOf(a.tags[0]) : 0, tb = tab === "all" ? TAGORDER.indexOf(b.tags[0]) : 0;
+          return ta - tb || (PIN.includes(b.id) - PIN.includes(a.id)) || (a.date < b.date ? -1 : a.date > b.date ? 1 : 0) || ORDER[a.type] - ORDER[b.type];
+        }
+        return 0; // それ以外は data.js の順のまま
       });
       $("#count").textContent = `${hits.length}件`;
       $("#items").innerHTML = hits.map((it) => itemHTML(it, snips[it.id])).join("");
