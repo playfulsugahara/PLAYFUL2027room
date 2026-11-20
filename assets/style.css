@@ -354,3 +354,6 @@ body.dr-open .totop{visibility:hidden}
 .focus ol{margin:0 0 8px;padding-left:1.4em;font-weight:500;line-height:1.8}
 .focus p{margin:8px 0 0;line-height:1.8}
 .focus p.muted{font-size:14px}
+/* ホームのメインビジュアル（2026-11-20 画像1枚に差し替え） */
+.hero.hero-img{padding:0;background:#e1e883;line-height:0}
+.hero.hero-img img{display:block;width:100%;height:auto;max-height:440px;object-fit:cover;object-position:center}
