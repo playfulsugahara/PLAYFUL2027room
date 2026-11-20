@@ -223,6 +223,12 @@
       .map(([k, v]) => `<button type="button" data-k="${k}">${v}</button>`).join("");
     $("#types").innerHTML = [["all", "種類：すべて"], ...Object.entries(TYPES)]
       .map(([k, v]) => `<button type="button" data-k="${k}">${v}</button>`).join("");
+    /* 期で絞り込む（今期の新しいものと、1期で扱ったものを分けて見られるように。2026-11-20） */
+    let term = params.get("term") || "all";
+    const TERMS = [...new Set(S.items.map((it) => it.term))].sort((a, b) => (a === "2期" ? -1 : b === "2期" ? 1 : a === "1期" ? -1 : 1));
+    const TLABEL = { "2期": "2期（今期）", "1期": "1期で扱ったもの" };
+    $("#terms").innerHTML = [["all", "期：すべて"], ...TERMS.map((t) => [t, TLABEL[t] || t])]
+      .map(([k, v]) => `<button type="button" data-k="${esc(k)}">${esc(v)}</button>`).join("");
 
     const norm = (s) => String(s || "").toLowerCase().normalize("NFKC");
     const ORDER = { video: 0, slides: 1, radio: 2, article: 3, archive: 4 };
@@ -262,11 +268,13 @@
     function render() {
       document.querySelectorAll("#tabs button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.k === tab));
       document.querySelectorAll("#types button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.k === type));
+      document.querySelectorAll("#terms button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.k === term));
       const words = norm(input.value).split(/\s+/).filter(Boolean);
       const snips = {}, inBody = {};
       const hits = S.items.filter((it) => {
         if (tab !== "all" && !it.tags.includes(tab)) return false;
         if (type !== "all" && it.type !== type) return false;
+        if (term !== "all" && it.term !== term) return false;
         const hay = norm([it.title, it.desc, it.kw, TYPES[it.type], it.term, ...it.tags.map((t) => TAGS[t])].join(" "));
         if (words.every((w) => hay.includes(w))) return true;
         const b = BODY[it.id];
@@ -287,11 +295,13 @@
       const u = new URL(location.href);
       tab === "all" ? u.searchParams.delete("tab") : u.searchParams.set("tab", tab);
       type === "all" ? u.searchParams.delete("type") : u.searchParams.set("type", type);
+      term === "all" ? u.searchParams.delete("term") : u.searchParams.set("term", term);
       input.value ? u.searchParams.set("q", input.value) : u.searchParams.delete("q");
       history.replaceState(null, "", u);
     }
     $("#tabs").onclick = (e) => { const b = e.target.closest("button"); if (b) { tab = b.dataset.k; render(); } };
     $("#types").onclick = (e) => { const b = e.target.closest("button"); if (b) { type = b.dataset.k; render(); } };
+    $("#terms").onclick = (e) => { const b = e.target.closest("button"); if (b) { term = b.dataset.k; render(); } };
     input.addEventListener("input", render);
     $("#searchForm").onsubmit = (e) => { e.preventDefault(); render(); input.blur(); };
     render();
@@ -344,17 +354,19 @@
   /* ---------------- ワーク ---------------- */
   const VCOL = { chochiku: "貯蓄", juyou: "受容", ryunyu: "流入" };
   function work() {
-    let f = params.get("v") || "all";
+    /* うつわは複数選べる（どれか1つでも付いていれば表示。2026-11-20 慧）。何も選んでいない＝すべて */
+    let fs = (params.get("v") || "").split(",").filter((k) => VCOL[k]);
     let tf = params.get("t") || "all";
     const TCAT = [["all", "すべて"], ["5", "5分でできる"], ["15", "15分くらい"], ["30", "30分〜"]];
     $("#tf").innerHTML = `<span class="tf-l">⏱ 時間</span>` + TCAT.map(([k, v]) => `<button type="button" data-k="${k}">${v}</button>`).join("");
     $("#vf").innerHTML = [["all", "すべて"], ...Object.entries(VCOL)]
       .map(([k, v]) => `<button type="button" data-k="${k}" class="${k}">${k === "all" ? v : `<span class="dot ${k}"></span>${v}`}</button>`).join("");
     function render() {
-      document.querySelectorAll("#vf button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.k === f));
+      document.querySelectorAll("#vf button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.k === "all" ? !fs.length : fs.includes(b.dataset.k)));
       document.querySelectorAll("#tf button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.k === tf));
-      const list = S.works.filter((w) => !w.hidden && (f === "all" || w.v.includes(f)) && (tf === "all" || String(w.tc) === tf))
-        .sort((a, b) => (b.rec - a.rec));
+      const hit = (w) => fs.filter((k) => w.v.includes(k)).length; /* 選んだうつわのうち、いくつに効くか */
+      const list = S.works.filter((w) => !w.hidden && (!fs.length || hit(w) > 0) && (tf === "all" || String(w.tc) === tf))
+        .sort((a, b) => (b.rec - a.rec) || (hit(b) - hit(a))); /* おすすめ → 選んだうつわに多く効く順 */
       $("#works").innerHTML = list.map((w) => {
         const it = w.item && S.items.find((x) => x.id === w.item);
         const ok = it && detailHref(it);
@@ -370,10 +382,17 @@
         </li>`;
       }).join("");
       if (!list.length) $("#works").innerHTML = `<li class="muted" style="list-style:none">この組み合わせのワークはありません。</li>`;
-      const u = new URL(location.href); f === "all" ? u.searchParams.delete("v") : u.searchParams.set("v", f);
+      const u = new URL(location.href); fs.length ? u.searchParams.set("v", fs.join(",")) : u.searchParams.delete("v");
       tf === "all" ? u.searchParams.delete("t") : u.searchParams.set("t", tf); history.replaceState(null, "", u);
     }
-    $("#vf").onclick = (e) => { const b = e.target.closest("button"); if (b) { f = b.dataset.k; render(); } };
+    $("#vf").onclick = (e) => {
+      const b = e.target.closest("button"); if (!b) return;
+      const k = b.dataset.k;
+      if (k === "all") fs = [];
+      else fs = fs.includes(k) ? fs.filter((x) => x !== k) : Object.keys(VCOL).filter((x) => x === k || fs.includes(x));
+      if (fs.length === Object.keys(VCOL).length) fs = []; /* 3つとも選んだら「すべて」と同じ */
+      render();
+    };
     $("#tf").onclick = (e) => { const b = e.target.closest("button"); if (b) { tf = b.dataset.k; render(); } };
     render();
   }
