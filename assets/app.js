@@ -334,6 +334,11 @@
     $("#head").innerHTML = `<p class="no">${TYPES[it.type].toUpperCase()} ｜ ${it.term}${wk && wk.time ? ` ｜ ⏱ 目安 ${esc(wk.time)}` : ""}</p><h1>${esc(it.title)}</h1><p class="theme">${esc(it.desc)}</p><p class="meta" style="margin-top:10px;display:flex;gap:4px;flex-wrap:wrap">${tags}</p>`;
 
     const id = ytId(it.url);
+    /* 動画が複数ある項目（使い方動画など）：ボタンで各動画の位置へ移動する（items の videos: [{ key, label, url, time }]） */
+    if (it.videos) {
+      $("#video").outerHTML = `<nav class="vjump" aria-label="動画を選ぶ">${it.videos.map((v) => `<a class="btn" href="#v-${esc(v.key)}">${esc(v.label)}${v.time ? `<small>${esc(v.time)}</small>` : ""}</a>`).join("")}</nav>`
+        + it.videos.map((v) => `<section class="vsec" id="v-${esc(v.key)}"><h2 class="shadowed">${esc(v.label)}</h2><div class="video tall"><iframe src="https://www.youtube-nocookie.com/embed/${ytId(v.url)}?rel=0" title="${esc(v.label)}" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div><p class="row" style="justify-content:center"><a class="btn ghost" href="${esc(v.url)}" target="_blank" rel="noopener">YouTubeで開く ↗</a><a class="btn ghost" href="#head">↑ 上にもどる</a></p></section>`).join("");
+    } else
     $("#video").outerHTML = id
       ? `<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/${id}?rel=0" title="${esc(it.title)}" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div><p class="row"><a class="btn ghost" href="${esc(it.url)}" target="_blank" rel="noopener">YouTubeで開く ↗</a></p>`
       : it.type === "work" ? `<p class="row"><a class="btn ghost" href="work.html">← ワークメニューにもどる</a></p>` /* 動画のないワークは動画枠を出さない */
@@ -428,7 +433,7 @@
     const html = `
       <div class="dr-head"><span class="dr-t">メニュー</span><button type="button" class="dr-x" aria-label="閉じる">✕</button></div>
       ${g("🔰", "はじめての方へ",
-        a("item.html?id=v-guide", "このページの使い方", "1分の動画で、見かた・さがしかた") +
+        a("item.html?id=v-guide", "このページの使い方", "メンバーページ・ワーク・ライブラリの使い方を、1分以内の動画で") +
         a("item.html?id=v-utsuwa", "まずは『お金の3つのうつわ』解説", "すべての土台になる7分の動画") +
         a("odai.html", "今週の問いに答えてみる", "ノートや手帳に書くだけでOK") +
         a("work.html", "おすすめのワークをやってみる", "「おすすめ」の印が先頭に並んでいます"))}

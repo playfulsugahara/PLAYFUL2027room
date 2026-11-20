@@ -10,6 +10,7 @@ window.SITE = {
      date から7日間は「NEW」が自動で付く ／ href は押したときの行き先（空なら押せない1行）
   ------------------------------------------------- */
   news: [
+    { date: "2026-11-21", text: "ワーク／ライブラリの使い方 解説動画をアップしました！", href: "item.html?id=v-guide" },
     { date: "2026-11-19", text: "1期・2期の領収書を申請できるようになりました。宛名とメールアドレスを入れると、PDFでお送りします", href: "receipt.html" },
     { date: "2026-11-17", text: "はじめての方へ：使い方動画（1分）と、右上の「≡ メニュー」ができました", href: "item.html?id=v-guide" },
     { date: "2026-11-17", text: "はじめての方へ：まずは『お金の3つのうつわ』解説（7分）から", href: "item.html?id=v-utsuwa" },
@@ -132,7 +133,11 @@ window.SITE = {
 
     /* --- 基礎 --- */
     { id: "a-utsuwa", term: "1期", type: "article", date: "2026-09-06", title: "お金の3つのうつわ", desc: "貯蓄・受容・流入。3つのうつわの定義と育て方を一本にまとめた記事", tags: ["kiso", "chochiku", "juyou", "ryunyu"], url: "https://playfulsugahara.github.io/playful-report/utsuwa/", kw: "4ステップ チェックリスト 定義" },
-    { id: "v-guide", term: "2期", type: "video", date: "2026-11-17", title: "メンバーページの使い方", desc: "1分でわかる、このページの見かた・さがしかた", tags: ["kiso"], url: "https://youtube.com/shorts/sHAN0eh_l0Y", kw: "使い方 はじめて ガイド 見かた" },
+    { id: "v-guide", term: "2期", type: "video", date: "2026-11-21", title: "メンバーページの使い方", desc: "メンバーページ・ワーク・ライブラリの見かた・さがしかたを、1分以内の動画で", tags: ["kiso"], url: "https://youtube.com/shorts/sHAN0eh_l0Y", kw: "使い方 はじめて ガイド 見かた ワークの使い方 ライブラリの使い方 解説動画",
+      videos: [
+        { key: "page", label: "メンバーページの使い方", url: "https://youtube.com/shorts/sHAN0eh_l0Y", time: "57秒" },
+        { key: "work", label: "ワークの使い方", url: "https://youtube.com/shorts/PzZpB2v2csY", time: "49秒" },
+        { key: "library", label: "ライブラリの使い方", url: "https://youtube.com/shorts/vOJydDEQyEk", time: "36秒" }] },
     { id: "v-utsuwa", term: "1期", type: "video", date: "2026-07-31", title: "『お金の3つのうつわ』解説", desc: "まずはここから。3つのうつわの全体像", tags: ["kiso"], url: "https://youtu.be/FQRkQGbK2uU", kw: "全体像 はじめて" },
     { id: "r-shiru", term: "1期", type: "radio", date: "2026-08-02", title: "【重要】知る→やる→できる→わかる の仕組み", desc: "知っているのに、できない。脳の仕組みから", tags: ["kiso", "shukan"], url: "https://youtu.be/PvjQjVWlB7U", kw: "脳 続かない 知るをできるに変える" },
     { id: "r-muishiki", term: "1期", type: "radio", date: "2026-07-28", title: "お金を遠ざける無意識の正体", desc: "気づかないうちに、お金を遠ざけているもの", tags: ["kiso", "juyou"], url: "https://youtu.be/5sDevxBwlgU", kw: "無意識 ブロック 思い込み" },
