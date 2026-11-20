@@ -219,16 +219,17 @@
     const input = $("#q");
     input.value = params.get("q") || "";
 
+    /* うつわ＝色つきボタン、種類・期＝プルダウン（ボタンが多すぎて分かりにくかったため。2026-11-21 慧） */
     $("#tabs").innerHTML = [["all", "すべて"], ...Object.entries(TAGS)]
-      .map(([k, v]) => `<button type="button" data-k="${k}">${v}</button>`).join("");
-    $("#types").innerHTML = [["all", "種類：すべて"], ...Object.entries(TYPES)]
-      .map(([k, v]) => `<button type="button" data-k="${k}">${v}</button>`).join("");
+      .map(([k, v]) => `<button type="button" class="u-${k}" data-k="${k}">${v}</button>`).join("");
+    $("#types").innerHTML = [["all", "すべて"], ...Object.entries(TYPES)]
+      .map(([k, v]) => `<option value="${k}">${v}</option>`).join("");
     /* 期で絞り込む（今期の新しいものと、1期で扱ったものを分けて見られるように。2026-11-20） */
     let term = params.get("term") || "all";
     const TERMS = [...new Set(S.items.map((it) => it.term))].sort((a, b) => (a === "2期" ? -1 : b === "2期" ? 1 : a === "1期" ? -1 : 1));
     const TLABEL = { "2期": "2期（今期）", "1期": "1期で扱ったもの" };
-    $("#terms").innerHTML = [["all", "期：すべて"], ...TERMS.map((t) => [t, TLABEL[t] || t])]
-      .map(([k, v]) => `<button type="button" data-k="${esc(k)}">${esc(v)}</button>`).join("");
+    $("#terms").innerHTML = [["all", "すべて"], ...TERMS.map((t) => [t, TLABEL[t] || t])]
+      .map(([k, v]) => `<option value="${esc(k)}">${esc(v)}</option>`).join("");
 
     const norm = (s) => String(s || "").toLowerCase().normalize("NFKC");
     /* 並び順（2026-11-20 慧）：①2期の講義 → ②レシート・収支を見る → ③1期（うつわ別・同じ回をまとめる）→ ④特別講義 → ⑤使い方 → ⑥ワーク */
@@ -271,8 +272,8 @@
 
     function render() {
       document.querySelectorAll("#tabs button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.k === tab));
-      document.querySelectorAll("#types button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.k === type));
-      document.querySelectorAll("#terms button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.k === term));
+      $("#types").value = type; $("#types").classList.toggle("on", type !== "all");
+      $("#terms").value = term; $("#terms").classList.toggle("on", term !== "all");
       const words = norm(input.value).split(/\s+/).filter(Boolean);
       const snips = {}, inBody = {};
       const hits = S.items.filter((it) => {
@@ -309,8 +310,8 @@
       history.replaceState(null, "", u);
     }
     $("#tabs").onclick = (e) => { const b = e.target.closest("button"); if (b) { tab = b.dataset.k; render(); } };
-    $("#types").onclick = (e) => { const b = e.target.closest("button"); if (b) { type = b.dataset.k; render(); } };
-    $("#terms").onclick = (e) => { const b = e.target.closest("button"); if (b) { term = b.dataset.k; render(); } };
+    $("#types").onchange = (e) => { type = e.target.value; render(); };
+    $("#terms").onchange = (e) => { term = e.target.value; render(); };
     input.addEventListener("input", render);
     $("#searchForm").onsubmit = (e) => { e.preventDefault(); render(); input.blur(); };
     render();
@@ -440,7 +441,7 @@
         a("library.html?tab=chochiku", "お金の流れを見たい", "〈貯蓄〉のうつわ") +
         a("library.html?tab=juyou", "喜び・感情を大事にしたい", "〈受容〉のうつわ") +
         a("library.html?tab=ryunyu", "収入の流れを広げたい", "〈流入〉のうつわ") +
-        a("library.html?tab=nami", "感情と行動の波を知りたい", "波のつかみ方") +
+        a("library.html?q=波", "感情と行動の波を知りたい", "波のつかみ方") +
         a("library.html?tab=shukan", "習慣を続けるコツを知りたい", "続けるためのヒント"))}
       ${g("🎬", "種類から探す",
         a("zoom.html", "Zoomのアーカイブとスライド", "作戦会議の各回") +

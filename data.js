@@ -105,7 +105,7 @@ window.SITE = {
 
   /* ---------- ライブラリ ----------
      type : video（解説動画）/ radio（ラジオ）/ article（記事・レポート）/ archive（講義アーカイブ）/ slides（スライド・資料）
-     tags : kiso（基礎）/ chochiku（貯蓄）/ juyou（受容）/ ryunyu（流入）/ nami（感情と波）/ shukan（習慣）
+     tags : kiso（基礎）/ chochiku（貯蓄）/ juyou（受容）/ ryunyu（流入）/ shukan（習慣）
      term : "1期" / "2期"
   ------------------------------------------------- */
   items: [
@@ -126,8 +126,8 @@ window.SITE = {
     { id: "ar-yohaku1104", term: "特別講義", type: "archive", date: "2026-11-04", title: "未来につながる余白の話（11/4 トークセッション）", desc: "Londの甲斐さんと。余白は目的地と現在地の間にある。余裕と余白の違い、期限を決める、頼る勇気", tags: ["chochiku", "juyou"], url: "https://youtu.be/NMYopJ2JrWU", kw: "余白 甲斐 Lond トークセッション 余裕 期限 頼る 軸 比べる 状態目標" },
 
     /* --- 2期 --- */
-    { id: "ar-1115", term: "2期", type: "archive", date: "2026-11-15", title: "11/15 キックオフ講義", desc: "うつわのおさらいと、今期の取り組み。ビジョンの洞窟探索ツアーのはじまり", tags: ["kiso", "nami"], url: "zoom.html?n=1", kw: "作戦会議 コンセプト 星座 洞窟" },
-    { id: "s-1115", term: "2期", type: "slides", date: "2026-11-15", title: "11/15 キックオフ スライド（29枚）", desc: "3つのうつわ・行動と感情の波・すごろくの地図・PLAYFUL思考の世界", tags: ["kiso", "nami"], url: "zoom.html?n=1#slides", kw: "すごろく 5つのエリア カイゼン センリャク デザイン ビジョン アート" },
+    { id: "ar-1115", term: "2期", type: "archive", date: "2026-11-15", title: "11/15 キックオフ講義", desc: "うつわのおさらいと、今期の取り組み。ビジョンの洞窟探索ツアーのはじまり", tags: ["kiso"], url: "zoom.html?n=1", kw: "作戦会議 コンセプト 星座 洞窟" },
+    { id: "s-1115", term: "2期", type: "slides", date: "2026-11-15", title: "11/15 キックオフ スライド（29枚）", desc: "3つのうつわ・行動と感情の波・すごろくの地図・PLAYFUL思考の世界", tags: ["kiso"], url: "zoom.html?n=1#slides", kw: "すごろく 5つのエリア カイゼン センリャク デザイン ビジョン アート" },
     { id: "d-world", term: "2期", type: "slides", date: "2026-11-15", title: "世界の見方をアップデートする資料集", desc: "5つのエリアと、ビジョンの洞窟・人生芸術の大海。キックオフのスライド11枚目から", tags: ["kiso"], url: "zoom.html?n=1#slide-11", kw: "PLAYFUL思考 アート思考 ビジョン思考 星のカケラ 航海術" },
 
     /* --- 基礎 --- */
@@ -157,8 +157,8 @@ window.SITE = {
 
     /* --- 流入・感情と波 --- */
     { id: "v-ryunyu", term: "1期", type: "video", date: "2026-07-31", title: "流入のうつわ：解説", desc: "稼げる量。ここ半年の収入＋臨時収入の平均（月商）", tags: ["ryunyu"], url: "https://youtu.be/k--CBdSdWCw", kw: "臨時収入 収入" },
-    { id: "ar-1004", term: "1期", type: "archive", date: "2026-10-04", title: "10/4 講義③ アーカイブ「感情と行動の波」", desc: "行動の波と感情の波。今期のベースになる講義", tags: ["ryunyu", "nami"], url: "https://youtu.be/q79mVjKMU8s", kw: "行動の波 感情の波 やる やらない" },
-    { id: "a-1004", term: "1期", type: "article", date: "2026-10-04", title: "10/4 第三回講義レポート", desc: "気分で決めるのをやめる。行動の波と感情の波。〈流入〉のうつわと、臨時収入の正体", tags: ["ryunyu", "nami"], url: "https://playfulsugahara.github.io/playful-report/20261004/", kw: "行動の波 感情の波 臨時収入 気分" },
+    { id: "ar-1004", term: "1期", type: "archive", date: "2026-10-04", title: "10/4 講義③ アーカイブ「感情と行動の波」", desc: "行動の波と感情の波。今期のベースになる講義", tags: ["ryunyu"], url: "https://youtu.be/q79mVjKMU8s", kw: "行動の波 感情の波 やる やらない" },
+    { id: "a-1004", term: "1期", type: "article", date: "2026-10-04", title: "10/4 第三回講義レポート", desc: "気分で決めるのをやめる。行動の波と感情の波。〈流入〉のうつわと、臨時収入の正体", tags: ["ryunyu"], url: "https://playfulsugahara.github.io/playful-report/20261004/", kw: "行動の波 感情の波 臨時収入 気分" },
 
     /* --- 習慣 --- */
     { id: "v-kotsu", term: "1期", type: "video", date: "2026-07-28", title: "習慣化のコツ｜レクチャー動画", desc: "習慣を続けるためのコツ", tags: ["shukan"], url: "https://youtu.be/FNdgEwh-pFs", kw: "続かない 習慣化" },
@@ -167,5 +167,5 @@ window.SITE = {
   ]
 };
 
-window.TAGS = { kiso: "基礎", chochiku: "貯蓄", juyou: "受容", ryunyu: "流入", nami: "感情と波", shukan: "習慣" };
+window.TAGS = { kiso: "基礎", chochiku: "貯蓄", juyou: "受容", ryunyu: "流入", shukan: "習慣" };
 window.TYPES = { video: "解説動画", radio: "ラジオ", article: "記事", archive: "講義アーカイブ", slides: "スライド・資料", work: "ワーク" };

@@ -105,7 +105,7 @@ strong{font-weight:700;background:linear-gradient(transparent 62%,rgba(255,106,6
 .tile b{font-family:var(--f-display);font-size:18px;display:block}
 .tile span{font-size:13px;color:var(--muted);line-height:1.5;display:block;margin-top:2px}
 .tile.kiso{background:var(--paper)} .tile.chochiku{background:#dfe8f7} .tile.juyou{background:#fde3d8}
-.tile.ryunyu{background:#e3f0d9} .tile.nami{background:var(--lime)} .tile.shukan{background:#fbe6c4}
+.tile.ryunyu{background:#e3f0d9} .tile.shukan{background:#fbe6c4}
 
 /* ===== ライブラリ ===== */
 .tabs{display:flex;gap:6px;overflow-x:auto;padding:4px 2px 10px;margin-top:16px;scrollbar-width:none}
@@ -113,6 +113,14 @@ strong{font-weight:700;background:linear-gradient(transparent 62%,rgba(255,106,6
 .tabs button,.chips button{flex:none;font:inherit;font-family:var(--f-display);font-weight:700;font-size:14px;border:2px solid var(--ink);background:#fff;color:var(--ink);border-radius:999px;padding:4px 14px;cursor:pointer}
 .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--lime)}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
+/* うつわボタンはホームのタイルと同じ色 */
+.tabs button.u-kiso{background:#fff} .tabs button.u-chochiku{background:#dfe8f7} .tabs button.u-juyou{background:#fde3d8}
+.tabs button.u-ryunyu{background:#e3f0d9} .tabs button.u-shukan{background:#fbe6c4}
+.tabs button[aria-pressed="true"]{background:var(--ink)!important;color:var(--lime)}
+.filters{display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-size:13px;color:var(--muted);font-weight:700}
+.filters label{display:flex;align-items:center;gap:6px}
+.filters select{font:inherit;font-size:13px;color:var(--ink);border:1.5px solid var(--ink);border-radius:999px;padding:3px 28px 3px 12px;-webkit-appearance:none;appearance:none;background-color:#fff;background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);background-position:calc(100% - 15px) 55%,calc(100% - 10px) 55%;background-size:5px 5px;background-repeat:no-repeat;cursor:pointer}
+.filters select.on{background-color:var(--red);border-color:var(--red);color:var(--paper);background-image:linear-gradient(45deg,transparent 50%,var(--paper) 50%),linear-gradient(135deg,var(--paper) 50%,transparent 50%)}
 .chips button{font-size:12px;padding:2px 12px;border-width:1.5px}
 .chips button[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:var(--paper)}
 .count{margin-top:12px;font-size:13px;color:var(--muted)}
