@@ -349,9 +349,8 @@ body.dr-open .totop{visibility:hidden}
 .rc-opt:has(input:checked){background:var(--lime)}
 .rc-opt .amt{display:block;font-family:var(--f-mono);font-weight:700;font-size:15px;margin-top:2px}
 .rc-sum{font-size:14px;color:var(--muted)}
-/* ホーム：この2ヶ月で大切にしてほしいこと（2026-11-20） */
-.card.focus{padding-top:24px}
-.card.focus .flag{left:16px;right:auto}
-.card.focus ol{margin:4px 0 10px;padding-left:1.4em;font-weight:500;line-height:1.8}
-.card.focus p{margin:8px 0 0;line-height:1.8}
-.card.focus p.muted{font-size:14px}
+/* ホーム：この2ヶ月で大切にしてほしいこと（2026-11-20。枠なし・見出しは .phase と同じ緑の小見出し） */
+.focus-h{font-family:var(--f-display);font-weight:700;font-size:15px;color:var(--green);margin:0 0 6px}
+.focus ol{margin:0 0 8px;padding-left:1.4em;font-weight:500;line-height:1.8}
+.focus p{margin:8px 0 0;line-height:1.8}
+.focus p.muted{font-size:14px}
