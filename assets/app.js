@@ -539,9 +539,12 @@
   function glossary() {
     const G = window.GLOSSARY || {};
     const ids = Object.keys(G).sort((a, b) => (G[a].yomi || G[a].term).localeCompare(G[b].yomi || G[b].term, "ja"));
-    const KEY = "glossary-ok";
-    let ok; try { ok = new Set(JSON.parse(localStorage.getItem(KEY) || "[]")); } catch (_) { ok = new Set(); }
-    const save = () => { try { localStorage.setItem(KEY, JSON.stringify([...ok])); } catch (_) {} };
+    /* わかった（ok）／まだわからない（ng）は、本人のブラウザの中にだけ残す（localStorage）。運営には送らない */
+    const KEY = "glossary-st";
+    let st = {}; try { st = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (_) {}
+    try { JSON.parse(localStorage.getItem("glossary-ok") || "[]").forEach((x) => { if (!st[x]) st[x] = "ok"; }); localStorage.removeItem("glossary-ok"); } catch (_) {}
+    const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (_) {} };
+    const mark = (x) => st[x] === "ok" ? `<span class="gi-ok" aria-label="わかった">✓</span>` : st[x] === "ng" ? `<span class="gi-ok ng" aria-label="まだわからない">?</span>` : "";
     const catB = (c) => `<span class="g-cat c-${c}"><span aria-hidden="true">${GCAT[c][1]}</span>${GCAT[c][0]}</span>`;
     const body = (t) => [t.term, ...(t.aka || []), t.find, t.hito, ...t.sections.map((s) => s.title + " " + s.html.replace(/<[^>]+>/g, " "))].join(" ");
     const norm = (s) => s.toLowerCase().replace(/[\s　、。・「」〈〉]/g, "");
@@ -553,18 +556,23 @@
     const day = Math.floor((Date.now() + 9 * 3600e3) / 864e5);
     const tid = ids[day % ids.length];
     if (tid) { const a = $("#gToday"); a.href = `glossary.html?id=${tid}`; a.innerHTML = `<span class="gt-l">今日の1語</span><b>${esc(G[tid].term)}</b><span class="gt-h">${esc(G[tid].hito)}</span><span class="gt-go">ひらく →</span>`; }
-    const prog = () => { const n = ids.filter((x) => ok.has(x)).length; $("#gProg").innerHTML = `<span class="gp-l">わかった！</span><b>${n}</b> / ${ids.length}語<span class="gp-bar"><i style="width:${ids.length ? (n / ids.length) * 100 : 0}%"></i></span>`; };
+    const prog = () => {
+      const n = ids.length || 1, a = ids.filter((x) => st[x] === "ok").length, b = ids.filter((x) => st[x] === "ng").length;
+      $("#gProg").innerHTML = `<span class="gp-bar" role="img" aria-label="わかった${a}語・まだわからない${b}語・まだ読んでいない${ids.length - a - b}語"><i class="ok" style="width:${(a / n) * 100}%"></i><i class="ng" style="width:${(b / n) * 100}%"></i></span>
+        <span class="gp-legend"><span class="k ok"></span>わかった <b>${a}</b><span class="k ng"></span>まだわからない <b>${b}</b><span class="k no"></span>まだ読んでいない <b>${ids.length - a - b}</b></span>`;
+    };
     prog();
     let tab = params.get("cat") || "all", q = params.get("q") || "";
     $("#gq").value = q;
     const cats = Object.keys(GCAT).filter((c) => ids.some((x) => G[x].cat === c));
-    $("#gTabs").innerHTML = [["all", "すべて"], ...cats.map((c) => [c, GCAT[c][0]])].map(([k, v]) => `<button type="button" data-k="${k}">${v}</button>`).join("");
+    const tabs = () => { $("#gTabs").innerHTML = [["all", "すべて"], ...cats.map((c) => [c, GCAT[c][0]]), ...(ids.some((x) => st[x] === "ng") ? [["ng", "？まだわからない"]] : [])].map(([k, v]) => `<button type="button" data-k="${k}"${k === "ng" ? ' class="g-ngtab"' : ""}>${v}</button>`).join(""); };
+    tabs();
     function render() {
       document.querySelectorAll("#gTabs button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.k === tab));
       const nq = norm(q);
-      const list = ids.filter((x) => (tab === "all" || G[x].cat === tab) && (!nq || norm(body(G[x])).includes(nq)));
+      const list = ids.filter((x) => (tab === "all" || G[x].cat === tab || (tab === "ng" && st[x] === "ng")) && (!nq || norm(body(G[x])).includes(nq)));
       $("#gCount").textContent = `${list.length}語`;
-      $("#gList").innerHTML = list.map((x) => { const t = G[x]; return `<li><a class="g-item${ok.has(x) ? " done" : ""}" href="glossary.html?id=${x}">${catB(t.cat)}<b class="gi-t">${esc(t.term)}</b><span class="gi-h">${esc(t.hito)}</span>${ok.has(x) ? `<span class="gi-ok" aria-label="わかった">✓</span>` : ""}</a></li>`; }).join("");
+      $("#gList").innerHTML = list.map((x) => { const t = G[x]; return `<li><a class="g-item${st[x] ? " " + st[x] : ""}" href="glossary.html?id=${x}">${catB(t.cat)}<b class="gi-t">${esc(t.term)}</b><span class="gi-h">${esc(t.hito)}</span>${mark(x)}</a></li>`; }).join("");
       $("#gEmpty").hidden = list.length > 0;
     }
     $("#gTabs").onclick = (e) => { const b = e.target.closest("button"); if (!b) return; tab = b.dataset.k; render(); };
@@ -586,10 +594,13 @@
       if (links.length) h += `<section class="note"><h2 class="shadowed b">つながる言葉</h2><p class="g-chips">${links.map((x) => `<a href="glossary.html?id=${x}">${esc(G[x].term)}</a>`).join("")}</p></section>`;
       if (rel.length) h += `<section class="note"><h2 class="shadowed">関連する動画・記事</h2><ul class="list">${rel.map(({ r, it }) => (r.at ? itemHTML(it, `▶ ${esc(r.at)}〜 のあたり`).replace('class="hit"', 'class="hit at"') : itemHTML(it))).join("")}</ul></section>`;
       if (t.seen && t.seen.length) h += `<section class="note"><h2 class="shadowed b">ここに出てくる</h2><ul class="g-seen">${t.seen.map((s) => `<li><a href="${esc(s.href)}"${s.ext ? ' target="_blank" rel="noopener"' : ""}><q>${hl(s.q, s.w)}</q><span class="gs-t">${esc(s.title)} ${s.ext ? "↗" : "→"}</span></a></li>`).join("")}</ul></section>`;
-      h += `<p class="g-okrow"><button type="button" class="btn g-okbtn" id="gOk"></button></p><p class="row"><a class="btn ghost" href="glossary.html">← 用語辞典にもどる</a></p></div></section>`;
+      h += `<div class="g-okrow"><p class="g-okq">この言葉、どうでしたか？</p><div class="g-okbtns"><button type="button" class="btn g-okbtn" data-s="ok">✓ わかった！</button><button type="button" class="btn g-okbtn ng" data-s="ng">？ まだわからない</button></div><p class="g-oknote" id="gNote"></p></div><p class="row"><a class="btn ghost" href="glossary.html">← 用語辞典にもどる</a></p></div></section>`;
       v.innerHTML = h;
-      const sync = () => { const on = ok.has(gid); const b = $("#gOk"); b.classList.toggle("on", on); b.textContent = on ? "✓ わかった！" : "わかった！"; b.setAttribute("aria-pressed", on); };
-      $("#gOk").onclick = () => { ok.has(gid) ? ok.delete(gid) : ok.add(gid); save(); sync(); };
+      const sync = () => {
+        document.querySelectorAll(".g-okbtn").forEach((b) => { const on = st[gid] === b.dataset.s; b.classList.toggle("on", on); b.setAttribute("aria-pressed", on); });
+        $("#gNote").textContent = st[gid] === "ok" ? "記録しました。いつでも押し直せます。" : st[gid] === "ng" ? "記録しました。一覧の「？まだわからない」から、あとで読み返せます。" : "押した記録は、このスマホの中にだけ残ります。";
+      };
+      document.querySelectorAll(".g-okbtn").forEach((b) => { b.onclick = () => { st[gid] = st[gid] === b.dataset.s ? undefined : b.dataset.s; if (!st[gid]) delete st[gid]; save(); sync(); }; });
       sync();
     }
   }
