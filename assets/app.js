@@ -600,7 +600,13 @@
         document.querySelectorAll(".g-okbtn").forEach((b) => { const on = st[gid] === b.dataset.s; b.classList.toggle("on", on); b.setAttribute("aria-pressed", on); });
         $("#gNote").textContent = st[gid] === "ok" ? "記録しました。いつでも押し直せます。" : st[gid] === "ng" ? "記録しました。一覧の「？まだわからない」から、あとで読み返せます。" : "押した記録は、このスマホの中にだけ残ります。";
       };
-      document.querySelectorAll(".g-okbtn").forEach((b) => { b.onclick = () => { st[gid] = st[gid] === b.dataset.s ? undefined : b.dataset.s; if (!st[gid]) delete st[gid]; save(); sync(); }; });
+      document.querySelectorAll(".g-okbtn").forEach((b) => { b.onclick = () => {
+        const prev = st[gid] || "";
+        st[gid] = st[gid] === b.dataset.s ? undefined : b.dataset.s; if (!st[gid]) delete st[gid]; save(); sync();
+        /* 運営の集計用：どの言葉が押されたかだけを送る（名前・端末の情報は送らない）。送れなくても画面には影響しない */
+        const url = (S.forms || {}).glossary;
+        if (url) fetch(url, { method: "POST", mode: "no-cors", keepalive: true, body: JSON.stringify({ id: gid, term: t.term, s: st[gid] || "", p: prev }) }).catch(() => {});
+      }; });
       sync();
     }
   }

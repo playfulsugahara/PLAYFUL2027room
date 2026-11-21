@@ -20,8 +20,8 @@ window.SITE = {
     { date: "2026-11-16", text: "第1回 キックオフのアーカイブとスライドを公開しました", href: "zoom.html?n=1" }
   ],
 
-  /* ---------- 申請フォームの送り先（Google Apps Script のウェブアプリURL。空なら「準備中」） ---------- */
-  forms: { receipt: "https://script.google.com/macros/s/AKfycbz3dGN2iiqTuV9_bw_H201ZOxn0ROO7YbaDeL3Jt0Dufos9r8RjSUXDm4JG0BCIG24TyQ/exec" },
+  /* ---------- 送り先（Google Apps Script のウェブアプリURL）。receipt＝領収書の申請（空なら「準備中」）／glossary＝用語辞典の「わかった・まだわからない」（名前なしの数だけ。空なら送らない） ---------- */
+  forms: { glossary: "https://script.google.com/macros/s/AKfycbwxXb5Yo5oZpar4uWZl_8Rh3dCC0IFKy-NiOOZcI3i2RdcYDLjZk6m9j6pm1__NiVWKmw/exec", receipt: "https://script.google.com/macros/s/AKfycbz3dGN2iiqTuV9_bw_H201ZOxn0ROO7YbaDeL3Jt0Dufos9r8RjSUXDm4JG0BCIG24TyQ/exec" },
 
   /* ---------- Zoom 5回 ---------- */
   sessions: [
