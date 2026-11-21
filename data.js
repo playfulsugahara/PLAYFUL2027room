@@ -78,8 +78,8 @@ window.SITE = {
      isNew : 「NEW！」マーク（1期で詳しく紹介していないワーク／2期で追加したワーク）
   ------------------------------------------------- */
   works: [
-    { id: "w-receipt", time: "5〜10分", tc: 5, name: "レシート", v: ["chochiku", "juyou"], rec: true, item: "v-receipt",
-      desc: "レシートを見て、その買い物でどれくらい喜んだか、ほかにどんな感情があったかを割合で書き出す" },
+    { id: "w-receipt", time: "1〜10分", tc: 15, name: "レシート", v: ["chochiku", "juyou"], rec: true, item: "v-receipt",
+      desc: "買ったものと、そのとき感じたことを一言書くところから。慣れてきたら、感情の割合と理由、感情の成分まで見ていく（初級・中級・上級）" },
     { id: "w-genjo", time: "10〜30分", tc: 30, name: "収支を見る", v: ["chochiku"], rec: true, item: "v-genjo",
       desc: "いま動かせるお金、これから決まっている支出、1ヶ月の収支を書き出して、自分の現在地を知る" },
     { id: "w-zero", time: "3〜5分", tc: 5, isNew: true, name: "ゼロ秒思考", v: ["chochiku", "juyou"], rec: true, item: "k-zero",
