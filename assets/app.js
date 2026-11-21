@@ -589,11 +589,11 @@
       const hl = (q, w) => esc(q).split(esc(w)).join(`<mark>${esc(w)}</mark>`);
       const links = (t.links || []).filter((x) => G[x]);
       const rel = (t.related || []).map((r) => ({ r, it: S.items.find((x) => x.id === r.id) })).filter((x) => x.it);
-      let h = `<section class="sess-head g-head"><div class="wrap"><p class="no">${catB(t.cat)}</p><h1>${esc(t.term)}</h1><p class="g-hito">${esc(t.hito)}</p></div></section><section><div class="wrap">`;
-      t.sections.forEach((s, i) => { h += `<section class="note${s.title.includes("Zoom") ? " g-zoom" : ""}"><h2 class="${i % 2 ? "shadowed" : "shadowed b"}">${esc(s.title)}</h2><div class="note-body">${s.html}</div></section>`; });
+      let h = `<section class="sess-head g-head"><div class="wrap"><p class="g-crumb"><a href="glossary.html"><span aria-hidden="true">📖</span>用語辞典</a></p><p class="no">${catB(t.cat)}</p><h1>${esc(t.term)}</h1><p class="g-hito">${esc(t.hito)}</p></div></section><section><div class="wrap">`;
+      t.sections.forEach((s, i) => { h += `<section class="note${s.title.includes("使用例") ? " g-zoom" : s.title === "一般的な意味" ? " g-dict" : ""}"><h2 class="${i % 2 ? "shadowed" : "shadowed b"}">${esc(s.title)}</h2><div class="note-body">${s.html}</div></section>`; });
       if (links.length) h += `<section class="note"><h2 class="shadowed b">つながる言葉</h2><p class="g-chips">${links.map((x) => `<a href="glossary.html?id=${x}">${esc(G[x].term)}</a>`).join("")}</p></section>`;
+      if (t.seen && t.seen.length) h += `<section class="note"><h2 class="shadowed b">登場回</h2><ul class="g-seen">${t.seen.map((s) => `<li><a href="${esc(s.href)}"${s.ext ? ' target="_blank" rel="noopener"' : ""}><q>${hl(s.q, s.w)}</q><span class="gs-t">${esc(s.title)} ${s.ext ? "↗" : "→"}</span></a></li>`).join("")}</ul></section>`;
       if (rel.length) h += `<section class="note"><h2 class="shadowed">関連する動画・記事</h2><ul class="list">${rel.map(({ r, it }) => (r.at ? itemHTML(it, `▶ ${esc(r.at)}〜 のあたり`).replace('class="hit"', 'class="hit at"') : itemHTML(it))).join("")}</ul></section>`;
-      if (t.seen && t.seen.length) h += `<section class="note"><h2 class="shadowed b">ここに出てくる</h2><ul class="g-seen">${t.seen.map((s) => `<li><a href="${esc(s.href)}"${s.ext ? ' target="_blank" rel="noopener"' : ""}><q>${hl(s.q, s.w)}</q><span class="gs-t">${esc(s.title)} ${s.ext ? "↗" : "→"}</span></a></li>`).join("")}</ul></section>`;
       h += `<div class="g-okrow"><p class="g-okq">この言葉、どうでしたか？</p><div class="g-okbtns"><button type="button" class="btn g-okbtn" data-s="ok">✓ わかった！</button><button type="button" class="btn g-okbtn ng" data-s="ng">？ まだわからない</button></div><p class="g-oknote" id="gNote"></p></div><p class="row"><a class="btn ghost" href="glossary.html">← 用語辞典にもどる</a></p></div></section>`;
       v.innerHTML = h;
       const sync = () => {
