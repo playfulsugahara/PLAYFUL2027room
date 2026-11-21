@@ -138,7 +138,7 @@
     if (!s) { $("#detail").hidden = true; return; }
     $("#listHead").textContent = "ほかの回";
     document.title = `第${s.n}回 ${s.title}｜2027年作戦会議`;
-    $("#head").innerHTML = `<p class="no">ZOOM ${s.n} ｜ ${md(s.date)}（${s.dow}）${s.time}</p><h1>${esc(s.title)}</h1><p class="theme">${esc(s.theme)}</p>`;
+    $("#head").innerHTML = `<p class="no">ZOOM ${s.n} ｜ ${md(s.date)}（${s.dow}）${s.time}${s.dur ? ` ｜ ▶ 動画 ${esc(s.dur)}` : ""}</p><h1>${esc(s.title)}</h1><p class="theme">${esc(s.theme)}</p>`;
 
     const id = ytId(s.youtube);
     $("#video").outerHTML = id
@@ -331,7 +331,7 @@
     }
     const tags = it.tags.map((t) => `<a class="badge" href="library.html?tab=${t}">${TAGS[t]}</a>`).join("");
     const wk = S.works.find((w) => w.item === it.id);
-    $("#head").innerHTML = `<p class="no">${TYPES[it.type].toUpperCase()} ｜ ${it.term}${wk && wk.time ? ` ｜ ⏱ 目安 ${esc(wk.time)}` : ""}</p><h1>${esc(it.title)}</h1><p class="theme">${esc(it.desc)}</p><p class="meta" style="margin-top:10px;display:flex;gap:4px;flex-wrap:wrap">${tags}</p>`;
+    $("#head").innerHTML = `<p class="no">${TYPES[it.type].toUpperCase()} ｜ ${it.term}${wk && wk.time ? ` ｜ ⏱ 目安 ${esc(wk.time)}` : ""}${it.dur ? ` ｜ ▶ 動画 ${esc(it.dur)}` : ""}</p><h1>${esc(it.title)}</h1><p class="theme">${esc(it.desc)}</p><p class="meta" style="margin-top:10px;display:flex;gap:4px;flex-wrap:wrap">${tags}</p>`;
 
     const id = ytId(it.url);
     /* 動画が複数ある項目（使い方動画など）：ボタンで各動画の位置へ移動する（items の videos: [{ key, label, url, time }]） */
