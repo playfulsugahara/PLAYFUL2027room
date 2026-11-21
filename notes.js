@@ -216,7 +216,7 @@ window.NOTES = {
    },
    {
     "title": "やり方",
-    "html": "<ol><li><span><b class=\"st\">紙を用意する</b><span class=\"sd\">ノートでも裏紙でもOK。慣れるまでは、チラシの裏など捨てられる紙がおすすめ</span></span></li><li><span><b class=\"st\">左上にタイトル（問い）を書く</b><span class=\"sd\">下の「問いの例」から選んでもいい</span></span></li><li><span><b class=\"st\">1分で書き出す</b><span class=\"sd\">タイマーをセットして、浮かんだ言葉をどんどん書く。字は汚くてOK</span></span></li><li><span><strong>いちばん気になるものに丸をつける</strong></span></li><li><span><b class=\"st\">次の紙で深掘りする</b><span class=\"sd\">「なぜそれが気になるの？」「それってどういうこと？」をタイトルにして、また1分</span></span></li><li><span><b class=\"st\">紙は捨てていい</b><span class=\"sd\">残さなくて大丈夫です</span></span></li></ol>"
+    "html": "<ol><li><span><b class=\"st\">紙を用意する</b><span class=\"sd\">ノートでも裏紙でもOK。慣れるまでは、チラシの裏など捨てられる紙がおすすめ</span></span></li><li><span><b class=\"st\">左上にタイトル（問い）を書く</b><span class=\"sd\">下の「問いの例」から選んでもいい</span></span></li><li><span><b class=\"st\">1分で書き出す</b><span class=\"sd\">タイマーをセットして、浮かんだ言葉をどんどん書く。字は汚くてOK。1分で5行くらい書ければ十分です</span></span></li><li><span><strong>いちばん気になるものに丸をつける</strong></span></li><li><span><b class=\"st\">次の紙で深掘りする</b><span class=\"sd\">「なぜそれが気になるの？」「それってどういうこと？」をタイトルにして、また1分</span></span></li><li><span><b class=\"st\">紙は捨てていい</b><span class=\"sd\">残さなくて大丈夫です</span></span></li></ol>"
    },
    {
     "title": "問いの例",
@@ -254,6 +254,10 @@ window.NOTES = {
    {
     "title": "目安の頻度",
     "html": "<p>週1回</p>"
+   },
+   {
+    "title": "Bandに書くときの例",
+    "html": "<p>この通りじゃなくてもOKです。書き方に迷ったときの参考までに。</p><p>日付／お店と金額／感情の割合／ひとこと理由</p><p>例：<br>11/18　パン屋　680円<br>喜び90％／ちょっと高かったかも10％<br>焼きたての匂いにつられて。次の日の朝ごはんが楽しみになった</p>"
    },
    {
     "title": "動画の見どころ",
