@@ -533,7 +533,68 @@
     });
   }
 
+
+  /* ---------------- 用語辞典（glossary.html）。中身は glossary.js（原本は 📮 コンテンツ/06_用語辞典/*.md） ---------------- */
+  const GCAT = { utsuwa: ["うつわ", "💧"], shikumi: ["心と体のしくみ", "🌊"], dodai: ["5つの土台", "🏛"], work: ["ワーク", "✍️"], aruaru: ["あるある", "💭"], sakusen: ["作戦会議", "🗺"] };
+  function glossary() {
+    const G = window.GLOSSARY || {};
+    const ids = Object.keys(G).sort((a, b) => (G[a].yomi || G[a].term).localeCompare(G[b].yomi || G[b].term, "ja"));
+    const KEY = "glossary-ok";
+    let ok; try { ok = new Set(JSON.parse(localStorage.getItem(KEY) || "[]")); } catch (_) { ok = new Set(); }
+    const save = () => { try { localStorage.setItem(KEY, JSON.stringify([...ok])); } catch (_) {} };
+    const catB = (c) => `<span class="g-cat c-${c}"><span aria-hidden="true">${GCAT[c][1]}</span>${GCAT[c][0]}</span>`;
+    const body = (t) => [t.term, ...(t.aka || []), t.find, t.hito, ...t.sections.map((s) => s.title + " " + s.html.replace(/<[^>]+>/g, " "))].join(" ");
+    const norm = (s) => s.toLowerCase().replace(/[\s　、。・「」〈〉]/g, "");
+
+    const id = params.get("id");
+    if (id && G[id]) return gDetail(id);
+
+    /* 一覧 */
+    const day = Math.floor((Date.now() + 9 * 3600e3) / 864e5);
+    const tid = ids[day % ids.length];
+    if (tid) { const a = $("#gToday"); a.href = `glossary.html?id=${tid}`; a.innerHTML = `<span class="gt-l">今日の1語</span><b>${esc(G[tid].term)}</b><span class="gt-h">${esc(G[tid].hito)}</span><span class="gt-go">ひらく →</span>`; }
+    const prog = () => { const n = ids.filter((x) => ok.has(x)).length; $("#gProg").innerHTML = `<span class="gp-l">わかった！</span><b>${n}</b> / ${ids.length}語<span class="gp-bar"><i style="width:${ids.length ? (n / ids.length) * 100 : 0}%"></i></span>`; };
+    prog();
+    let tab = params.get("cat") || "all", q = params.get("q") || "";
+    $("#gq").value = q;
+    const cats = Object.keys(GCAT).filter((c) => ids.some((x) => G[x].cat === c));
+    $("#gTabs").innerHTML = [["all", "すべて"], ...cats.map((c) => [c, GCAT[c][0]])].map(([k, v]) => `<button type="button" data-k="${k}">${v}</button>`).join("");
+    function render() {
+      document.querySelectorAll("#gTabs button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.k === tab));
+      const nq = norm(q);
+      const list = ids.filter((x) => (tab === "all" || G[x].cat === tab) && (!nq || norm(body(G[x])).includes(nq)));
+      $("#gCount").textContent = `${list.length}語`;
+      $("#gList").innerHTML = list.map((x) => { const t = G[x]; return `<li><a class="g-item${ok.has(x) ? " done" : ""}" href="glossary.html?id=${x}">${catB(t.cat)}<b class="gi-t">${esc(t.term)}</b><span class="gi-h">${esc(t.hito)}</span>${ok.has(x) ? `<span class="gi-ok" aria-label="わかった">✓</span>` : ""}</a></li>`; }).join("");
+      $("#gEmpty").hidden = list.length > 0;
+    }
+    $("#gTabs").onclick = (e) => { const b = e.target.closest("button"); if (!b) return; tab = b.dataset.k; render(); };
+    $("#gForm").onsubmit = (e) => { e.preventDefault(); q = $("#gq").value.trim(); tab = "all"; render(); };
+    $("#gq").oninput = () => { q = $("#gq").value.trim(); render(); };
+    render();
+
+    /* 1語のページ */
+    function gDetail(gid) {
+      const t = G[gid];
+      document.title = `${t.term}｜用語辞典｜2027年作戦会議`;
+      $("#gListView").hidden = true;
+      const v = $("#gDetailView"); v.hidden = false;
+      const hl = (q, w) => esc(q).split(esc(w)).join(`<mark>${esc(w)}</mark>`);
+      const links = (t.links || []).filter((x) => G[x]);
+      const rel = (t.related || []).map((r) => ({ r, it: S.items.find((x) => x.id === r.id) })).filter((x) => x.it);
+      let h = `<section class="sess-head g-head"><div class="wrap"><p class="no">${catB(t.cat)}</p><h1>${esc(t.term)}</h1><p class="g-hito">${esc(t.hito)}</p></div></section><section><div class="wrap">`;
+      t.sections.forEach((s, i) => { h += `<section class="note${s.title.includes("Zoom") ? " g-zoom" : ""}"><h2 class="${i % 2 ? "shadowed" : "shadowed b"}">${esc(s.title)}</h2><div class="note-body">${s.html}</div></section>`; });
+      if (links.length) h += `<section class="note"><h2 class="shadowed b">つながる言葉</h2><p class="g-chips">${links.map((x) => `<a href="glossary.html?id=${x}">${esc(G[x].term)}</a>`).join("")}</p></section>`;
+      if (rel.length) h += `<section class="note"><h2 class="shadowed">関連する動画・記事</h2><ul class="list">${rel.map(({ r, it }) => (r.at ? itemHTML(it, `▶ ${esc(r.at)}〜 のあたり`).replace('class="hit"', 'class="hit at"') : itemHTML(it))).join("")}</ul></section>`;
+      if (t.seen && t.seen.length) h += `<section class="note"><h2 class="shadowed b">ここに出てくる</h2><ul class="g-seen">${t.seen.map((s) => `<li><a href="${esc(s.href)}"${s.ext ? ' target="_blank" rel="noopener"' : ""}><q>${hl(s.q, s.w)}</q><span class="gs-t">${esc(s.title)} ${s.ext ? "↗" : "→"}</span></a></li>`).join("")}</ul></section>`;
+      h += `<p class="g-okrow"><button type="button" class="btn g-okbtn" id="gOk"></button></p><p class="row"><a class="btn ghost" href="glossary.html">← 用語辞典にもどる</a></p></div></section>`;
+      v.innerHTML = h;
+      const sync = () => { const on = ok.has(gid); const b = $("#gOk"); b.classList.toggle("on", on); b.textContent = on ? "✓ わかった！" : "わかった！"; b.setAttribute("aria-pressed", on); };
+      $("#gOk").onclick = () => { ok.has(gid) ? ok.delete(gid) : ok.add(gid); save(); sync(); };
+      sync();
+    }
+  }
+
   menu();
   toTop();
-  ({ home, zoom, odai, library, item, work, receipt }[page] || (() => {}))();
+  ({ home, zoom, odai, library, item, work, receipt, glossary }[page] || (() => {}))();
 })();
