@@ -35,7 +35,7 @@
     const wait = href ? "" : `<span class="badge wait">準備中</span>`;
     const ext = /^https?:/.test(href) ? ' target="_blank" rel="noopener"' : "";
     const inner = `<span class="ic" aria-hidden="true">${ICON[it.type]}</span>
-      <span><span class="tt">${esc(it.title)}</span><span class="ds">${esc(it.desc)}</span>${snip ? `<span class="hit">${snip}</span>` : ""}
+      <span><span class="tt">${esc(it.title)}${it.sub ? `<small class="sub">${esc(it.sub)}</small>` : ""}</span><span class="ds">${esc(it.desc)}</span>${snip ? `<span class="hit">${snip}</span>` : ""}
       <span class="meta"><span class="badge">${TYPES[it.type]}</span>${term}${tags}${wait}</span></span>`;
     return href
       ? `<li><a class="item t-${it.type}" href="${esc(href)}"${ext}>${inner}</a></li>`
@@ -280,7 +280,7 @@
         if (tab !== "all" && !it.tags.includes(tab)) return false;
         if (type !== "all" && it.type !== type) return false;
         if (term !== "all" && it.term !== term) return false;
-        const hay = norm([it.title, it.desc, it.kw, TYPES[it.type], it.term, ...it.tags.map((t) => TAGS[t])].join(" "));
+        const hay = norm([it.title, it.sub || "", it.desc, it.kw, TYPES[it.type], it.term, ...it.tags.map((t) => TAGS[t])].join(" "));
         if (words.every((w) => hay.includes(w))) return true;
         const b = BODY[it.id];
         if (!b || !words.length || !words.every((w) => hay.includes(w) || b.nt.includes(w))) return false;
@@ -323,7 +323,7 @@
     const it = S.items.find((x) => x.id === params.get("id"));
     if (!it) { $("#head").innerHTML = `<h1>見つかりませんでした</h1><p class="theme"><a href="library.html">ライブラリにもどる</a></p>`; $("#detail").hidden = true; return; }
     const N = (window.NOTES || {})[it.id];
-    document.title = `${it.title}｜2027年作戦会議`;
+    document.title = `${it.title}${it.sub ? `｜${it.sub}` : ""}｜2027年作戦会議`;
     /* ワークの要点ページでは、メニューの「ワーク」を選択中にする */
     if (it.type === "work" || S.works.some((w) => w.item === it.id)) {
       document.querySelectorAll('a[aria-current="page"]').forEach((a) => a.removeAttribute("aria-current"));
@@ -331,7 +331,7 @@
     }
     const tags = it.tags.map((t) => `<a class="badge" href="library.html?tab=${t}">${TAGS[t]}</a>`).join("");
     const wk = S.works.find((w) => w.item === it.id);
-    $("#head").innerHTML = `<p class="no">${TYPES[it.type].toUpperCase()} ｜ ${it.term}${wk && wk.time ? ` ｜ ⏱ 目安 ${esc(wk.time)}` : ""}</p><h1>${esc(it.title)}</h1><p class="theme">${esc(it.desc)}</p><p class="meta" style="margin-top:10px;display:flex;gap:4px;flex-wrap:wrap">${tags}</p>`;
+    $("#head").innerHTML = `<p class="no">${TYPES[it.type].toUpperCase()} ｜ ${it.term}${wk && wk.time ? ` ｜ ⏱ 目安 ${esc(wk.time)}` : ""}</p><h1>${esc(it.title)}${it.sub ? `<span class="h1sub">${esc(it.sub)}</span>` : ""}</h1><p class="theme">${esc(it.desc)}</p><p class="meta" style="margin-top:10px;display:flex;gap:4px;flex-wrap:wrap">${tags}</p>`;
 
     const id = ytId(it.url);
     /* 動画が複数ある項目（使い方動画など）：ボタンで各動画の位置へ移動する（items の videos: [{ key, label, url, time }]） */

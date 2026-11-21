@@ -108,6 +108,7 @@ window.SITE = {
      type : video（解説動画）/ radio（ラジオ）/ article（記事・レポート）/ archive（講義アーカイブ）/ slides（スライド・資料）
      tags : kiso（基礎）/ chochiku（貯蓄）/ juyou（受容）/ ryunyu（流入）/ shukan（習慣）
      term : "1期" / "2期"
+     sub : サブタイトル（タイトルの下に小さく出る。講義アーカイブなど、タイトルだけで中身が分からないものに付ける）
      dur : 動画の長さ（「YouTubeで開く」の隣に「▶ 動画 約〇分」と出る。yt-dlp --print duration で秒を取って書く）
   ------------------------------------------------- */
   items: [
@@ -124,11 +125,11 @@ window.SITE = {
     { id: "k-hantai", term: "2期", type: "work", date: "2026-11-16", title: "お金の使い方を変える", desc: "「他人／自分」「有形／無形」の偏りを見て、反対の位置に小さく使ってみるワーク", tags: ["juyou", "ryunyu"], url: "", kw: "いつもと反対の位置にお金を使う 4象限 有形 無形 他人 自分 入れ替え" },
 
     /* --- 特別講義（余白） --- */
-    { id: "ar-yohaku1015", dur: "約1時間51分", term: "特別講義", type: "archive", date: "2026-10-15", title: "余白の正体｜余白セミナー（10/15）", desc: "余白とは、自分らしくあるための自由な思考の幅。引いてつくる余白、止まる練習、欠けを受け入れて楽しむ", tags: ["chochiku", "juyou"], url: "https://youtu.be/CTAYw9h4x18", kw: "余白 余白セミナー 余白の正体 思考の幅 手放す 断る 止まる練習 コンフォートゾーン グッドアンドニュー" },
-    { id: "ar-yohaku1104", dur: "約2時間5分", term: "特別講義", type: "archive", date: "2026-11-04", title: "未来につながる余白の話（11/4 トークセッション）", desc: "Londの甲斐さんと。余白は目的地と現在地の間にある。余裕と余白の違い、期限を決める、頼る勇気", tags: ["chochiku", "juyou"], url: "https://youtu.be/NMYopJ2JrWU", kw: "余白 甲斐 Lond トークセッション 余裕 期限 頼る 軸 比べる 状態目標" },
+    { id: "ar-yohaku1015", dur: "約1時間51分", term: "特別講義", type: "archive", date: "2026-10-15", title: "10/15 余白セミナー", sub: "余白の正体", desc: "余白とは、自分らしくあるための自由な思考の幅。引いてつくる余白、止まる練習、欠けを受け入れて楽しむ", tags: ["chochiku", "juyou"], url: "https://youtu.be/CTAYw9h4x18", kw: "余白 余白セミナー 余白の正体 思考の幅 手放す 断る 止まる練習 コンフォートゾーン グッドアンドニュー" },
+    { id: "ar-yohaku1104", dur: "約2時間5分", term: "特別講義", type: "archive", date: "2026-11-04", title: "11/4 余白トークセッション", sub: "未来につながる余白の話", desc: "Londの甲斐さんと。余白は目的地と現在地の間にある。余裕と余白の違い、期限を決める、頼る勇気", tags: ["chochiku", "juyou"], url: "https://youtu.be/NMYopJ2JrWU", kw: "余白 甲斐 Lond トークセッション 余裕 期限 頼る 軸 比べる 状態目標" },
 
     /* --- 2期 --- */
-    { id: "ar-1115", term: "2期", type: "archive", date: "2026-11-15", title: "11/15 キックオフ講義", desc: "うつわのおさらいと、今期の取り組み。ビジョンの洞窟探索ツアーのはじまり", tags: ["kiso"], url: "zoom.html?n=1", kw: "作戦会議 コンセプト 星座 洞窟" },
+    { id: "ar-1115", term: "2期", type: "archive", date: "2026-11-15", title: "11/15 キックオフ講義", sub: "うつわのおさらいと、ビジョンの洞窟探索ツアー", desc: "うつわのおさらいと、今期の取り組み。ビジョンの洞窟探索ツアーのはじまり", tags: ["kiso"], url: "zoom.html?n=1", kw: "作戦会議 コンセプト 星座 洞窟" },
     { id: "s-1115", term: "2期", type: "slides", date: "2026-11-15", title: "11/15 キックオフ スライド（29枚）", desc: "3つのうつわ・行動と感情の波・すごろくの地図・PLAYFUL思考の世界", tags: ["kiso"], url: "zoom.html?n=1#slides", kw: "すごろく 5つのエリア カイゼン センリャク デザイン ビジョン アート" },
     { id: "d-world", term: "2期", type: "slides", date: "2026-11-15", title: "世界の見方をアップデートする資料集", desc: "5つのエリアと、ビジョンの洞窟・人生芸術の大海。キックオフのスライド11枚目から", tags: ["kiso"], url: "zoom.html?n=1#slide-11", kw: "PLAYFUL思考 アート思考 ビジョン思考 星のカケラ 航海術" },
 
@@ -142,7 +143,7 @@ window.SITE = {
     { id: "v-utsuwa", dur: "約8分", term: "1期", type: "video", date: "2026-07-31", title: "『お金の3つのうつわ』解説", desc: "まずはここから。3つのうつわの全体像", tags: ["kiso"], url: "https://youtu.be/FQRkQGbK2uU", kw: "全体像 はじめて" },
     { id: "r-shiru", dur: "約18分", term: "1期", type: "radio", date: "2026-08-02", title: "【重要】知る→やる→できる→わかる の仕組み", desc: "知っているのに、できない。脳の仕組みから", tags: ["kiso", "shukan"], url: "https://youtu.be/PvjQjVWlB7U", kw: "脳 続かない 知るをできるに変える" },
     { id: "r-muishiki", dur: "約11分", term: "1期", type: "radio", date: "2026-07-28", title: "お金を遠ざける無意識の正体", desc: "気づかないうちに、お金を遠ざけているもの", tags: ["kiso", "juyou"], url: "https://youtu.be/5sDevxBwlgU", kw: "無意識 ブロック 思い込み" },
-    { id: "ar-0802", dur: "約1時間25分", term: "1期", type: "archive", date: "2026-08-02", title: "8/2 キックオフ＆講義① アーカイブ", desc: "1期のはじまり。お金のうつわを育てる習慣", tags: ["kiso"], url: "https://youtu.be/Nkq4STNG8_4", slides: { dir: "slides/20260802", count: 25 }, kw: "1期 キックオフ" },
+    { id: "ar-0802", dur: "約1時間25分", term: "1期", type: "archive", date: "2026-08-02", title: "8/2 キックオフ＆講義① アーカイブ", sub: "お金の3つのうつわと、3ヶ月の設計", desc: "1期のはじまり。お金のうつわを育てる習慣", tags: ["kiso"], url: "https://youtu.be/Nkq4STNG8_4", slides: { dir: "slides/20260802", count: 25 }, kw: "1期 キックオフ" },
     { id: "s-0802", term: "1期", type: "slides", date: "2026-08-02", title: "8/2 キックオフ＆講義① スライド（25枚）", desc: "コンセプト・お金の3つのうつわ・3ヶ月の設計・基本ワーク・コミュニティの使い方", tags: ["kiso"], url: "item.html?id=ar-0802#slides", kw: "1期 キックオフ レシートワーク 現状把握 ミニマムライフコスト 知る やる できる わかる ロードマップ" },
     { id: "a-0825", term: "1期", type: "article", date: "2026-08-25", title: "8/25 交流会レポート", desc: "始めてみて起きた変化、途中で出てくるしんどさ、引き受けすぎてしまうとき、潜在意識の仕組み", tags: ["kiso", "shukan"], url: "https://playfulsugahara.github.io/playful-report/20260825/", kw: "しんどい 引き受けすぎ 潜在意識" },
     { id: "a-0914", term: "1期", type: "article", date: "2026-09-14", title: "9/14 質問会・交流会レポート", desc: "「これ、無駄だったんじゃないか」に集まった8つのケースを、3つのうつわで読み解く", tags: ["kiso", "juyou"], url: "https://playfulsugahara.github.io/playful-report/20260914/", kw: "無駄遣い 罪悪感 ケース" },
@@ -152,18 +153,18 @@ window.SITE = {
     { id: "v-chochiku", dur: "約8分", term: "1期", type: "video", date: "2026-07-31", title: "貯蓄のうつわ：解説", desc: "現状把握と、スペースを空けておくこと", tags: ["chochiku"], url: "https://youtu.be/_p0pVCALKqY", kw: "現状把握 余白" },
     { id: "v-receipt", dur: "約8分", term: "1期", type: "video", date: "2026-07-31", title: "レシート", desc: "レシートを見て、買い物の裏にあった感情を答え合わせする", tags: ["chochiku", "juyou"], url: "https://youtu.be/pA4rIJy9nnM", kw: "貯蓄：ワーク① 収支を見る｜レシートワーク レシート 感情 記録" },
     { id: "v-genjo", dur: "約9分", term: "1期", type: "video", date: "2026-07-31", title: "収支を見る", desc: "今のお金の流れを把握する", tags: ["chochiku"], url: "https://youtu.be/kh_FD8tetvY", kw: "貯蓄：ワーク② 収支を見る｜現状把握 現状把握 固定費 収支表 ミニマムライフコスト" },
-    { id: "ar-0824", dur: "約2時間58分", term: "1期", type: "archive", date: "2026-08-24", title: "8/24 お金のうつわ徹底解説（作業会アーカイブ）", desc: "3つのうつわの順番、5つの土台との関係、収支とレシートのQ&Aまで。いちばん詳しく話した約3時間", tags: ["chochiku", "kiso"], url: "https://youtu.be/ZuoA-hDozfg", kw: "8/24 作業会 アーカイブ レシート 作業会 5つの土台 ピラミッド NISA ポイント 頑張るのをやめる 幸せなお金持ち" },
+    { id: "ar-0824", dur: "約2時間58分", term: "1期", type: "archive", date: "2026-08-24", title: "8/24 作業会 アーカイブ", sub: "お金のうつわ徹底解説", desc: "3つのうつわの順番、5つの土台との関係、収支とレシートのQ&Aまで。いちばん詳しく話した約3時間", tags: ["chochiku", "kiso"], url: "https://youtu.be/ZuoA-hDozfg", kw: "8/24 作業会 アーカイブ レシート 作業会 5つの土台 ピラミッド NISA ポイント 頑張るのをやめる 幸せなお金持ち" },
     { id: "a-0824", term: "1期", type: "article", date: "2026-08-24", title: "8/24 作業会レポート", desc: "3つのうつわの全体像、レシートワークの実務Q&A、「頑張るのをやめる」と入ってくる理由", tags: ["chochiku", "kiso"], url: "https://playfulsugahara.github.io/playful-report/20260824/", kw: "レシート Q&A 頑張るのをやめる" },
 
     /* --- 受容 --- */
     { id: "v-juyou", dur: "約11分", term: "1期", type: "video", date: "2026-07-31", title: "受容のうつわ：解説", desc: "自分の感情や欲にフォーカスし、細かく叶えてあげる", tags: ["juyou"], url: "https://youtu.be/B7JdMEA-Ao4", kw: "喜び 欲 感情" },
-    { id: "ar-0901", dur: "約2時間24分", term: "1期", type: "archive", date: "2026-09-01", title: "9/1 講義② アーカイブ「喜びを増やす」", desc: "受容のうつわを育てる講義", tags: ["juyou"], url: "https://youtu.be/2OLxfKzJ-6Q", kw: "喜び 買い物" },
+    { id: "ar-0901", dur: "約2時間24分", term: "1期", type: "archive", date: "2026-09-01", title: "9/1 講義② アーカイブ", sub: "喜びを増やす・全信全疑", desc: "受容のうつわを育てる講義", tags: ["juyou"], url: "https://youtu.be/2OLxfKzJ-6Q", kw: "喜び 買い物" },
     { id: "a-0901", term: "1期", type: "article", date: "2026-09-01", title: "9/1 第二回講義｜喜びを増やす取り組み", desc: "見えないもの／見えるもの・全信全疑・欲と専門性", tags: ["juyou"], url: "https://playfulsugahara.github.io/playful-report/20260901/", kw: "全信全疑 欲 専門性" },
     { id: "a-0901b", term: "1期", type: "article", date: "2026-09-03", title: "喜びを増やして、お買い物上手になろう", desc: "自分の買い物を振り返り、喜びを増やす取り組み", tags: ["juyou"], url: "https://playfulsugahara.github.io/playful-report/20260901-report/", kw: "買い物 4象限 喜び" },
 
     /* --- 流入・感情と波 --- */
     { id: "v-ryunyu", dur: "約10分", term: "1期", type: "video", date: "2026-07-31", title: "流入のうつわ：解説", desc: "稼げる量。ここ半年の収入＋臨時収入の平均（月商）", tags: ["ryunyu"], url: "https://youtu.be/k--CBdSdWCw", kw: "臨時収入 収入" },
-    { id: "ar-1004", dur: "約2時間49分", term: "1期", type: "archive", date: "2026-10-04", title: "10/4 講義③ アーカイブ「感情と行動の波」", desc: "行動の波と感情の波。今期のベースになる講義", tags: ["ryunyu"], url: "https://youtu.be/q79mVjKMU8s", kw: "行動の波 感情の波 やる やらない" },
+    { id: "ar-1004", dur: "約2時間49分", term: "1期", type: "archive", date: "2026-10-04", title: "10/4 講義③ アーカイブ", sub: "行動の波と感情の波", desc: "行動の波と感情の波。今期のベースになる講義", tags: ["ryunyu"], url: "https://youtu.be/q79mVjKMU8s", kw: "行動の波 感情の波 やる やらない" },
     { id: "a-1004", term: "1期", type: "article", date: "2026-10-04", title: "10/4 第三回講義レポート", desc: "気分で決めるのをやめる。行動の波と感情の波。〈流入〉のうつわと、臨時収入の正体", tags: ["ryunyu"], url: "https://playfulsugahara.github.io/playful-report/20261004/", kw: "行動の波 感情の波 臨時収入 気分" },
 
     /* --- 習慣 --- */

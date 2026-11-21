@@ -380,3 +380,7 @@ body.dr-open .totop{visibility:hidden}
 
 /* 動画の長さ（「YouTubeで開く」の隣・2026-11-21 慧） */
 .vdur { align-self: center; font-weight: 700; font-size: .95rem; color: #555; letter-spacing: .04em; }
+
+/* サブタイトル（講義アーカイブなど・2026-11-21 慧） */
+.item .tt .sub{display:block;font-weight:500;font-size:.86em;color:#555;margin-top:1px}
+h1 .h1sub{display:block;font-size:.58em;font-weight:500;margin-top:6px;letter-spacing:.02em}
