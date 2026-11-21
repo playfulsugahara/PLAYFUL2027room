@@ -115,13 +115,6 @@ window.GLOSSARY = {
   ],
   "seen": [
    {
-    "q": "投資後に入ってきた臨時収入。",
-    "w": "臨時収入",
-    "title": "振り返り",
-    "href": "item.html?id=k-furikaeri",
-    "ext": false
-   },
-   {
     "q": "〈流入〉のうつわ＝ここ半年の収入と、臨時収入を合わせた平均。",
     "w": "臨時収入",
     "title": "うつわ解説｜〈流入〉稼ぐ前に、受け取る余白",
@@ -136,24 +129,10 @@ window.GLOSSARY = {
     "ext": false
    },
    {
-    "q": "ギフト券に替えた分などは「臨時収入」の枠に書く",
+    "q": "ここでも「臨時収入」の考え方が効いてきます。",
     "w": "臨時収入",
-    "title": "1期 作業会｜お金のうつわ徹底解説",
-    "href": "item.html?id=ar-0824",
-    "ext": false
-   },
-   {
-    "q": "測り方 ── ここ半年の収入＋臨時収入の平均（月商）",
-    "w": "臨時収入",
-    "title": "お金の3つのうつわ",
-    "href": "https://playfulsugahara.github.io/playful-report/utsuwa/",
-    "ext": true
-   },
-   {
-    "q": "見立て ── これも「臨時収入」",
-    "w": "臨時収入",
-    "title": "8/25 交流会レポート",
-    "href": "https://playfulsugahara.github.io/playful-report/20260825/",
+    "title": "9/14 質問会・交流会レポート",
+    "href": "https://playfulsugahara.github.io/playful-report/20260914/",
     "ext": true
    }
   ],
@@ -234,13 +213,6 @@ window.GLOSSARY = {
     "ext": false
    },
    {
-    "q": "余白ができてから、小さく試す。",
-    "w": "余白",
-    "title": "スキルシェア",
-    "href": "item.html?id=k-skill",
-    "ext": false
-   },
-   {
     "q": "〈貯蓄〉では思考の余白をつくり、〈受容〉では心が動いた感情を拾う。",
     "w": "余白",
     "title": "ゼロ秒思考",
@@ -255,10 +227,17 @@ window.GLOSSARY = {
     "ext": false
    },
    {
-    "q": "最初の2つが、心・体・時間の余白をつくってくれる",
+    "q": "〈流入〉のうつわは、安心と喜びでできた余白をガソリンにして、はじめて広がっていく。",
     "w": "余白",
-    "title": "うつわ解説｜お金の3つのうつわ（まずはここから）",
-    "href": "item.html?id=v-utsuwa",
+    "title": "うつわ解説｜〈流入〉稼ぐ前に、受け取る余白",
+    "href": "item.html?id=v-ryunyu",
+    "ext": false
+   },
+   {
+    "q": "Londの甲斐さんと菅原夫婦の、走り続けてきた人の「余白」の話。",
+    "w": "余白",
+    "title": "特別講義｜未来につながる余白の話",
+    "href": "item.html?id=ar-yohaku1104",
     "ext": false
    }
   ],
@@ -328,15 +307,15 @@ window.GLOSSARY = {
   ],
   "seen": [
    {
-    "q": "3つのうつわの順番、5つの土台との関係、収支の付け方の細かいQ&Aまで。",
-    "w": "5つの土台",
+    "q": "物事がスムーズに進まないときは、下の3つ（余白・意識・感性）を見直す。",
+    "w": "下の3つ",
     "title": "1期 作業会｜お金のうつわ徹底解説",
     "href": "item.html?id=ar-0824",
     "ext": false
    },
    {
-    "q": "03 3つのうつわと「5つの土台」の関係 0:59",
-    "w": "5つの土台",
+    "q": "スムーズじゃないな、トントンと進まないな、というときは、特に下の3つ（余白・意識・感性）を見直す。",
+    "w": "下の3つ",
     "title": "8/24 作業会レポート",
     "href": "https://playfulsugahara.github.io/playful-report/20260824/",
     "ext": true
