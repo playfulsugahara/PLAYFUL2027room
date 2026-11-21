@@ -164,7 +164,7 @@ window.SITE = {
 
     /* --- 流入・感情と波 --- */
     { id: "v-ryunyu", dur: "約10分", term: "1期", type: "video", date: "2026-07-31", title: "流入のうつわ：解説", desc: "稼げる量。ここ半年の収入＋臨時収入の平均（月商）", tags: ["ryunyu"], url: "https://youtu.be/k--CBdSdWCw", kw: "臨時収入 収入" },
-    { id: "ar-1004", dur: "約2時間49分", term: "1期", type: "archive", date: "2026-10-04", title: "10/4 講義③ アーカイブ", sub: "行動の波と感情の波", desc: "行動の波と感情の波。今期のベースになる講義", tags: ["ryunyu"], url: "https://youtu.be/q79mVjKMU8s", kw: "行動の波 感情の波 やる やらない" },
+    { id: "ar-1004", dur: "約2時間49分", term: "1期", type: "archive", date: "2026-10-04", title: "10/4 講義③ アーカイブ", sub: "行動の波と感情の波", desc: "〈流入〉を広げ続けるために、行動の波と感情の波を捉える。気分で決めるのを、やめる", tags: ["ryunyu"], url: "https://youtu.be/q79mVjKMU8s", kw: "行動の波 感情の波 やる やらない" },
     { id: "a-1004", term: "1期", type: "article", date: "2026-10-04", title: "10/4 第三回講義レポート", desc: "気分で決めるのをやめる。行動の波と感情の波。〈流入〉のうつわと、臨時収入の正体", tags: ["ryunyu"], url: "https://playfulsugahara.github.io/playful-report/20261004/", kw: "行動の波 感情の波 臨時収入 気分" },
 
     /* --- 習慣 --- */
