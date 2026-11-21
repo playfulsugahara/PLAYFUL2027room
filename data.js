@@ -108,7 +108,7 @@ window.SITE = {
      type : video（解説動画）/ radio（ラジオ）/ article（記事・レポート）/ archive（講義アーカイブ）/ slides（スライド・資料）
      tags : kiso（基礎）/ chochiku（貯蓄）/ juyou（受容）/ ryunyu（流入）/ shukan（習慣）
      term : "1期" / "2期"
-     dur : 動画の長さ（ページ上部に「▶ 動画 約〇分」と出る。yt-dlp --print duration で秒を取って書く）
+     dur : 動画の長さ（「YouTubeで開く」の隣に「▶ 動画 約〇分」と出る。yt-dlp --print duration で秒を取って書く）
   ------------------------------------------------- */
   items: [
     /* --- ワーク（動画なし・要点ページだけ。type: "work"） --- */

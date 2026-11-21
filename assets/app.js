@@ -138,11 +138,11 @@
     if (!s) { $("#detail").hidden = true; return; }
     $("#listHead").textContent = "ほかの回";
     document.title = `第${s.n}回 ${s.title}｜2027年作戦会議`;
-    $("#head").innerHTML = `<p class="no">ZOOM ${s.n} ｜ ${md(s.date)}（${s.dow}）${s.time}${s.dur ? ` ｜ ▶ 動画 ${esc(s.dur)}` : ""}</p><h1>${esc(s.title)}</h1><p class="theme">${esc(s.theme)}</p>`;
+    $("#head").innerHTML = `<p class="no">ZOOM ${s.n} ｜ ${md(s.date)}（${s.dow}）${s.time}</p><h1>${esc(s.title)}</h1><p class="theme">${esc(s.theme)}</p>`;
 
     const id = ytId(s.youtube);
     $("#video").outerHTML = id
-      ? `<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/${id}?rel=0" title="第${s.n}回 講義アーカイブ" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div><p class="row"><a class="btn ghost" href="${esc(s.youtube)}" target="_blank" rel="noopener">YouTubeで開く ↗</a></p>`
+      ? `<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/${id}?rel=0" title="第${s.n}回 講義アーカイブ" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div><p class="row"><a class="btn ghost" href="${esc(s.youtube)}" target="_blank" rel="noopener">YouTubeで開く ↗</a>${s.dur ? `<span class="vdur">▶ 動画 ${esc(s.dur)}</span>` : ""}</p>`
       : `<div class="video wait"><p>講義の動画は準備中です。<br>アップされたら、ここで見られます。</p></div>`;
 
     if (s.slides) slides(s.slides); else $("#slidesSec").hidden = true;
@@ -331,7 +331,7 @@
     }
     const tags = it.tags.map((t) => `<a class="badge" href="library.html?tab=${t}">${TAGS[t]}</a>`).join("");
     const wk = S.works.find((w) => w.item === it.id);
-    $("#head").innerHTML = `<p class="no">${TYPES[it.type].toUpperCase()} ｜ ${it.term}${wk && wk.time ? ` ｜ ⏱ 目安 ${esc(wk.time)}` : ""}${it.dur ? ` ｜ ▶ 動画 ${esc(it.dur)}` : ""}</p><h1>${esc(it.title)}</h1><p class="theme">${esc(it.desc)}</p><p class="meta" style="margin-top:10px;display:flex;gap:4px;flex-wrap:wrap">${tags}</p>`;
+    $("#head").innerHTML = `<p class="no">${TYPES[it.type].toUpperCase()} ｜ ${it.term}${wk && wk.time ? ` ｜ ⏱ 目安 ${esc(wk.time)}` : ""}</p><h1>${esc(it.title)}</h1><p class="theme">${esc(it.desc)}</p><p class="meta" style="margin-top:10px;display:flex;gap:4px;flex-wrap:wrap">${tags}</p>`;
 
     const id = ytId(it.url);
     /* 動画が複数ある項目（使い方動画など）：ボタンで各動画の位置へ移動する（items の videos: [{ key, label, url, time }]） */
@@ -341,7 +341,7 @@
       if (location.hash) setTimeout(() => { const el = $(location.hash); if (el) el.scrollIntoView(); }, 80); /* ワーク・ライブラリの「▶ 使い方」から来たとき */
     } else
     $("#video").outerHTML = id
-      ? `<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/${id}?rel=0" title="${esc(it.title)}" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div><p class="row"><a class="btn ghost" href="${esc(it.url)}" target="_blank" rel="noopener">YouTubeで開く ↗</a></p>`
+      ? `<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/${id}?rel=0" title="${esc(it.title)}" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div><p class="row"><a class="btn ghost" href="${esc(it.url)}" target="_blank" rel="noopener">YouTubeで開く ↗</a>${it.dur ? `<span class="vdur">▶ 動画 ${esc(it.dur)}</span>` : ""}</p>`
       : it.type === "work" ? `<p class="row"><a class="btn ghost" href="work.html">← ワークメニューにもどる</a></p>` /* 動画のないワークは動画枠を出さない */
       : `<div class="video wait"><p>動画は準備中です。</p></div>`;
 

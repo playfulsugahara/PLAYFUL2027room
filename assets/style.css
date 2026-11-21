@@ -377,3 +377,6 @@ body.dr-open .totop{visibility:hidden}
 /* ホームのメインビジュアル（2026-11-20 画像1枚に差し替え） */
 .hero.hero-img{padding:0;background:#e1e883;line-height:0}
 .hero.hero-img img{display:block;width:100%;height:auto;max-height:440px;object-fit:cover;object-position:center}
+
+/* 動画の長さ（「YouTubeで開く」の隣・2026-11-21 慧） */
+.vdur { align-self: center; font-weight: 700; font-size: .95rem; color: #555; letter-spacing: .04em; }
