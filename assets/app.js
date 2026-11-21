@@ -331,7 +331,7 @@
     }
     const tags = it.tags.map((t) => `<a class="badge" href="library.html?tab=${t}">${TAGS[t]}</a>`).join("");
     const wk = S.works.find((w) => w.item === it.id);
-    $("#head").innerHTML = `<p class="no">${TYPES[it.type].toUpperCase()} ｜ ${it.term}${wk && wk.time ? ` ｜ ⏱ 目安 ${esc(wk.time)}` : ""}</p><h1>${esc(it.title)}${it.sub ? `<span class="h1sub">${esc(it.sub)}</span>` : ""}</h1><p class="theme">${esc(it.desc)}</p><p class="meta" style="margin-top:10px;display:flex;gap:4px;flex-wrap:wrap">${tags}</p>`;
+    $("#head").innerHTML = `<p class="no">${TYPES[it.type].toUpperCase()} ｜ ${it.term}${wk && wk.time ? ` ｜ ⏱ 目安 ${esc(wk.time)}` : ""}</p><h1>${esc(it.title)}${it.sub ? `<span class="h1sub">${esc(it.sub)}</span>` : ""}</h1>${["video", "radio", "archive"].includes(it.type) ? "" : `<p class="theme">${esc(it.desc)}</p>`}<p class="meta" style="margin-top:10px;display:flex;gap:4px;flex-wrap:wrap">${tags}</p>`;
 
     const id = ytId(it.url);
     /* 動画が複数ある項目（使い方動画など）：ボタンで各動画の位置へ移動する（items の videos: [{ key, label, url, time }]） */
