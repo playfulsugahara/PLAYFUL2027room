@@ -219,6 +219,16 @@ footer img{width:120px;margin:0 auto 6px;filter:brightness(0) invert(1);opacity:
 .note-wait{margin-top:24px}
 .note-body ol li .st{display:block;font-family:var(--f-display);font-weight:700;font-size:17px;line-height:1.6}
 .note-body ol li .sd{display:block;margin-top:2px}
+/* レベルの箱（原稿の ### 初級｜〇〇）。やり方の番号カードと見分けがつくよう、左の色帯＋ラベル */
+.note-body .lv{background:#fff;border:1.5px solid var(--shadow);border-left:6px solid var(--green);border-radius:10px;padding:14px 16px;display:grid;gap:6px}
+.note-body .lv-2{border-left-color:var(--mustard)}
+.note-body .lv-3{border-left-color:var(--red)}
+.note-body .lv-h{margin:0;font-family:var(--f-display);font-weight:700;font-size:17px;line-height:1.6;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.note-body .lv-tag{font-size:13px;line-height:1;padding:5px 10px;border-radius:999px;background:var(--green);color:#fff}
+.note-body .lv-2 .lv-tag{background:var(--mustard)}
+.note-body .lv-3 .lv-tag{background:var(--red)}
+.note-body .lv p{margin:0}
+.note-body .lv-ex{background:var(--paper);border-radius:8px;padding:8px 12px;font-size:15px}
 
 /* ===== ワーク ===== */
 .dot{display:inline-block;width:10px;height:10px;border-radius:50%;vertical-align:middle;margin-right:5px}
