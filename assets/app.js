@@ -381,8 +381,9 @@
       document.querySelectorAll("#vf button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.k === "all" ? !fs.length : fs.includes(b.dataset.k)));
       document.querySelectorAll("#tf button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.k === tf));
       const hit = (w) => fs.filter((k) => w.v.includes(k)).length; /* 選んだうつわのうち、いくつに効くか */
+      const added = (w) => (S.items.find((it) => it.id === w.item) || {}).date || ""; /* 詳細ページの date＝ワークを足した日 */
       const list = S.works.filter((w) => !w.hidden && (!fs.length || hit(w) > 0) && (tf === "all" || String(w.tc) === tf))
-        .sort((a, b) => (b.rec - a.rec) || (hit(b) - hit(a))); /* おすすめ → 選んだうつわに多く効く順 */
+        .sort((a, b) => (b.rec - a.rec) || (a.rec ? 0 : added(b).localeCompare(added(a))) || (hit(b) - hit(a))); /* おすすめ（台帳の順）→ 新しく足した順（2026-11-22 慧）→ 選んだうつわに多く効く順 */
       $("#works").innerHTML = list.map((w) => {
         const it = w.item && S.items.find((x) => x.id === w.item);
         const ok = it && detailHref(it);
