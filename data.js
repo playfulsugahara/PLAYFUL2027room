@@ -102,7 +102,7 @@ window.SITE = {
       desc: "自分のメンテナンス、休む、1人時間。そんな予定を先にスケジュールに入れて設計する" },
     { id: "w-output", time: "5〜15分", tc: 15, isNew: true, name: "アウトプット", v: ["juyou", "ryunyu"], rec: false, item: "k-output",
       desc: "感じたこと、思ったこと、今考えていることを、誰かに話してみる・伝えてみる。発信もそのひとつ" },
-    { id: "w-gokigen", time: "5〜15分", tc: 5, isNew: true, name: "ごきげん", v: ["juyou"], rec: false, item: "k-gokigen",
+    { id: "w-gokigen", time: "5〜15分", tc: 5, isNew: true, name: "ごきげん", v: ["juyou", "ryunyu"], rec: false, item: "k-gokigen",
       desc: "自分が得たい体感を、一人で小さく叶えてあげるワーク" },
   ],
 
@@ -115,7 +115,7 @@ window.SITE = {
   ------------------------------------------------- */
   items: [
     /* --- ワーク（動画なし・要点ページだけ。type: "work"） --- */
-    { id: "k-gokigen", term: "2期", type: "work", date: "2026-11-22", title: "ごきげん", desc: "自分が得たい体感を、一人で小さく叶えてあげるワーク", tags: ["juyou"], url: "", kw: "ご機嫌 機嫌 自分を満たす 体感 一人時間 ひとり時間 先に叶える 花 ストレッチ 呼吸 アロマ お香 お茶" },
+    { id: "k-gokigen", term: "2期", type: "work", date: "2026-11-22", title: "ごきげん", desc: "自分が得たい体感を、一人で小さく叶えてあげるワーク", tags: ["juyou", "ryunyu"], url: "", kw: "ご機嫌 機嫌 自分を満たす 体感 一人時間 ひとり時間 先に叶える 花 ストレッチ 呼吸 アロマ お香 お茶" },
     { id: "k-output", term: "2期", type: "work", date: "2026-11-16", title: "アウトプット", desc: "感じたこと・思ったことを、誰かに話してみる・伝えてみるワーク。発信もそのひとつ", tags: ["juyou", "ryunyu"], url: "", kw: "アウトプット 発信 SNS 話す 伝える 表現 シェア" },
     { id: "k-yohaku", term: "2期", type: "work", date: "2026-11-16", title: "余白の設計", desc: "メンテナンス・休む・1人時間の予定を、先にスケジュールに入れるワーク", tags: ["chochiku", "juyou"], url: "", kw: "余白 休む 休息 1人時間 ひとり時間 メンテナンス スケジュール 予定" },
     { id: "k-skill", term: "2期", type: "work", date: "2026-11-16", title: "スキルシェア", desc: "できること・得意なことを、人の役に立つ形で差し出すワーク", tags: ["ryunyu"], url: "", kw: "スキルシェア 得意 役に立つ 先に出す 無料 対価以上 流入" },
