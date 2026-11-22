@@ -307,7 +307,9 @@ footer img{width:120px;margin:0 auto 6px;filter:brightness(0) invert(1);opacity:
 .news summary{cursor:pointer;padding:10px 2px;font-size:14px;font-weight:700;color:var(--blue);list-style:none;text-align:right}
 .news summary::-webkit-details-marker{display:none}
 .news summary::after{content:" ▸"}
-.news details[open] summary::after{content:" ▾"}
+.news details[open] summary::after{content:" ▴"}
+.news summary .s-open,.news details[open] summary .s-closed{display:none}
+.news details[open] summary .s-open{display:inline}
 
 /* ---------- 右上の「≡ メニュー」 ---------- */
 .menu-btn{margin-left:auto;display:flex;flex-direction:column;align-items:center;gap:3px;background:none;border:0;padding:4px 6px;cursor:pointer;color:var(--ink);flex:none}

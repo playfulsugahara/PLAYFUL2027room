@@ -55,7 +55,7 @@
       const more = news.slice(3);
       $("#news").innerHTML = `<div class="news"><span class="script">Information</span><h2 class="news-h">お知らせ</h2>
         <ul>${news.slice(0, 3).map(li).join("")}</ul>
-        ${more.length ? `<details><summary>すべてのお知らせ（${news.length}件）</summary><ul>${more.map(li).join("")}</ul></details>` : ""}</div>`;
+        ${more.length ? `<details><summary><span class="s-closed">すべてのお知らせ（${news.length}件）</span><span class="s-open">閉じる</span></summary><ul>${more.map(li).join("")}</ul></details>` : ""}</div>`;
     }
     if (latestQ) {
       $("#odai").innerHTML = `<div class="card lime"><span class="flag">今週の問い</span>
