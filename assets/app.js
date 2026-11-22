@@ -13,9 +13,10 @@
   /* 問いは配信日の20時（日本時間）に出す（2026-11-22 慧）。確認用に ?hour=21 で時刻を変えられる */
   const Q_HOUR = 20;
   const hourNow = params.has("hour") ? +params.get("hour") : +new Date().toLocaleString("en-US", { timeZone: "Asia/Tokyo", hour: "numeric", hourCycle: "h23" });
-  const qReleased = (d) => d < today || (d === today && hourNow >= Q_HOUR);
+  /* 回ごとに hour で時刻を変えられる（投稿時間は流動的。2026-11-22 慧） */
+  const qReleased = (d, h) => d < today || (d === today && hourNow >= (h ?? Q_HOUR));
 
-  const qOpen = S.questions.filter((q) => qReleased(q.date) && q.q);
+  const qOpen = S.questions.filter((q) => qReleased(q.date, q.hour) && q.q);
   const latestQ = qOpen[qOpen.length - 1];
   const nextSession = S.sessions.find((s) => s.date >= today);
 
@@ -79,7 +80,7 @@
       ...S.sessions.map((s) => ({ kind: "zoom", date: s.date, s })),
       ...S.questions.map((q) => ({ kind: "q", date: q.date, q }))
     ].sort((a, b) => (a.date === b.date ? (a.kind === "zoom" ? -1 : 1) : a.date < b.date ? -1 : 1));
-    const nowIdx = cells.reduce((acc, c, i) => ((c.kind === "q" ? qReleased(c.date) : released(c.date)) ? i : acc), -1);
+    const nowIdx = cells.reduce((acc, c, i) => ((c.kind === "q" ? qReleased(c.date, c.q.hour) : released(c.date)) ? i : acc), -1);
 
     let html = `<p class="phase">前半｜知る・集める</p>`;
     cells.forEach((c, i) => {
@@ -91,8 +92,8 @@
         label = `Zoom ${c.s.n}｜${c.s.title}：${c.s.theme}`;
         if (released(c.date)) link = `zoom.html?n=${c.s.n}`;
       } else {
-        label = qReleased(c.date) && c.q.q ? `問い Q${c.q.n}｜${c.q.q}` : `問い Q${c.q.n}｜（${md(c.date)} ${Q_HOUR}時に届きます）`;
-        if (qReleased(c.date) && c.q.q) link = `odai.html#q${c.q.n}`;
+        label = qReleased(c.date, c.q.hour) && c.q.q ? `問い Q${c.q.n}｜${c.q.q}` : `問い Q${c.q.n}｜（${md(c.date)} ${c.q.hour ?? Q_HOUR}時に届きます）`;
+        if (qReleased(c.date, c.q.hour) && c.q.q) link = `odai.html#q${c.q.n}`;
       }
       const mark = c.kind === "zoom" ? `ZOOM<br>${c.s.n}` : `Q${c.q.n}`;
       const inner = `<span class="n">${mark}</span><span class="body"><span class="d">${md(c.date)}（${c.kind === "zoom" ? c.s.dow : c.q.dow}）</span>${nowTag}<span class="tt">${esc(label)}${link ? " →" : ""}</span></span>`;
@@ -202,14 +203,14 @@
   /* ---------------- 問い ---------------- */
   function odai() {
     const open = [...qOpen].reverse();
-    const locked = S.questions.filter((q) => !qReleased(q.date) || !q.q);
+    const locked = S.questions.filter((q) => !qReleased(q.date, q.hour) || !q.q);
     const how = (q) => `<div class="how"><b>答え方</b><br>${q.due ? `${q.due}までに、` : ""}ノートや手帳に書いてみましょう。アウトプットできる人は、Bandの投稿のコメント欄へ。</div>`;
     /* 答え方は「今週の問い」だけに出す（前の問いになったら消す。2026-11-22 慧）。Bandの投稿ボタンは各問いのカードの一番下（振り返りがあればその後）。2026-11-22 慧 */
     const bandBtn = (q) => q.band ? `<div class="row"><a class="btn blue" href="${esc(q.band)}" target="_blank" rel="noopener">Bandの投稿を開く →</a></div>` : "";
     /* 振り返り（翌週に足す。review.date の20時に表示。2026-11-22 慧） */
     const review = (q) => {
       const r = q.review;
-      if (!r || !qReleased(r.date)) return "";
+      if (!r || !qReleased(r.date, r.hour)) return "";
       const ul = (arr) => `<ul>${(arr || []).map((x) => `<li>${esc(x)}</li>`).join("")}</ul>`;
       return `<div class="review">${r.derived && r.derived.length ? `<p class="rv-h">この問いから導き出されること</p>${ul(r.derived)}` : ""}</div>${r.cta ? `<p class="rv-cta">${esc(r.cta)}</p>` : ""}`;
     };
@@ -221,7 +222,7 @@
         <div class="body">${(q.body || []).map((b) => `<p>${esc(b)}</p>`).join("")}</div>
         ${q.hints && q.hints.length ? `<ul class="hints">${q.hints.map((h) => `<li>${esc(h)}</li>`).join("")}</ul>` : ""}
         ${i === 0 ? how(q) : ""}${review(q)}${bandBtn(q)}</article>`).join("") +
-      locked.map((q) => `<article class="odai lock"><span class="qn">Q${q.n}</span><span class="d">${md(q.date)}（${q.dow}）${Q_HOUR}時に届きます</span></article>`).join("");
+      locked.map((q) => `<article class="odai lock"><span class="qn">Q${q.n}</span><span class="d">${md(q.date)}（${q.dow}）${q.hour ?? Q_HOUR}時に届きます</span></article>`).join("");
     if (location.hash) setTimeout(() => { const el = $(location.hash); if (el) el.scrollIntoView(); }, 50);
   }
 
