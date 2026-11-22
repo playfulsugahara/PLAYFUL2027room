@@ -198,8 +198,7 @@ window.GLOSSARY = {
   "aka": [
    "振り返り",
    "振り返る",
-   "見返す",
-   "答え合わせ"
+   "見返す"
   ],
   "find": "振り返る, 見返す, 反省, 失敗した買い物, 後悔, 検証, やってみる, 試す, 実験, 答え合わせ",
   "hito": "やったこと・使ったお金・感じたことを、あとから見返して、言葉にすること。",
@@ -254,13 +253,6 @@ window.GLOSSARY = {
   ],
   "seen": [
    {
-    "q": "手元のモノを見ることは「持ち物の現状把握」であり、これまでの買い物の答え合わせにもなる。",
-    "w": "答え合わせ",
-    "title": "お片付け",
-    "href": "item.html?id=k-katazuke",
-    "ext": false
-   },
-   {
     "q": "過ごしたあとを振り返る： 「今日の夕食の味、思い出せる？",
     "w": "振り返る",
     "title": "余白の設計",
@@ -272,13 +264,6 @@ window.GLOSSARY = {
     "w": "振り返り",
     "title": "お金の3つのうつわ",
     "href": "https://playfulsugahara.github.io/playful-report/utsuwa/",
-    "ext": true
-   },
-   {
-    "q": "潜在意識のところで何を信じているか、その 答え合わせがどんどん現実から知らされてくる という感じです。",
-    "w": "答え合わせ",
-    "title": "8/24 作業会レポート",
-    "href": "https://playfulsugahara.github.io/playful-report/20260824/",
     "ext": true
    },
    {
