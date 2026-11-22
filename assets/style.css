@@ -198,6 +198,11 @@ a.item:hover{transform:translate(-1px,-1px);box-shadow:3px 3px 0 var(--ink)}
 .odai .hints{margin:14px 0 0;padding:12px 16px;background:rgba(255,255,255,.7);border-radius:10px;list-style:none;display:grid;gap:2px;font-weight:500}
 .odai .hints li::before{content:"✎ ";color:var(--red)}
 .odai .how{margin-top:14px;font-size:14px;border-top:2px dashed var(--ink);padding-top:12px}
+.odai .review{margin-top:16px;padding:14px 16px;background:#fffbe9;border:2px solid var(--ink);border-radius:10px}
+.odai .review .rv-h{font-family:var(--f-display);font-weight:700;font-size:15px;color:var(--blue);margin:0 0 6px}
+.odai .review .rv-h + ul{margin:0 0 12px;padding-left:1.2em;display:grid;gap:4px}
+.odai .review ul:last-child{margin-bottom:0}
+.odai .rv-cta{margin:14px 0 0;color:var(--red);font-family:var(--f-display);font-weight:700;font-size:17px;line-height:1.6}
 .odai.lock{background:transparent;border-style:dashed;color:var(--muted);padding:14px 20px}
 .odai.lock .qn{color:var(--muted);font-size:22px}
 
