@@ -572,7 +572,7 @@
       const nq = norm(q);
       const list = ids.filter((x) => (tab === "all" || G[x].cat === tab || (tab === "ng" && st[x] === "ng")) && (!nq || norm(body(G[x])).includes(nq)));
       $("#gCount").textContent = `${list.length}語`;
-      $("#gList").innerHTML = list.map((x) => { const t = G[x]; return `<li><a class="g-item${st[x] ? " " + st[x] : ""}" href="glossary.html?id=${x}">${catB(t.cat)}<b class="gi-t">${esc(t.term)}</b><span class="gi-h">${esc(t.hito)}</span>${mark(x)}</a></li>`; }).join("");
+      $("#gList").innerHTML = list.map((x) => { const t = G[x]; return `<li><a class="g-item${st[x] ? " " + st[x] : ""}" href="glossary.html?id=${x}">${catB(t.cat)}${t.draft ? '<span class="g-draft">下書き</span>' : ""}<b class="gi-t">${esc(t.term)}</b><span class="gi-h">${esc(t.hito)}</span>${mark(x)}</a></li>`; }).join("");
       $("#gEmpty").hidden = list.length > 0;
     }
     $("#gTabs").onclick = (e) => { const b = e.target.closest("button"); if (!b) return; tab = b.dataset.k; render(); };
@@ -589,7 +589,7 @@
       const hl = (q, w) => esc(q).split(esc(w)).join(`<mark>${esc(w)}</mark>`);
       const links = (t.links || []).filter((x) => G[x]);
       const rel = (t.related || []).map((r) => ({ r, it: S.items.find((x) => x.id === r.id) })).filter((x) => x.it);
-      let h = `<section class="sess-head g-head"><div class="wrap"><p class="g-crumb"><a href="glossary.html"><span aria-hidden="true">📖</span>用語辞典</a></p><p class="no">${catB(t.cat)}</p><h1>${esc(t.term)}</h1><p class="g-hito">${esc(t.hito)}</p></div></section><section><div class="wrap">`;
+      let h = `<section class="sess-head g-head"><div class="wrap"><p class="g-crumb"><a href="glossary.html"><span aria-hidden="true">📖</span>用語辞典</a></p><p class="no">${catB(t.cat)}${t.draft ? '<span class="g-draft">下書き</span>' : ""}</p><h1>${esc(t.term)}</h1><p class="g-hito">${esc(t.hito)}</p></div></section><section><div class="wrap">`;
       t.sections.forEach((s, i) => { h += `<section class="note${s.title.includes("使用例") ? " g-zoom" : s.title === "一般的な意味" ? " g-dict" : ""}"><h2 class="${i % 2 ? "shadowed" : "shadowed b"}">${esc(s.title)}</h2><div class="note-body">${s.html}</div></section>`; });
       if (links.length) h += `<section class="note"><h2 class="shadowed b">関連用語</h2><p class="g-chips">${links.map((x) => `<a href="glossary.html?id=${x}">${esc(G[x].term)}</a>`).join("")}</p></section>`;
       if (t.seen && t.seen.length) h += `<section class="note"><h2 class="shadowed b">登場回</h2><ul class="g-seen">${t.seen.map((s) => `<li><a href="${esc(s.href)}"${s.ext ? ' target="_blank" rel="noopener"' : ""}><q>${hl(s.q, s.w)}</q><span class="gs-t">${esc(s.title)} ${s.ext ? "↗" : "→"}</span></a></li>`).join("")}</ul></section>`;

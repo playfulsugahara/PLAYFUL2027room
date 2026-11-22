@@ -446,3 +446,5 @@ h1 .h1sub{display:block;font-size:.58em;font-weight:500;margin-top:6px;letter-sp
 .g-crumb a::after{content:"›";margin-left:2px;color:var(--lime)}
 .g-dict .note-body{background:#fff;border:1.5px solid var(--shadow);border-radius:12px;padding:12px 16px}
 .g-dict .note-body p::before{content:"📕 ";}
+
+.g-draft{display:inline-block;margin-left:6px;font-size:12px;font-weight:700;color:#fff;background:var(--red);border-radius:999px;padding:0 10px;line-height:1.8}
